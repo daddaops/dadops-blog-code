@@ -1,0 +1,12 @@
+============================================================
+Memory comparison: 1.3B-param model with Adam optimizer
+                                          Per GPU  Reduction
+============================================================
+  DDP (baseline)                           15.6 GB      1.0×
+  ZeRO-1 (shard optimizer)                  6.5 GB      2.4×
+  ZeRO-2 (shard optimizer + grads)          4.2 GB      3.7×
+  ZeRO-3 (shard all)                        2.0 GB      8.0×
+
+Note: activations add 5-20 GB depending on batch size and
+sequence length. Use activation checkpointing to trade
+compute for memory when needed.

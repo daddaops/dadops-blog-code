@@ -1,0 +1,20 @@
+
+0.025B params → DDP
+  Reason: Static memory ~0 GB fits in 80 GB with room for activations. DDP gives best throughput.
+  Config: torchrun --nproc_per_node=N, batch_size × N
+
+0.125B params → DDP
+  Reason: Static memory ~2 GB fits in 80 GB with room for activations. DDP gives best throughput.
+  Config: torchrun --nproc_per_node=N, batch_size × N
+
+1.3B params → DDP + Activation Checkpointing
+  Reason: Tight fit (16 GB static). Checkpointing frees activation memory at ~33% compute cost.
+  Config: torch.utils.checkpoint.checkpoint() on each block
+
+7.0B params → FSDP2 (ZeRO-3)
+  Reason: Static memory 84 GB total, ~10.5 GB/GPU after sharding across 8 GPUs.
+  Config: fully_shard() each transformer block, then model
+
+70.0B params → TP (intra-node) + FSDP (across replicas)
+  Reason: Too large for FSDP alone (105 GB/GPU after sharding). TP splits layers across NVLink GPUs.
+  Config: DeviceMesh([tp_dim, dp_dim]), TP=4 + FSDP=2

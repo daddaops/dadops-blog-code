@@ -1,0 +1,23 @@
+Model        Params  Strategy     GPUs Throughput     Mem/GPU   Scale  Comm
+=====================================================================================
+ResNet-50    25M     DDP             1 620 img/s      5.8 GB    1.00   —
+ResNet-50    25M     DDP             4 2,280 img/s    5.8 GB    0.92   ~8%
+ResNet-50    25M     DDP             8 4,340 img/s    5.8 GB    0.87   ~13%
+ResNet-50    25M     TP-2            2 510 img/s      3.6 GB    0.41   ~59%
+-------------------------------------------------------------------------------------
+GPT-2        125M    DDP             1 185 tok/ms     8.2 GB    1.00   —
+GPT-2        125M    DDP             4 665 tok/ms     8.2 GB    0.90   ~10%
+GPT-2        125M    DDP             8 1,260 tok/ms   8.2 GB    0.85   ~15%
+GPT-2        125M    TP-2            2 165 tok/ms     5.1 GB    0.45   ~55%
+GPT-2        125M    PP-2            2 160 tok/ms     5.4 GB    0.43   ~11% bubble
+-------------------------------------------------------------------------------------
+LLM-1.3B     1.3B    DDP             1 OOM            >80 GB    —      —
+LLM-1.3B     1.3B    FSDP2           4 82 tok/ms      24.1 GB   —      ~20%
+LLM-1.3B     1.3B    FSDP2           8 148 tok/ms     14.6 GB   0.90*  ~22%
+LLM-1.3B     1.3B    TP-4            4 95 tok/ms      18.3 GB   —      ~35%
+LLM-1.3B     1.3B    PP-4            4 70 tok/ms      22.5 GB   —      ~19% bubble
+-------------------------------------------------------------------------------------
+LLM-7B       7B      DDP             1 OOM            >80 GB    —      —
+LLM-7B       7B      FSDP2           8 38 tok/ms      32.4 GB   —      ~25%
+LLM-7B       7B      TP-4+PP-2       8 44 tok/ms      18.7 GB   —      ~30% total
+LLM-7B       7B      TP-4+FSDP       8 46 tok/ms      21.2 GB   —      ~28% total
