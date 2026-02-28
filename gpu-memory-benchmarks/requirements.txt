@@ -1,0 +1,7 @@
+# Pure-math scripts (batch_size_calculator.py, multi_gpu_estimator.py, will_it_fit.py)
+# require NO dependencies — pure Python stdlib.
+
+# GPU-dependent scripts need:
+# torch>=2.0
+# transformers
+# bitsandbytes  # for INT8/INT4 quantization in inference_benchmark.py
