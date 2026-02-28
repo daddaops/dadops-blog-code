@@ -1,0 +1,7 @@
+# Core scripts (pipeline_simulation.py, benchmark_table.py, decision_framework.py,
+# fsdp_deepspeed_config.py) require NO dependencies — pure Python stdlib.
+
+# GPU-dependent scripts (ddp_benchmark.py, tensor_parallel.py) need:
+# torch>=2.0
+# torchvision
+# deepspeed  # optional, for FSDP/DeepSpeed comparison
