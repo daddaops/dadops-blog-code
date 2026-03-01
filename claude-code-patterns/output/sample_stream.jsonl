@@ -1,0 +1,5 @@
+{"type":"assistant","message":{"content":[{"type":"text","text":"I'll help you create a hello world script."}]}}
+{"type":"tool_use","tool_name":"Write","input":{"file_path":"hello.py","content":"print('Hello, World!')"}}
+{"type":"tool_result","is_error":false,"output":"File created successfully"}
+{"type":"assistant","message":{"content":[{"type":"text","text":"Done! I've created hello.py."}]}}
+{"type":"result","cost_usd":0.003,"duration_ms":2150,"input_tokens":450,"output_tokens":120}
