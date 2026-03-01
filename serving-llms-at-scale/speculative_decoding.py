@@ -72,7 +72,7 @@ if __name__ == "__main__":
         print()
 
     print("Summary:")
-    print(f"  {'Rate':<12} {'Speedup':<10}")
+    print(f"  {'Rate':-<12} {'Speedup':-<10}")
     for rate, s in zip(rates, speedups):
         bar = '#' * int(s * 10)
         print(f"  {rate:<12.0%} {s:<10.2f} {bar}")

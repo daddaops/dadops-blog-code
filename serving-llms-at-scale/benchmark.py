@@ -113,20 +113,20 @@ def benchmark_serving_approaches(
     # Print comparison table
     print(f"Benchmark: {num_requests} requests, {min_tokens}-{max_tokens} tokens, batch={batch_size}")
     print(f"Total tokens to generate: {total_tokens:,}\n")
-    print(f"{'Approach':<28} {'Tok/Step':>10} {'Steps':>10} {'Avg Lat':>10} {'GPU Util':>10}")
+    print(f"{'Approach':-<28} {'Tok/Step':>10} {'Steps':>10} {'Avg Lat':>10} {'GPU Util':>10}")
     print("-" * 70)
     for name, r in results.items():
-        print(f"{name:<28} {r['throughput']:>10.1f} {r['total_steps']:>10,} "
+        print(f"{name:-<28} {r['throughput']:>10.1f} {r['total_steps']:>10,} "
               f"{r['avg_latency']:>10.0f} {r['gpu_util']:>10}")
 
     # Show scaling: throughput at different concurrency levels
-    print(f"\n{'Concurrency':<15} {'Static':>10} {'Continuous':>12} {'Paged':>10}")
+    print(f"\n{'Concurrency':-<15} {'Static':>10} {'Continuous':>12} {'Paged':>10}")
     print("-" * 50)
     for conc in [1, 4, 8, 16, 32, 64]:
         s_tp = min(conc, batch_size) * 0.6  # Static: limited by batch, 60% efficient
         c_tp = min(conc, batch_size) * 0.95  # Continuous: 95% efficient up to batch
         p_tp = min(conc, batch_size * 3) * 0.95  # Paged: 3x effective batch
-        print(f"{conc:<15} {s_tp:>10.1f} {c_tp:>12.1f} {p_tp:>10.1f}")
+        print(f"{conc:-<15} {s_tp:>10.1f} {c_tp:>12.1f} {p_tp:>10.1f}")
 
 
 if __name__ == "__main__":
