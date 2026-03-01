@@ -33,12 +33,12 @@ for hash in "${!EXPECTED[@]}"; do
 
     if [[ "$actual" == *"$expected"* ]] || [[ "$expected" == *"$(echo "$actual" | cut -d— -f1 | xargs)"* ]]; then
         echo "PASS: $hash — $expected"
-        ((PASS++))
+        PASS=$((PASS + 1))
     else
         echo "FAIL: $hash"
         echo "  Expected: $expected"
         echo "  Actual:   $actual"
-        ((FAIL++))
+        FAIL=$((FAIL + 1))
     fi
 done
 
