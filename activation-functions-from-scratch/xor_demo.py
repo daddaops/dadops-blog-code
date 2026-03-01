@@ -57,4 +57,4 @@ print(np.round(train_xor(False), 2))
 
 print("\nWITH activation:")
 print(np.round(train_xor(True), 2))
-# [[0.03], [0.97], [0.97], [0.04]]  <-- nails it
+# [[0.01], [0.98], [0.98], [0.03]]  <-- nails it

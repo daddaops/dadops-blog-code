@@ -36,5 +36,5 @@ print("GELU approx:", np.round(gelu_approx(x), 4))
 print("SiLU/Swish: ", np.round(silu(x), 4))
 print("Mish:       ", np.round(mish(x), 4))
 
-# At x=-0.5: GELU=-0.1543, SiLU=-0.1888, Mish=-0.1894
-# At x= 3.0: all three ≈ 2.996 (converge for large positive)
+# At x=-0.5: GELU=-0.1543, SiLU=-0.1888, Mish=-0.2207
+# At x= 3.0: GELU≈2.996, SiLU≈2.858, Mish≈2.987

@@ -42,7 +42,7 @@ activations = {
                 None),
 }
 
-def train_mlp(act_fn, act_grad_fn, epochs=800, lr=0.01):
+def train_mlp(act_fn, act_grad_fn, epochs=5000, lr=0.5):
     """Train a 4-layer MLP and return loss history + gradient norms."""
     np.random.seed(42)  # same init weights for fair comparison
     dims = [2, 32, 32, 32, 1]

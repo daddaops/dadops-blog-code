@@ -47,5 +47,5 @@ print(f"Tanh:     {['%.2e' % g for g in tanh_grads]}")
 print(f"ReLU:     {['%.2e' % g for g in relu_grads]}")
 
 # Sigmoid L10: 9.54e-07  (vanished)
-# Tanh    L10: 1.73e-04  (nearly vanished)
+# Tanh    L10: 1.71e-04  (nearly vanished)
 # ReLU    L10: 1.00e+00  (perfect)
