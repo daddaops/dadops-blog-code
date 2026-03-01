@@ -1,0 +1,2 @@
+# All code blocks use only the Python standard library.
+# No external dependencies required.
