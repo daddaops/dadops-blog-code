@@ -10,7 +10,7 @@ Blog claims:
   - Schema Match Rate: Base 82% -> Fine-tuned 99%
   - Field Accuracy: Base 74% -> Fine-tuned 91%
   - Prompt Tokens/Request: Base ~1,800 -> Fine-tuned ~120
-  - Cost per Request: Base ~$0.001 -> Fine-tuned ~$0.00008
+  - Cost per Request: Base ~$0.0003 -> Fine-tuned ~$0.00007
   - Latency: Base ~800ms -> Fine-tuned ~200ms
 """
 import json

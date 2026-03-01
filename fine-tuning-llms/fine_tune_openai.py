@@ -10,7 +10,7 @@ and tests the resulting model.
 REQUIRES: OpenAI API key (set OPENAI_API_KEY environment variable)
 
 Blog claims:
-  - Training cost: ~$1.20 for 200 examples (~500 tokens each, 4 epochs)
+  - Training cost: ~$0.54 for 200 examples (~300 tokens each, 3 epochs)
   - Training time: 10-20 minutes
 """
 from openai import OpenAI

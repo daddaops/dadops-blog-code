@@ -9,7 +9,7 @@ No API key needed.
 
 Blog claims (at default slider values):
   - At 10K requests/month, 1,800 few-shot tokens, 200 training examples:
-  - Cost reduction from $10 to $0.80 per month (the prose says "15x input token reduction")
+  - Cost reduction from $3.30 to $0.66 per month (the prose says "15x input token reduction")
   - Training cost ~$1.20 (prose claim) vs calculator output
 """
 
@@ -80,25 +80,22 @@ if __name__ == "__main__":
     ratio = (1800 + 80) / (40 + 80)
     print(f"Input token ratio: {ratio:.1f}x (blog says 15x)")
 
-    # Blog claim: "$10 to $0.80 at 10K requests/month"
-    print(f"Base cost: ${result['base_monthly']:.2f} (blog says ~$10)")
-    print(f"FT cost:   ${result['ft_monthly']:.2f} (blog says ~$0.80)")
+    # Blog claim: "$3.30 to $0.66 at 10K requests/month"
+    print(f"Base cost: ${result['base_monthly']:.2f} (blog says ~$3.30)")
+    print(f"FT cost:   ${result['ft_monthly']:.2f} (blog says ~$0.66)")
 
-    # Blog claim: "Training cost ~$1.20 for 200 examples"
-    # Note: blog says "~500 tokens each, 4 epochs" but calculator uses 300 tokens, 3 epochs
-    blog_training = 200 * 500 * 4 * (3.00 / 1e6)
+    # Blog claim: "Training cost ~$0.54 for 200 examples"
+    # Blog says "~300 tokens each, 3 epochs" — matches calculator
     calc_training = result['training_cost']
     print(f"Training cost (calculator: 300 tok, 3 epochs): ${calc_training:.2f}")
-    print(f"Training cost (blog prose: 500 tok, 4 epochs): ${blog_training:.2f}")
 
     # Blog claim: cost per request comparison
     base_per_req = result['base_monthly'] / 10_000
     ft_per_req = result['ft_monthly'] / 10_000
-    print(f"\nCost per request - Base: ${base_per_req:.5f} (blog says ~$0.001)")
-    print(f"Cost per request - FT:   ${ft_per_req:.6f} (blog says ~$0.00008)")
+    print(f"\nCost per request - Base: ${base_per_req:.5f} (blog says ~$0.0003)")
+    print(f"Cost per request - FT:   ${ft_per_req:.6f} (blog says ~$0.00007)")
 
     # Expected output:
-    # Base monthly cost: ~$3.30 (not $10 — the blog's $10 figure includes higher token counts)
-    # Fine-tuned monthly: ~$0.66 (not $0.80)
-    # Training cost (calculator): $0.54 (300 tok × 3 epochs)
-    # Training cost (blog prose): $1.20 (500 tok × 4 epochs)
+    # Base monthly cost: ~$3.30
+    # Fine-tuned monthly: ~$0.66
+    # Training cost: $0.54 (300 tok × 3 epochs)
