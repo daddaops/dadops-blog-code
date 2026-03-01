@@ -1,0 +1,8 @@
+sigmoid : final loss = 0.6940
+tanh    : final loss = 0.6795
+relu    : final loss = 0.6808
+lrelu   : final loss = 0.6810
+elu     : final loss = 0.6776
+gelu    : final loss = 0.6732
+silu    : final loss = 0.6802
+mish    : final loss = 0.6739
