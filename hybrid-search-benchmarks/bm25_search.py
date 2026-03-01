@@ -31,11 +31,13 @@ class BM25Search:
 
     def search(self, query: str, k: int = 10) -> List[Tuple[str, float]]:
         """Return top-k (doc_id, bm25_score) pairs. Lower BM25 = better in FTS5."""
-        escaped = query.replace('"', '""')
+        # Quote each term to avoid FTS5 syntax issues (e.g., "-" parsed as NOT)
+        terms = query.split()
+        fts_query = " ".join('"' + t.replace('"', '""') + '"' for t in terms)
         rows = self.conn.execute("""
             SELECT doc_id, rank FROM docs
             WHERE docs MATCH ? ORDER BY rank LIMIT ?
-        """, (escaped, k)).fetchall()
+        """, (fts_query, k)).fetchall()
         return [(row[0], -row[1]) for row in rows]  # negate: higher = better
 
 

@@ -1,0 +1,9 @@
+=== BM25 Search Tests ===
+
+Query: 'error E-4012 connection refused'
+  doc2: score=6.2472
+
+Query: 'how to make queries faster'
+
+Query: 'setMaxPoolSize parameter'
+  doc7: score=3.9789
