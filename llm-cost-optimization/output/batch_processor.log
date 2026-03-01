@@ -1,0 +1,22 @@
+=== Smart Batch Processor Demo ===
+
+
+  Pending: 8 requests | Total saved: $0.00
+
+  Flushed 8 remaining requests
+    req-003: cost=$0.012000, saved=$0.012000
+    req-007: cost=$0.010500, saved=$0.010500
+    req-001: cost=$0.004500, saved=$0.004500
+    req-005: cost=$0.007500, saved=$0.007500
+    req-002: cost=$0.000750, saved=$0.000750
+    req-004: cost=$0.001800, saved=$0.001800
+    req-006: cost=$0.000300, saved=$0.000300
+    req-008: cost=$0.000450, saved=$0.000450
+
+  Final: Pending: 0 requests | Total saved: $0.04
+
+=== Discount Verification ===
+  Full cost (Sonnet input only): $0.075600
+  Batch cost (50% off):          $0.037800
+  Savings:                       $0.037800
+  Processor tracked savings:     $0.037800

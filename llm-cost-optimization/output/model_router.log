@@ -1,0 +1,16 @@
+=== Model Routing Demo ===
+Request                                                 Tier       Reason                                    Cost
+-------------------------------------------------------------------------------------------------------------------
+  What is the return policy?                              haiku      short + simple keyword match        $0.002620
+  Summarize this meeting transcript.                      haiku      short + simple keyword match        $0.005900
+  Analyze these 3 contracts for conflicting liability     opus       complex keywords or lengthy prompt  $0.160500
+  Classify this support ticket: urgent or normal.         haiku      short + simple keyword match        $0.002585
+  Compare Q3 and Q4 revenue and evaluate growth strate    opus       complex keywords or lengthy prompt  $0.069000
+
+  Routed: $0.2406  |  All-Opus: $0.3961
+  Savings: 39%
+
+=== Blended Pricing (60/30/10 split) ===
+  Blended input:  $3.00/M  (blog claims: $3.00/M)
+  Blended output: $15.00/M  (blog claims: $15.00/M)
+  Input reduction: 80% (blog claims: 80%)

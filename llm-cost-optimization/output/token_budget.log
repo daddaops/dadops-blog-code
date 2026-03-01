@@ -1,0 +1,13 @@
+=== Token Budget Controller Demo ===
+
+Feature Budget Dashboard
+==================================================
+  🔴 code-generator       [███████████████████░] 96.0%
+  🟡 chatbot              [█████████████████░░░] 85.0%
+  🟢 document-processor   [████████░░░░░░░░░░░░] 40.0%
+
+=== Action Tests ===
+  85% + 1M → should DOWNGRADE: downgrade_model
+  40% + 500K → should ALLOW: allow
+  96% + 100K → should REJECT: reject
+  96% + 100K critical → should ALLOW: allow

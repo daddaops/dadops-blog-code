@@ -1,0 +1,11 @@
+=== Prompt Compression Results ===
+  Original tokens:   301
+  Compressed tokens: 171
+  Savings:           43.2%
+
+  Blog claims: 30-50% compression typical
+  Actual:      43.2% compression
+
+=== Blog Savings Math ===
+  1,200 tokens × 10K requests × $3/M = $36/day
+  Monthly: $1080 (blog claims: $1,080/month)

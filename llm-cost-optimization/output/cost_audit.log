@@ -1,0 +1,15 @@
+=== LLM Cost Audit (1000 requests) ===
+Total monthly spend: $47
+
+Top opportunities:
+  1. Route 430 expensive-model requests to cheaper tiers → ~$17/month savings
+  2. Avg prompt is 3590 tokens → compress to ~2334 for ~$6/month savings
+
+=== Detailed Breakdown ===
+  haiku: 234 requests (23%)
+  opus: 430 requests (43%)
+  sonnet: 336 requests (34%)
+
+  Unique prompt hashes: 80
+  Hashes with duplicates: 80 (8%)
+  Average input tokens: 3590

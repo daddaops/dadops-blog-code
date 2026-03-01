@@ -1,0 +1,10 @@
+=== LLM Cost Report ===
+  chatbot: $178.50/day (55% of total) | 92% input tokens | 10000 requests
+  code-generator: $102.00/day (32% of total) | 40% input tokens | 5000 requests
+  document-processor: $42.30/day (13% of total) | 97% input tokens | 1000 requests
+  TOTAL: $322.80/day ($9684/month)
+
+=== Blog Claim Verification ===
+  chatbot: $5355/month, 92% input tokens
+  document-processor: $1269/month, 97% input tokens
+  code-generator: $3060/month, 40% input tokens

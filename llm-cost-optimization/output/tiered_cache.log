@@ -1,0 +1,18 @@
+=== Tiered Cache Simulation ===
+  Per-request cost (Sonnet, 4200in+350out): $0.01785
+  Cache hit rate: 90.0% (exact: 250, semantic: 650) | Net savings: $16.05
+
+  Exact hits:    250
+  Semantic hits: 650
+  Misses:        100
+  Cost avoided:  $16.06
+  Embedding cost: $0.0150
+
+=== Blog Claim Verification ===
+  Monthly bill (Sonnet, no cache): $5355
+  Blog claims: $5,355/month
+
+  Exact match savings (25%): $1339/month (blog: $1,340)
+  Semantic savings (15%):    $803/month (blog: $800)
+  Prefix cache savings:      $321/month (blog: $500)
+  Total savings:             $2463/month (blog: $2,640)
