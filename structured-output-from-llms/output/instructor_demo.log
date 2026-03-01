@@ -1,0 +1,45 @@
+=== Pydantic + instructor Demos ===
+
+1. Pydantic model validation:
+   Valid: name='John Smith' age=27 email='john@example.com'
+   Caught empty name: ValidationError
+   Caught negative age: ValidationError
+
+2. instructor + OpenAI:
+   SKIP: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+
+3. instructor + Anthropic:
+   SKIP: <failed_attempts>
+
+<generation number="1">
+<exception>
+    "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="2">
+<exception>
+    "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+<generation number="3">
+<exception>
+    "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+</exception>
+<completion>
+    None
+</completion>
+</generation>
+
+</failed_attempts>
+
+<last_exception>
+    "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+</last_exception>

@@ -1,0 +1,20 @@
+=== Semantic Validation Demo ===
+
+1. Valid receipt:
+   PASS: Trader Joe's, total=$14.87
+
+2. Bad total (subtotal + tax != total):
+   CAUGHT: 1 validation error for Receipt
+  Value error, Total $45.00 doesn't match subtotal $2.50 + tax $0.20 = $2.70 [type=value_error, input_value={'store_name': 'Whole Foo...ax': 0.2, 'total': 45.0}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
+
+3. Bad items sum (items don't add to subtotal):
+   CAUGHT: 1 validation error for Receipt
+  Value error, Line items sum to $20.00 but subtotal is $42.50 [type=value_error, input_value={'store_name': 'Target', ...ax': 3.4, 'total': 45.9}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
+
+4. Empty store name:
+   CAUGHT: 1 validation error for Receipt
+store_name
+  Value error, Store name cannot be empty [type=value_error, input_value='  ', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error
