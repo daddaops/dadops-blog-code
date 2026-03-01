@@ -1,0 +1,18 @@
+=== KV Cache Memory Verification (Llama-3 70B, FP16) ===
+  Formula: 2 * 80 * 8 * 128 * 2
+  Per token: 327,680 bytes
+  Blog claims: 327,680 bytes
+  Match: True
+
+  8K context (8192 tokens):
+    2,684,354,560 bytes = 2.50 GB
+    Blog claims: 2.56 GB
+    Exact (binary GiB): 2.50
+    Exact (decimal GB): 2.68
+
+  32 concurrent requests:
+    85,899,345,920 bytes
+    Binary GiB: 80.0
+    Decimal GB: 85.9
+    Blog claims: 82 GB
+    Exceeds 80 GB A100: True

@@ -1,0 +1,36 @@
+=== Regression Detection Demo ===
+
+--- Scenario 1: No regression (similar distributions) ---
+Baseline mean: 50.3 ms
+Candidate mean: 52.9 ms
+Change: +5.1%
+Welch's t=-3.94, p=0.0002, df=196.4
+Cohen's d=0.56
+Verdict: PASS
+
+--- Scenario 2: Clear regression (20% increase) ---
+Baseline mean: 50.3 ms
+Candidate mean: 60.2 ms
+Change: +19.7%
+Welch's t=-12.15, p=0.0000, df=169.0
+Cohen's d=1.72
+Verdict: REGRESSION DETECTED
+
+--- Scenario 3: Borderline (significant but small, <10%) ---
+Baseline mean: 50.3 ms
+Candidate mean: 54.3 ms
+Change: +8.0%
+Welch's t=-5.99, p=0.0000, df=194.4
+Cohen's d=0.85
+Verdict: PASS
+
+=== Welch's t-test Verification ===
+  Test: a=[1..5], b=[5..9]
+  t=-4.0000, p=0.000127, df=8.0
+  Expected: t ≈ -4.0, p < 0.01, df ≈ 8.0
+  Match: t < 0 and p < 0.01: True
+
+=== Summary ===
+  Scenario 1 (no regression): PASS
+  Scenario 2 (regression):    DETECTED
+  Scenario 3 (borderline):    PASS (below threshold)

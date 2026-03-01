@@ -1,0 +1,25 @@
+SKIP: No LLM_API_URL set. This script requires a running LLM API.
+  Set LLM_API_URL and LLM_API_KEY environment variables to run.
+
+Verifying code structure only (no API calls)...
+
+  RequestMetrics structure: OK
+    TTFT: 45 ms
+    TTLT: 1200 ms
+    Tokens: 50
+    TPOT: 23 ms
+
+  percentile() test:
+    p50=50.5 ms
+    p95=59.1 ms
+    p99=59.8 ms
+
+  compute_ai_metrics() with synthetic data:
+  [+] TTFT p95           81.1 ms     [GOOD]
+  [~] TPOT p50           31.5 ms     [WARN]
+  [!] System TPS        507.7 tok/s  [FAIL]
+  [+] ITL jitter          0.2 CV     [GOOD]
+  [+] p99/p50             1.3 x      [GOOD]
+  [+] Error rate          0.0 %      [GOOD]
+
+All code structures verified OK (no API calls made)
