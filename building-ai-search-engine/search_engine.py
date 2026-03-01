@@ -67,11 +67,15 @@ def ingest(conn, documents, model_name="all-MiniLM-L6-v2"):
 # ── Code Block 2: Hybrid Retrieval Engine ──
 
 def bm25_search(conn, query, top_k=20):
+    # Quote each term and use OR for proper keyword matching.
+    # FTS5 treats bare hyphens as NOT and can misparse queries.
+    terms = query.split()
+    fts_query = " OR ".join(f'"{t}"' for t in terms)
     results = conn.execute(
         """SELECT rowid, title, content, rank
            FROM chunks WHERE chunks MATCH ?
            ORDER BY rank LIMIT ?""",
-        (query, top_k)
+        (fts_query, top_k)
     ).fetchall()
     return [(r[0], r[1], r[2], -r[3]) for r in results]
 

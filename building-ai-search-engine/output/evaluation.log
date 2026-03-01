@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== Search Quality Evaluation ===
+Loading models...
+Models loaded in 1.8s
+Ingesting 30 documents...
+Ingestion complete in 1.4s
+Running 20 evaluation queries...
+BM25 only     P@5 = 0.390
+Hybrid        P@5 = 0.460
+Reranked      P@5 = 0.410
+Blog claims: BM25 P@5=0.52, Hybrid P@5=0.64, Reranked P@5=0.78
+(Blog used 200 docs / 20 queries; we used 30 docs / 20 queries)
+Directional checks:
+  Hybrid > BM25:    PASS (0.460 vs 0.390)
+  Reranked > Hybrid: FAIL (0.410 vs 0.460)
+All evaluation tests completed!

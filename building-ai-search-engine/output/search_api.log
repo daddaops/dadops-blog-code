@@ -1,0 +1,14 @@
+=== highlight_snippet Tests ===
+  Single term: The training loop computes <mark>gradient</mark>s for each layer...
+  Multi-term: <mark>gradient</mark> <mark>descent</mark> updates the <mark>weights</mark> to m...
+  No match: Neural networks learn through backpropagation...
+  Window=30: '<mark>neural</mark> networks learn through'
+  PASS
+
+=== Pydantic Model Tests ===
+  SearchResult: Test Doc (score: 0.9847)
+  SearchResponse: test query → 1 result(s)
+  PASS
+
+NOTE: FastAPI server not started — run 'uvicorn search_api:app' to serve.
+All search API tests passed!

@@ -1,0 +1,27 @@
+=== AI Search Engine Pipeline Test ===
+Loading models...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Ingested 5 documents in 1.24s
+Embedding dimensions: 384
+BM25 top results: ['Introduction to Neural Networks']
+Vector top results: ['Introduction to Neural Networks (0.651)', 'Understanding Gradient Descent (0.456)', 'Transformer Architecture Explained (0.326)']
+Hybrid RRF top IDs: [1, 2, 3]
+Reranked results (0.148s):
+  Introduction to Neural Networks (score: 8.9804)
+  Understanding Gradient Descent (score: -8.6749)
+  Transformer Architecture Explained (score: -10.2890)
+BM25 top results: ['Building Search Engines with Python']
+Vector top results: ['Building Search Engines with Python (0.562)', 'Understanding Gradient Descent (0.198)', 'Transformer Architecture Explained (0.162)']
+Hybrid RRF top IDs: [4, 2, 3]
+Reranked results (0.126s):
+  Building Search Engines with Python (score: 7.2246)
+  Understanding Gradient Descent (score: -9.9345)
+  Transformer Architecture Explained (score: -10.9682)
+BM25 top results: ['Transformer Architecture Explained', 'Python Concurrency Patterns', 'Building Search Engines with Python']
+Vector top results: ['Python Concurrency Patterns (0.676)', 'Transformer Architecture Explained (0.243)', 'Understanding Gradient Descent (0.221)']
+Hybrid RRF top IDs: [3, 5, 4]
+Reranked results (0.153s):
+  Python Concurrency Patterns (score: 5.3433)
+  Transformer Architecture Explained (score: -2.1786)
+  Introduction to Neural Networks (score: -10.2213)
+All search engine tests passed!
