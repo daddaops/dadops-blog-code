@@ -1,0 +1,42 @@
+=== Production VLM Orchestrator — Self Tests ===
+
+Test 1: Token estimation (low detail)...
+  All low-detail images: 85 tokens
+  PASS
+
+Test 2: Token estimation (high detail, 1920x1080)...
+  1920x1080 at high detail: 1105 tokens
+  Blog claims: ~1,105 tokens (6 tiles x 170 + 85 base)
+  PASS (matches blog claim of 1,105)
+
+Test 3: Token estimation for various resolutions...
+  512x512 high detail: 255 tokens (expected 255)
+  1024x1024 high detail: 765 tokens (expected 765)
+  4096x4096 high detail: 765 tokens (expected 765)
+  256x256 high detail: 255 tokens (expected 255)
+  PASS
+
+Test 4: Image preprocessing...
+  Original: 4096x3072
+  Preprocessed: 2048x1536
+  PASS
+
+Test 5: Preprocessing small image (no resize)...
+  Original: 800x600
+  Preprocessed: 800x600 (unchanged)
+  PASS
+
+Test 6: Cost calculation...
+  gpt-4o: $0.007763 per image (1105 input + 500 output tokens)
+  claude-sonnet: $0.010815 per image (1105 input + 500 output tokens)
+  gemini-pro: $0.003881 per image (1105 input + 500 output tokens)
+  PASS
+
+Test 7: VLMResult dataclass...
+  VLMResult: model=gpt-4o, tokens=1105, cost=$0.007763, confidence=95%
+  PASS
+
+All production orchestrator self-tests passed!
+
+Note: extract_with_fallback() requires API keys to run.
+Tested without API: token estimation, preprocessing, cost math, data structures.

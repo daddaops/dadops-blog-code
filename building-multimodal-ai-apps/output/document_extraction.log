@@ -1,0 +1,21 @@
+=== Document Extraction — Self Tests ===
+
+Test 1: Pydantic model validation...
+  InvoiceData validated: #INV-001, $250.00
+  Line items: 2
+  PASS
+
+Test 2: JSON schema generation...
+  Schema has 5 fields: ['invoice_number', 'date', 'vendor_name', 'total_amount', 'line_items']
+  PASS
+
+Test 3: merge_page_results...
+  Merged items: ['A', 'B', 'C', 'D', 'E']
+  Merged total: 200 (page 2 overrides page 1)
+  Low confidence pages: [2]
+  PASS
+
+All document extraction self-tests passed!
+
+Note: API-dependent functions (extract_document, process_multipage_document)
+require OPENAI_API_KEY to run.
