@@ -1,7 +1,7 @@
 # A/B Testing ML Models in Production
 
 Verified, runnable code from the DadOps blog post:
-[A/B Testing ML Models in Production](https://dadops.dev/blog/ab-testing-ml-models/)
+[A/B Testing ML Models in Production](https://daddaops.com/blog/ab-testing-ml-models/)
 
 ## Scripts
 

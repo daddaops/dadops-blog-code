@@ -1,6 +1,6 @@
 # LLM Model Routing
 
-Verified, runnable code from the [LLM Model Routing](https://dadops.dev/blog/llm-model-routing/) blog post.
+Verified, runnable code from the [LLM Model Routing](https://daddaops.com/blog/llm-model-routing/) blog post.
 
 ## Scripts
 

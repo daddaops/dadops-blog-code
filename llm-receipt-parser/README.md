@@ -1,6 +1,6 @@
 # LLM Receipt Parser — Verified Code
 
-Runnable code from [Using LLMs to Parse Grocery Receipts](https://dadops.dev/blog/llm-receipt-parser/) on DadOps.
+Runnable code from [Using LLMs to Parse Grocery Receipts](https://daddaops.com/blog/llm-receipt-parser/) on DadOps.
 
 ## Scripts
 

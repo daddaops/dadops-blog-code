@@ -1,7 +1,7 @@
 # Building an AI Search Engine
 
 Verified, runnable code from the DadOps blog post:
-[Building an AI Search Engine](https://dadops.dev/blog/building-ai-search-engine/)
+[Building an AI Search Engine](https://daddaops.com/blog/building-ai-search-engine/)
 
 ## Scripts
 

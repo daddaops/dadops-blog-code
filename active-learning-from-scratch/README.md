@@ -1,6 +1,6 @@
 # Active Learning from Scratch
 
-Verified, runnable code from the [Active Learning from Scratch](https://dadops.dev/blog/active-learning-from-scratch/) blog post.
+Verified, runnable code from the [Active Learning from Scratch](https://daddaops.com/blog/active-learning-from-scratch/) blog post.
 
 ## Scripts
 

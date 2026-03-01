@@ -1,6 +1,6 @@
 # Systematic Prompt Engineering — Code from Blog Post
 
-Extracted from: https://dadops.dev/blog/prompt-engineering-systematic/
+Extracted from: https://daddaops.com/blog/prompt-engineering-systematic/
 
 ## Scripts
 

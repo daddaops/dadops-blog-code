@@ -1,7 +1,7 @@
 # Building AI Agents with Tool Use: From Chat to Action
 
 Verified, runnable code from the DadOps blog post:
-[Building AI Agents with Tool Use](https://dadops.dev/blog/building-ai-agents/)
+[Building AI Agents with Tool Use](https://daddaops.com/blog/building-ai-agents/)
 
 ## Scripts
 

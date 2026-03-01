@@ -1,7 +1,7 @@
 # SQLite FTS5 vs rapidfuzz: Fuzzy Search Showdown
 
 Verified, runnable code from the DadOps blog post:
-**[SQLite FTS5 vs rapidfuzz](https://dadops.dev/blog/sqlite-fts-vs-rapidfuzz/)**
+**[SQLite FTS5 vs rapidfuzz](https://daddaops.com/blog/sqlite-fts-vs-rapidfuzz/)**
 
 ## Scripts
 

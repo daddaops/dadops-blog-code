@@ -1,6 +1,6 @@
 # Profiling Python AI Code: Finding the Bottleneck Before You Optimize
 
-Verified, runnable code from the [DadOps blog post](https://dadops.dev/blog/profiling-python-ai-code/).
+Verified, runnable code from the [DadOps blog post](https://daddaops.com/blog/profiling-python-ai-code/).
 
 ## Scripts
 

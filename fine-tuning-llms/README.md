@@ -1,6 +1,6 @@
 # Fine-Tuning LLMs: When Prompt Engineering Isn't Enough
 
-Blog post: https://dadops.dev/blog/fine-tuning-llms/
+Blog post: https://daddaops.com/blog/fine-tuning-llms/
 
 ## What's Here
 

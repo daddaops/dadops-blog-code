@@ -1,6 +1,6 @@
 # Synthetic Data Generation — Verified Code
 
-Runnable code from the DadOps blog post: [Synthetic Data Generation: Using LLMs to Build Your Own Training Datasets](https://dadops.dev/blog/synthetic-data-generation/)
+Runnable code from the DadOps blog post: [Synthetic Data Generation: Using LLMs to Build Your Own Training Datasets](https://daddaops.com/blog/synthetic-data-generation/)
 
 ## Scripts
 

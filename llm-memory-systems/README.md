@@ -1,6 +1,6 @@
 # LLM Memory Systems
 
-Verified, runnable code from the [LLM Memory Systems](https://dadops.dev/blog/llm-memory-systems/) blog post.
+Verified, runnable code from the [LLM Memory Systems](https://daddaops.com/blog/llm-memory-systems/) blog post.
 
 ## Scripts
 

@@ -1,7 +1,7 @@
 # Batch Processing with LLMs: 10,000 API Calls Without Going Broke
 
 Verified, runnable code from the DadOps blog post:
-[Batch Processing with LLMs](https://dadops.dev/blog/batch-processing-llms/)
+[Batch Processing with LLMs](https://daddaops.com/blog/batch-processing-llms/)
 
 ## Scripts
 

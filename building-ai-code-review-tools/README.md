@@ -1,7 +1,7 @@
 # Building AI Code Review Tools
 
 Verified, runnable code from the DadOps blog post:
-[Building AI Code Review Tools](https://dadops.dev/blog/building-ai-code-review-tools/)
+[Building AI Code Review Tools](https://daddaops.com/blog/building-ai-code-review-tools/)
 
 ## Scripts
 

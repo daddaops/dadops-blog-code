@@ -1,6 +1,6 @@
 # Local LLM Deployment — Verified Code
 
-Runnable code from [Running LLMs on Your Own Machine](https://dadops.dev/blog/local-llm-deployment/) on DadOps.
+Runnable code from [Running LLMs on Your Own Machine](https://daddaops.com/blog/local-llm-deployment/) on DadOps.
 
 ## Scripts
 

@@ -1,6 +1,6 @@
 # Structured Output from LLMs — Verified Code
 
-Runnable code from the DadOps blog post: [Structured Output from LLMs: Getting JSON Every Time](https://dadops.dev/blog/structured-output-from-llms/)
+Runnable code from the DadOps blog post: [Structured Output from LLMs: Getting JSON Every Time](https://daddaops.com/blog/structured-output-from-llms/)
 
 ## Scripts
 

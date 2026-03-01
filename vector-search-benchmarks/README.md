@@ -1,6 +1,6 @@
 # Vector Search at Small Scale: pgvector vs FAISS vs Brute Force NumPy
 
-Verified, runnable code from the [DadOps blog post](https://dadops.dev/blog/vector-search-benchmarks/).
+Verified, runnable code from the [DadOps blog post](https://daddaops.com/blog/vector-search-benchmarks/).
 
 ## Scripts
 

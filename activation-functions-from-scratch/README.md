@@ -1,6 +1,6 @@
 # Activation Functions from Scratch — Verified Code
 
-Runnable code from the DadOps blog post: [Activation Functions from Scratch](https://dadops.dev/blog/activation-functions-from-scratch/)
+Runnable code from the DadOps blog post: [Activation Functions from Scratch](https://daddaops.com/blog/activation-functions-from-scratch/)
 
 ## Scripts
 

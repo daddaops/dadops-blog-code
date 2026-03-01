@@ -1,6 +1,6 @@
 # Python Concurrency for AI Workloads
 
-Verified, runnable code from the [DadOps blog post](https://dadops.dev/blog/python-concurrency-for-ai/).
+Verified, runnable code from the [DadOps blog post](https://daddaops.com/blog/python-concurrency-for-ai/).
 
 ## Scripts
 

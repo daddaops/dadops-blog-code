@@ -1,6 +1,6 @@
 # ML Experiment Tracking — Code from Blog Post
 
-Extracted from: https://dadops.dev/blog/ml-experiment-tracking/
+Extracted from: https://daddaops.com/blog/ml-experiment-tracking/
 
 ## Scripts
 

@@ -1,6 +1,6 @@
 # Evaluating LLM Systems: How to Know If Your AI Actually Works
 
-Blog post: https://dadops.dev/blog/evaluating-llm-systems/
+Blog post: https://daddaops.com/blog/evaluating-llm-systems/
 
 ## What's Here
 

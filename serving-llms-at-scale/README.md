@@ -1,7 +1,7 @@
 # Serving LLMs at Scale: From Naive to vLLM
 
 Verified, runnable code from the DadOps blog post:
-**[Serving LLMs at Scale](https://dadops.dev/blog/serving-llms-at-scale/)**
+**[Serving LLMs at Scale](https://daddaops.com/blog/serving-llms-at-scale/)**
 
 ## Scripts
 

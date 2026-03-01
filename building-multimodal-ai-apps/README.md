@@ -1,6 +1,6 @@
 # Building Multimodal AI Apps
 
-Verified code from the DadOps blog post: [Building Multimodal AI Apps](https://dadops.dev/blog/building-multimodal-ai-apps/)
+Verified code from the DadOps blog post: [Building Multimodal AI Apps](https://daddaops.com/blog/building-multimodal-ai-apps/)
 
 ## Scripts
 

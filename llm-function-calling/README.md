@@ -1,6 +1,6 @@
 # LLM Function Calling Done Right
 
-Verified, runnable code from the [LLM Function Calling](https://dadops.dev/blog/llm-function-calling/) blog post.
+Verified, runnable code from the [LLM Function Calling](https://daddaops.com/blog/llm-function-calling/) blog post.
 
 ## Scripts
 

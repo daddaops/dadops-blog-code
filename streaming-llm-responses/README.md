@@ -1,6 +1,6 @@
 # Streaming LLM Responses — Verified Code
 
-Runnable code from the DadOps blog post: [Streaming LLM Responses: Server-Sent Events, Chunked Transfer, and the UX of Waiting](https://dadops.dev/blog/streaming-llm-responses/)
+Runnable code from the DadOps blog post: [Streaming LLM Responses: Server-Sent Events, Chunked Transfer, and the UX of Waiting](https://daddaops.com/blog/streaming-llm-responses/)
 
 ## Scripts
 

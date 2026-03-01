@@ -1,6 +1,6 @@
 # Model Explainability with SHAP and LIME — Code from Blog Post
 
-Extracted from: https://dadops.dev/blog/model-explainability-shap-lime/
+Extracted from: https://daddaops.com/blog/model-explainability-shap-lime/
 
 ## Scripts
 

@@ -1,6 +1,6 @@
 # Caching LLM Responses
 
-Verified code from the DadOps blog post: [Caching LLM Responses](https://dadops.dev/blog/caching-llm-responses/)
+Verified code from the DadOps blog post: [Caching LLM Responses](https://daddaops.com/blog/caching-llm-responses/)
 
 ## Scripts
 

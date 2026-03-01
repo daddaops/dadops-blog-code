@@ -1,7 +1,7 @@
 # LLM Observability — Verified Code
 
 Runnable code from the DadOps blog post:
-**[LLM Observability in Production: Tracing, Logging, and Monitoring AI Systems](https://dadops.dev/blog/llm-observability/)**
+**[LLM Observability in Production: Tracing, Logging, and Monitoring AI Systems](https://daddaops.com/blog/llm-observability/)**
 
 ## Scripts
 

@@ -1,6 +1,6 @@
 # RAG from Scratch — Verified Code
 
-Runnable code from the DadOps blog post: [Building a RAG Pipeline from Scratch](https://dadops.dev/blog/rag-from-scratch/)
+Runnable code from the DadOps blog post: [Building a RAG Pipeline from Scratch](https://daddaops.com/blog/rag-from-scratch/)
 
 ## Scripts
 

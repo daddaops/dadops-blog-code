@@ -1,6 +1,6 @@
 # Load Testing AI APIs — Verified Code
 
-Code from the DadOps blog post: [Load Testing AI APIs: Why Standard Tools Fail and What to Use Instead](https://dadops.dev/blog/load-testing-ai-apis/)
+Code from the DadOps blog post: [Load Testing AI APIs: Why Standard Tools Fail and What to Use Instead](https://daddaops.com/blog/load-testing-ai-apis/)
 
 ## Scripts
 

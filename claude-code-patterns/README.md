@@ -1,6 +1,6 @@
 # Practical Claude Code Patterns for Real Projects
 
-Blog post: https://dadops.dev/blog/claude-code-patterns/
+Blog post: https://daddaops.com/blog/claude-code-patterns/
 
 ## What's Here
 

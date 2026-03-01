@@ -1,7 +1,7 @@
 # Guardrails for LLM Apps — Verified Code
 
 Code extracted from the DadOps blog post:
-**[Guardrails for LLM Apps](https://dadops.dev/blog/guardrails-for-llm-apps/)**
+**[Guardrails for LLM Apps](https://daddaops.com/blog/guardrails-for-llm-apps/)**
 
 ## Scripts
 

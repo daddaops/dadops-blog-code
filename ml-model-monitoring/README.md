@@ -1,6 +1,6 @@
 # ML Model Monitoring — Code from Blog Post
 
-Extracted from: https://dadops.dev/blog/ml-model-monitoring/
+Extracted from: https://daddaops.com/blog/ml-model-monitoring/
 
 ## Scripts
 

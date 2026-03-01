@@ -1,6 +1,6 @@
 # LLM Cost Optimization — Verified Code
 
-Code from the DadOps blog post: [LLM Cost Optimization: Cutting Your API Bill by 80% Without Sacrificing Quality](https://dadops.dev/blog/llm-cost-optimization/)
+Code from the DadOps blog post: [LLM Cost Optimization: Cutting Your API Bill by 80% Without Sacrificing Quality](https://daddaops.com/blog/llm-cost-optimization/)
 
 ## Scripts
 
