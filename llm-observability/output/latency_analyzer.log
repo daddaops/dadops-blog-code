@@ -1,0 +1,15 @@
+=== Latency Analyzer ===
+
+Percentiles (all buckets): {
+  "p50": 548.6053901587655,
+  "p95": 794.1097021038729,
+  "p99": 856.6708408996246,
+  "count": 300
+}
+
+  <500: p50=556ms, p95=812ms, p99=837ms (n=77)
+  500-1k: p50=520ms, p95=800ms, p99=857ms (n=76)
+  1k-2k: p50=549ms, p95=747ms, p99=784ms (n=76)
+  2k+: p50=570ms, p95=806ms, p99=901ms (n=71)
+
+No regression detected

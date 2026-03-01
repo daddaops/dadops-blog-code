@@ -1,0 +1,74 @@
+/home/ubuntu/dadops-blog-code/llm-observability/verify_observability.py:87: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  tracker.record("test", 0.01, datetime.utcnow() - timedelta(hours=2))
+/home/ubuntu/dadops-blog-code/llm-observability/verify_observability.py:92: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  base = datetime.utcnow() - timedelta(hours=5)
+/home/ubuntu/dadops-blog-code/llm-observability/verify_observability.py:99: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  datetime.utcnow() - timedelta(minutes=30 - i * 5))
+=== 1. Model Pricing ===
+  [PASS] gpt-4o pricing
+  [PASS] gpt-4o-mini pricing
+  [PASS] claude-sonnet-4 pricing
+
+=== 2. Blog JSON Example Cost ===
+  [PASS] Cost calculation raw — raw=0.0102375
+  [PASS] Cost rounded to 6 decimals — rounded=0.010238, blog claims 0.010237
+  [PASS] TTFT is ~15% of latency — ratio=0.14998
+
+=== 3. CostTracker ===
+  [PASS] Anomaly None with <10 baseline points
+  [PASS] Anomaly detected with spike
+  [PASS] Anomaly has correct keys
+  [PASS] Severity is warning or critical
+  [PASS] Deviation has sigma symbol
+  [PASS] Report has date key
+  [PASS] Report has total_cost key
+  [PASS] Report has by_feature key
+
+=== 4. LatencyAnalyzer ===
+  [PASS] Bucket <500
+  [PASS] Bucket 500-1k
+  [PASS] Bucket 1k-2k
+  [PASS] Bucket 2k+
+  [PASS] Bucket boundary 500
+  [PASS] Bucket boundary 1000
+  [PASS] Bucket boundary 2000
+  [PASS] Percentiles None with <5 points
+  [PASS] Percentiles returns dict with 5+ points
+  [PASS] Percentiles has p50/p95/p99/count
+  [PASS] p50 <= p95 <= p99
+  [PASS] Regression None with insufficient data
+
+=== 5. QualityMonitor ===
+  [PASS] Cosine sim identical vectors
+  [PASS] Cosine sim orthogonal vectors
+  [PASS] Cosine sim opposite vectors
+  [PASS] Empty health score
+  [PASS] Health score has overall key
+  [PASS] Health score has length_stability
+  [PASS] Health score has semantic_similarity
+  [PASS] Health score has judge_score
+  [PASS] Judge score normalized (4.0/5.0 = 0.8) — actual=0.8000
+  [PASS] Overall matches weighted average — overall=0.915, expected=0.915
+
+=== 6. Trace Builder ===
+  [PASS] Blog trace total tokens = 6082 — actual=6082
+  [PASS] Blog trace total cost = $0.0047 — actual=0.004699999999999999
+  [PASS] Blog trace total ms = 2340 — actual=2340
+  [PASS] Generation is 89% of cost — actual=89.4%
+  [PASS] Generation is 75% of latency — actual=75.0%
+  [PASS] Summary starts with Trace ID
+  [PASS] Summary has tree chars
+  [PASS] Summary has 3 lines (header + 2 spans)
+
+=== 7. AdaptiveAlertSystem ===
+  [PASS] Base threshold with <4 points
+  [PASS] Adaptive threshold with identical values = mean — threshold=1.0 (std=0, so mean+2*0=mean)
+  [PASS] Adaptive threshold = mean + 2*std — threshold=5.0820, expected=5.0820
+  [PASS] Quality drop triggers alert
+  [PASS] Quality above threshold no alert
+  [PASS] Cost spike triggers alert
+  [PASS] Error rate alert is CRITICAL
+
+==================================================
+Results: 51 passed, 0 failed, 51 total
+All tests passed!

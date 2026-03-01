@@ -1,0 +1,18 @@
+=== Adaptive Alert System ===
+
+Normal Monday 9am: 4 alerts
+  critical: Cost spike: $0.30/min (threshold: $0.25)
+  warning: Latency regression: 2800ms p95 (threshold: 2500ms)
+  warning: Quality drop: 0.82 (floor: 0.85)
+  critical: Error surge: 2.5% (threshold: 2.0%)
+
+Anomalous Monday 9am: 4 alerts
+  critical: Cost spike: $1.50/min (threshold: $0.30)
+  warning: Latency regression: 8000ms p95 (threshold: 2828ms)
+  warning: Quality drop: 0.55 (floor: 0.87)
+  critical: Error surge: 8.0% (threshold: 2.5%)
+
+Adaptive threshold analysis:
+  quality_score history at hour 9: [0.85, 0.85, 0.85, 0.85, 0.82, 0.55]
+  Adaptive threshold: 1.0362
+  (mean + 2*std of historical values)

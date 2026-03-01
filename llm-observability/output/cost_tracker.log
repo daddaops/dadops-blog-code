@@ -1,0 +1,28 @@
+/home/ubuntu/dadops-blog-code/llm-observability/cost_tracker.py:72: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  base = datetime.utcnow() - timedelta(hours=24)
+/home/ubuntu/dadops-blog-code/llm-observability/cost_tracker.py:81: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = datetime.utcnow() - timedelta(minutes=60 - i * 3)
+/home/ubuntu/dadops-blog-code/llm-observability/cost_tracker.py:31: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  cutoff = datetime.utcnow() - window
+/home/ubuntu/dadops-blog-code/llm-observability/cost_tracker.py:54: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = datetime.utcnow().strftime("%Y-%m-%d")
+=== Cost Tracker ===
+
+Anomaly detected: {
+  "feature": "document-summarizer",
+  "current_rate": 0.03,
+  "baseline_rate": 0.0101,
+  "deviation": "14.1\u03c3",
+  "severity": "critical"
+}
+
+Daily report: {
+  "date": "2026-03-01",
+  "total_cost": 1.51,
+  "by_feature": {
+    "document-summarizer": 1.51
+  }
+}
+
+Note: daily_report() returns a Python dict, not the
+narrative text shown in the blog's output block.

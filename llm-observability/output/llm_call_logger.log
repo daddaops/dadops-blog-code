@@ -1,0 +1,10 @@
+{"timestamp": "2026-03-01T13:08:34Z", "trace_id": "ab02ee2031554943", "model": "gpt-4o", "feature": "document-summarizer", "input_tokens": 2847, "output_tokens": 312, "cost_usd": 0.010238, "latency_ms": 10.3, "ttft_ms": 1.5, "temperature": 1.0, "prompt_hash": "4109a7d9e6c2", "finish_reason": "stop"}
+=== LLM Call Logger ===
+Cost calculation: (2847 * 2.50 + 312 * 10.00) / 1_000_000 = 0.0102375
+Rounded to 6 decimals: 0.010238
+Blog claims: 0.010237
+
+
+Response model: gpt-4o
+Input tokens: 2847
+Output tokens: 312

@@ -1,0 +1,20 @@
+=== Quality Monitor ===
+
+After 300 stable responses:
+{
+  "length_stability": 0.9992080776083944,
+  "semantic_similarity": 0.9974600864954051,
+  "judge_score": 0.8564188432716098,
+  "overall": 0.941
+}
+
+After 100 degraded responses:
+{
+  "length_stability": 0.5082513697273747,
+  "semantic_similarity": 0.7202777190380255,
+  "judge_score": 0.5446566534468775,
+  "overall": 0.608
+}
+
+Cosine sim [1,0,0] vs [1,0,0] = 1.0000
+Cosine sim [1,0,0] vs [0,1,0] = 0.0000

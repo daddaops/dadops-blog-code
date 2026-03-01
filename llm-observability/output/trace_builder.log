@@ -1,0 +1,12 @@
+=== Trace Builder ===
+
+Trace a3f2b1c9d4e5f678 — 2341ms, $0.0047, 6082 tokens
+  ├─ embed query: 45ms (2%) [12+0 tok, $0.0000]
+  ├─ vector search: 120ms (5%) [0+0 tok, $0.0000]
+  ├─ rerank: 340ms (15%) [2100+50 tok, $0.0003]
+  ├─ chat gpt-4o: 1756ms (75%) [3400+350 tok, $0.0042]
+  └─ guardrail: 80ms (3%) [160+10 tok, $0.0002]
+
+Expected total tokens: 6082, calculated: 6082
+Expected total cost: $0.0047, calculated: $0.0047
+Generation cost %: 89.4% (blog claims 89%)
