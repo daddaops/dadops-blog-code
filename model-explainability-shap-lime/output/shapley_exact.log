@@ -1,0 +1,10 @@
+=== Exact Shapley Values Demo ===
+
+f(x) = 0.3930,  E[f(x)] = 0.1875
+f(x) - E[f(x)] = 0.2055
+Sum of Shapley values = 0.2055
+
+  income               φ = +0.0765
+  credit_score         φ = +0.0750
+  debt_ratio           φ = +0.0440
+  employment_years     φ = +0.0100

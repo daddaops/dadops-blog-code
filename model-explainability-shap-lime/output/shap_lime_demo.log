@@ -1,0 +1,80 @@
+=== Block 2: TreeSHAP Demo ===
+
+Test accuracy: 0.860
+
+Prediction for applicant #0: Rejected
+Base value (avg prediction): -2.572
+
+Feature contributions:
+  income               -1.1570  (toward rejection)
+  credit_score         -0.2667  (toward rejection)
+  debt_ratio           -0.2922  (toward rejection)
+  employment_years     -1.1974  (toward rejection)
+  loan_amount          +0.0128  (toward approval)
+
+=== Block 3: LIME from Scratch Demo ===
+
+LIME feature importances (local linear coefficients):
+  income               -0.0020  (toward rejection)
+  credit_score         -0.0000  (toward rejection)
+  debt_ratio           +0.0013  (toward approval)
+  employment_years     -0.0094  (toward rejection)
+  loan_amount          +0.0000  (toward approval)
+
+=== Block 4: Stability Test ===
+
+LIME rank across 10 runs (lower = more important):
+  income               ranks: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  mean: 2.0  std: 0.00
+  credit_score         ranks: [5, 4, 5, 4, 5, 4, 4, 5, 4, 5]  mean: 4.5  std: 0.50
+  debt_ratio           ranks: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]  mean: 3.0  std: 0.00
+  employment_years     ranks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]  mean: 1.0  std: 0.00
+  loan_amount          ranks: [4, 5, 4, 5, 4, 5, 5, 4, 5, 4]  mean: 4.5  std: 0.50
+
+SHAP ranking (deterministic, run it 1000 times — same result):
+  #1: employment_years     SHAP = -1.1974
+  #2: income               SHAP = -1.1570
+  #3: debt_ratio           SHAP = -0.2922
+  #4: credit_score         SHAP = -0.2667
+  #5: loan_amount          SHAP = +0.0128
+
+=== Block 5: Production Explanation Pipeline ===
+
+Technical:
+ {
+  "prediction": 0,
+  "probability": 0.0042,
+  "base_value": -2.5721,
+  "features": {
+    "income": {
+      "value": 52985.368877941786,
+      "shap": -1.157
+    },
+    "credit_score": {
+      "value": 657.4025314044061,
+      "shap": -0.2667
+    },
+    "debt_ratio": {
+      "value": 0.4416899571354673,
+      "shap": -0.2922
+    },
+    "employment_years": {
+      "value": 0.9396334479360585,
+      "shap": -1.1974
+    },
+    "loan_amount": {
+      "value": 22973.94227081926,
+      "shap": 0.0128
+    }
+  }
+}
+
+Business:
+ {
+  "decision": "rejected",
+  "confidence": "0%",
+  "top_reasons": [
+    "employment_years (1) is below average (5)",
+    "income (52985) is below average (55431)",
+    "debt_ratio (0) is below average (0)"
+  ]
+}
