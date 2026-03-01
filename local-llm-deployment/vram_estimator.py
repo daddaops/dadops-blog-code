@@ -55,6 +55,6 @@ if __name__ == "__main__":
     # 3B Q4:     Weights=1.9, KV=0.2, Total=2.9
     # 7B Q4:     Weights=4.4, KV=0.5, Total=5.7
     # 7B Q8:     Weights=8.8, KV=0.5, Total=10.1
-    # 13B Q4:    Weights=8.1, KV=0.9, Total=9.8
+    # 13B Q4:    Weights=8.1, KV=0.9, Total=9.9
     # 7B Q4 32K: Weights=4.4, KV=4.0, Total=9.2
-    # 70B Q4:    Weights=43.8, KV=5.0, Total=49.6
+    # 70B Q4:    Weights=43.8, KV=5.0, Total=49.5
