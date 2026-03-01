@@ -1,0 +1,25 @@
+PagedAttention Allocation:
+  req_0: 359 tokens -> 23 pages [OK]
+  req_1: 89 tokens -> 6 pages [OK]
+  req_2: 44 tokens -> 3 pages [OK]
+  req_3: 411 tokens -> 26 pages [OK]
+  req_4: 172 tokens -> 11 pages [OK]
+  req_5: 157 tokens -> 10 pages [OK]
+  req_6: 146 tokens -> 10 pages [OK]
+  req_7: 103 tokens -> 7 pages [OK]
+  req_8: 409 tokens -> 26 pages [OK]
+  req_9: 84 tokens -> 6 pages [OK]
+
+  Memory utilization: 50.0%
+  Free pages: 128/256
+
+Prefix Sharing Demo:
+  Base prompt: 256 tokens = 16 pages
+  shared_0: 16 shared + 8 unique = 24 total pages
+  shared_1: 16 shared + 8 unique = 24 total pages
+  shared_2: 16 shared + 7 unique = 23 total pages
+  shared_3: 16 shared + 3 unique = 19 total pages
+  shared_4: 16 shared + 7 unique = 23 total pages
+
+  With sharing:    38.3% utilized
+  Without sharing: would need 80 extra pages for duplicated prefixes

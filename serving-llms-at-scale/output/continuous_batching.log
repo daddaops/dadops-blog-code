@@ -1,0 +1,17 @@
+=== Variable output lengths (20-500 tokens) ===
+Continuous Batching (batch_size=8)
+  Requests: 100
+  Total decode steps: 3130
+  Tokens generated:   23,867
+  Throughput:   7.6 tokens/step
+  Avg latency:  239 steps/request
+  Completed:    100/100
+
+=== Narrow output lengths (200-300 tokens) ===
+Continuous Batching (batch_size=8)
+  Requests: 100
+  Total decode steps: 3211
+  Tokens generated:   24,791
+  Throughput:   7.7 tokens/step
+  Avg latency:  248 steps/request
+  Completed:    100/100

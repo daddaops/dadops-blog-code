@@ -1,0 +1,43 @@
+=== Varying acceptance rates ===
+Speculative Decoding (K=5, accept=50%)
+  Draft cost: 0.05, Target cost: 1.0
+  Tokens generated: 200
+  Target passes:    98 (vs 200 standard)
+  Tokens/target pass: 2.0
+  Speedup: 1.63x
+
+Speculative Decoding (K=5, accept=60%)
+  Draft cost: 0.05, Target cost: 1.0
+  Tokens generated: 201
+  Target passes:    80 (vs 200 standard)
+  Tokens/target pass: 2.5
+  Speedup: 2.00x
+
+Speculative Decoding (K=5, accept=70%)
+  Draft cost: 0.05, Target cost: 1.0
+  Tokens generated: 205
+  Target passes:    64 (vs 200 standard)
+  Tokens/target pass: 3.2
+  Speedup: 2.50x
+
+Speculative Decoding (K=5, accept=80%)
+  Draft cost: 0.05, Target cost: 1.0
+  Tokens generated: 201
+  Target passes:    54 (vs 200 standard)
+  Tokens/target pass: 3.7
+  Speedup: 2.96x
+
+Speculative Decoding (K=5, accept=90%)
+  Draft cost: 0.05, Target cost: 1.0
+  Tokens generated: 201
+  Target passes:    41 (vs 200 standard)
+  Tokens/target pass: 4.9
+  Speedup: 3.90x
+
+Summary:
+  Rate         Speedup   
+  50%          1.63       ################
+  60%          2.00       ####################
+  70%          2.50       #########################
+  80%          2.96       #############################
+  90%          3.90       #######################################

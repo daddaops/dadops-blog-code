@@ -1,0 +1,17 @@
+Static Batching (batch_size=8)
+  Requests: 100
+  Output lengths: 20-500 tokens
+  Useful tokens:  23,867
+  Padded tokens:  19,025
+  Padding waste:  44.4%
+  Avg latency:    429 steps/request
+  Relative throughput: 4.45 tokens/step
+
+Static Batching (batch_size=8)
+  Requests: 100
+  Output lengths: 200-300 tokens
+  Useful tokens:  24,791
+  Padded tokens:  4,261
+  Padding waste:  14.7%
+  Avg latency:    291 steps/request
+  Relative throughput: 6.83 tokens/step
