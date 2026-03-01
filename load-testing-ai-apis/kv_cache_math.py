@@ -4,10 +4,10 @@ KV Cache Memory Calculation — verifies the blog's memory math.
 From: https://dadops.dev/blog/load-testing-ai-apis/
 Code Block 1: "Why AI APIs Break Differently"
 
-Blog claims:
+Blog claims (corrected):
   - Llama-3 70B (FP16): 327,680 bytes per token for KV cache
-  - 8K context: 2.56 GB per request
-  - 32 concurrent requests: 82 GB (exceeds 80 GB A100)
+  - 8K context: 2.50 GB per request
+  - 32 concurrent requests: 80 GB (fills an 80 GB A100)
 """
 
 
