@@ -1,0 +1,69 @@
+============================================================
+LLM Function Calling — Verification Suite
+============================================================
+
+--- Regex Tool Call Parser ---
+  PASS: Valid tool call parsed
+  PASS: No tool call returns None
+  PASS: Malformed JSON returns None
+  PASS: Embedded tool call extracted
+  PASS: Hallucinated fn name still parses
+  PASS: System prompt contains tool description
+  PASS: System prompt contains XML format
+
+--- query_transactions ---
+  PASS: Returns total for category query
+  PASS: Returns count for category query
+  PASS: Returns currency USD
+  PASS: Returns balance for account query
+  PASS: Returns as_of date
+
+--- convert_currency ---
+  PASS: 100 USD → EUR = 92.31
+  PASS: USD→EUR rate = 0.9231
+  PASS: 847.32 USD → EUR = 782.16
+  PASS: 100 USD → GBP = 78.91
+  PASS: Unknown pair raises ValueError
+
+--- calculate ---
+  PASS: 847.32 * 0.9231 = 782.16
+  PASS: (100 + 200) / 3 = 100.0
+  PASS: 2 + 2 = 4
+  PASS: Unsafe expression raises ValueError
+  PASS: Import attempt raises ValueError
+
+--- Tool Registry ---
+  PASS: TOOLS has 3 entries
+  PASS: query_transactions in TOOLS
+  PASS: convert_currency in TOOLS
+  PASS: calculate in TOOLS
+
+--- OpenAI Schema ---
+  PASS: OpenAI schema has 3 tools
+  PASS:   query_transactions has type='function'
+  PASS:   query_transactions has parameters
+  PASS:   convert_currency has type='function'
+  PASS:   convert_currency has parameters
+  PASS:   calculate has type='function'
+  PASS:   calculate has parameters
+
+--- Anthropic Schema ---
+  PASS: Anthropic schema has 3 tools
+  PASS:   query_transactions has input_schema
+  PASS:   query_transactions has no 'type' wrapper
+  PASS:   convert_currency has input_schema
+  PASS:   convert_currency has no 'type' wrapper
+  PASS:   calculate has input_schema
+  PASS:   calculate has no 'type' wrapper
+
+--- Cross-Schema Consistency ---
+  PASS: Tool 0 name matches: query_transactions
+  PASS: Tool 0 description matches
+  PASS: Tool 1 name matches: convert_currency
+  PASS: Tool 1 description matches
+  PASS: Tool 2 name matches: calculate
+  PASS: Tool 2 description matches
+
+============================================================
+Results: 46 passed, 0 failed, 46 total
+============================================================

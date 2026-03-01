@@ -1,0 +1,9 @@
+=== Regex Tool Call Parser Tests ===
+
+Good input:  ('query_transactions', {'category': 'groceries', 'month': '2026-01'})
+Invented fn: ('send_money', {'to': 'alice', 'amount': 500})
+No call:     None
+Bad JSON:    None
+Embedded:    ('query_transactions', {'category': 'groceries'})
+
+All 5 tests passed!

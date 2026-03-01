@@ -1,0 +1,15 @@
+=== Tool Implementation Tests ===
+
+Transactions (category): {'total': 847.32, 'currency': 'USD', 'count': 23, 'category': 'groceries'}
+Transactions (balance):  {'balance': 4250.0, 'currency': 'USD', 'as_of': '2026-02-26'}
+100 USD → EUR:           {'converted': 92.31, 'rate': 0.9231}
+847.32 USD → EUR:        {'converted': 782.16, 'rate': 0.9231}
+Unknown pair error:      Unknown currency pair: USD/JPY
+847.32 * 0.9231:         {'result': 782.16}
+(100 + 200) / 3:         {'result': 100.0}
+Unsafe expression:       Unsafe expression: __import__('os').system('rm -rf /')
+
+OpenAI schema:           3 tools defined
+Anthropic schema:        3 tools defined
+
+All tests passed!
