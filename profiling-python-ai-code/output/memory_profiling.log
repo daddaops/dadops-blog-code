@@ -1,0 +1,27 @@
+Processing 10000 documents (dim=768)
+Expected memory per batch: 192.0 KB
+Expected total for all results: 29.3 MB
+
+=== LEAKY VERSION: tracemalloc top allocations ===
+  /home/ubuntu/dadops-blog-code/profiling-python-ai-code/.venv/lib/python3.13/site-packages/numpy/_core/shape_base.py:290: size=29.3 MiB (+29.3 MiB), count=3 (+3), average=10000 KiB
+  <frozen importlib._bootstrap>:488: size=593 KiB (+593 KiB), count=2660 (+2660), average=228 B
+  <frozen importlib._bootstrap_external>:784: size=183 KiB (+183 KiB), count=1548 (+1548), average=121 B
+  <frozen abc>:106: size=5202 B (+5202 B), count=22 (+22), average=236 B
+  <frozen abc>:123: size=4319 B (+4319 B), count=50 (+50), average=86 B
+
+Leaky result shape: (10000, 768)
+Current memory: 30.3 MB
+Peak memory:    59.5 MB
+
+=== FIXED VERSION: streaming to memmap ===
+  <frozen importlib._bootstrap>:488: size=10115 B (+10115 B), count=86 (+86), average=118 B
+  /usr/lib/python3.13/tempfile.py:337: size=2552 B (+2552 B), count=1 (+1), average=2552 B
+  <frozen abc>:123: size=503 B (+503 B), count=5 (+5), average=101 B
+  /usr/lib/python3.13/tempfile.py:429: size=320 B (+320 B), count=1 (+1), average=320 B
+  /usr/lib/python3.13/tracemalloc.py:560: size=312 B (+312 B), count=1 (+1), average=312 B
+
+Fixed current memory: 0.0 MB
+Fixed peak memory:    0.8 MB
+Fixed result shape: (10000, 768)
+
+Memory reduction: 77.3x less peak memory

@@ -1,0 +1,8 @@
+Embedding 500 chunks with dim=768
+Data size per result: 3072 bytes (float32)
+
+Pool (pickle):         0.095s  shape=(500, 768)
+Shared memory:         0.088s  shape=(500, 768)
+
+Speedup: 1.08x
+Pool overhead: 0.007s (pickle serialization)
