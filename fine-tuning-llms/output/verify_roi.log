@@ -1,0 +1,19 @@
+=== Fine-Tuning ROI Calculator Verification ===
+
+Default values (10K requests, 1800 few-shot tokens, 200 examples):
+  Base monthly cost:      $3.30
+  Fine-tuned monthly:     $0.66
+  Training cost (one-time): $0.54
+  Monthly savings:        $2.64
+  Break-even:             6 days
+  Input token ratio:      15.7x
+
+--- Claim Verification ---
+Input token ratio: 15.7x (blog says 15x)
+Base cost: $3.30 (blog says ~$10)
+FT cost:   $0.66 (blog says ~$0.80)
+Training cost (calculator: 300 tok, 3 epochs): $0.54
+Training cost (blog prose: 500 tok, 4 epochs): $1.20
+
+Cost per request - Base: $0.00033 (blog says ~$0.001)
+Cost per request - FT:   $0.000066 (blog says ~$0.00008)
