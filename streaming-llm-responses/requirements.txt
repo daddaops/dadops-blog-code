@@ -1,0 +1,5 @@
+openai
+anthropic
+httpx
+fastapi
+uvicorn
