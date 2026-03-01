@@ -8,10 +8,10 @@ Measures: hit rate, false positive rate, latency percentiles, and cost savings.
 No API keys required — this is a self-contained benchmark.
 
 Blog claims:
-  - Exact Match: 22% hit rate, 0% FP, p50=0.05ms
-  - Structural Hash: 38% hit rate, 0% FP, p50=0.08ms
-  - Semantic (θ=0.90): 58% hit rate, 3.8% FP, p50=16ms
-  - Cost savings at 100K queries/day with GPT-4o: $5,655/month (58% hit rate)
+  - Exact Match: 23% hit rate, 0.2% FP, p50=0.02ms
+  - Structural Hash: 46% hit rate, 0.3% FP, p50=0.04ms
+  - Semantic (θ=0.90): 80% hit rate, 0.3% FP, p50=15ms
+  - Cost savings at 100K queries/day with GPT-4o: $7,800/month (80% hit rate)
 """
 import time
 import numpy as np
@@ -142,7 +142,7 @@ if __name__ == "__main__":
         tp_rate = 100 - r['fp_rate']
         print(f"{name:<20} {r['hit_rate']:>9.1f}% {tp_rate:>7.1f}% {r['fp_rate']:>7.1f}%")
 
-    print(f"\nBlog claims: Exact=22%, Structural=38%, Semantic=58%")
+    print(f"\nBlog claims: Exact=23%, Structural=46%, Semantic=80%")
 
     # ── Latency Comparison ──
     print("\n" + "=" * 60)
@@ -155,7 +155,7 @@ if __name__ == "__main__":
                     ("Semantic θ=0.90", semantic_results)]:
         print(f"{name:<20} {r['p50_ms']:>7.2f} {r['p95_ms']:>7.2f} {r['p99_ms']:>7.2f}")
 
-    print(f"\nBlog claims: Exact p50=0.05ms, Structural p50=0.08ms, Semantic p50=16ms")
+    print(f"\nBlog claims: Exact p50=0.02ms, Structural p50=0.04ms, Semantic p50=15ms")
 
     # ── Threshold Sweep (semantic cache) ──
     print("\n" + "=" * 60)
@@ -169,16 +169,21 @@ if __name__ == "__main__":
         marker = " <-- recommended" if threshold == 0.90 else ""
         print(f"{threshold:>10.2f} {r['hit_rate']:>9.1f}% {tp_rate:>7.1f}% {r['fp_rate']:>7.1f}%{marker}")
 
-    print(f"\nBlog claims: θ=0.80→67%/8.8%FP, θ=0.85→62%/5.3%FP, "
-          f"θ=0.90→58%/3.8%FP, θ=0.95→39%/0.9%FP")
+    print(f"\nBlog claims: θ=0.80→91%/2.3%FP, θ=0.85→88%/1.2%FP, "
+          f"θ=0.90→80%/0.3%FP, θ=0.95→65%/0.2%FP")
 
-    # ── Cost Savings ──
+    # ── Cost Savings (using ACTUAL measured hit rates) ──
     print("\n" + "=" * 60)
     print("COST SAVINGS (GPT-4o, 100K queries/day)")
     print("=" * 60)
-    for name, hit_rate in [("Exact (22%)", 0.22),
-                           ("Structural (38%)", 0.38),
-                           ("Semantic (58%)", 0.58)]:
+
+    actual_rates = {
+        "Exact Match": exact_results['hit_rate'] / 100,
+        "Structural Hash": structural_results['hit_rate'] / 100,
+        "Semantic θ=0.90": semantic_results['hit_rate'] / 100,
+    }
+
+    for name, hit_rate in actual_rates.items():
         savings = monthly_savings(
             queries_per_day=100_000,
             avg_input_tokens=500,
@@ -187,20 +192,20 @@ if __name__ == "__main__":
             output_cost_per_m=10.00,
             hit_rate=hit_rate
         )
-        print(f"{name:<22} Monthly savings: ${savings['monthly_savings']:,.2f}  "
+        pct = hit_rate * 100
+        print(f"{name} ({pct:.0f}%)".ljust(28)
+              + f"Monthly savings: ${savings['monthly_savings']:,.2f}  "
               f"(No cache: ${savings['monthly_cost_no_cache']:,.2f}/mo)")
 
-    # Verify the blog's specific claim
-    gpt4o = monthly_savings(
+    # Show the baseline (no cache) cost
+    baseline = monthly_savings(
         queries_per_day=100_000,
         avg_input_tokens=500,
         avg_output_tokens=200,
         input_cost_per_m=2.50,
         output_cost_per_m=10.00,
-        hit_rate=0.58
+        hit_rate=0.0
     )
-    print(f"\nBlog claims: $9,750/mo without cache, $5,655/mo savings at 58% hit rate")
-    print(f"Actual:      ${gpt4o['monthly_cost_no_cache']:,.2f}/mo without cache, "
-          f"${gpt4o['monthly_savings']:,.2f}/mo savings")
+    print(f"\nBaseline: ${baseline['monthly_cost_no_cache']:,.2f}/mo without cache")
 
     print("\nAll benchmarks complete!")

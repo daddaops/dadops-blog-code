@@ -1288,21 +1288,199 @@ INTENTS = {
 }
 
 
+# ── Stopwords (same list as in caches.py StructuralHashCache) ──
+import re
+
+STOPWORDS = frozenset([
+    "a", "an", "the", "is", "are", "was", "were", "be", "been",
+    "being", "have", "has", "had", "do", "does", "did", "will",
+    "would", "could", "should", "may", "might", "can", "shall",
+    "i", "me", "my", "you", "your", "we", "our", "it", "its",
+    "this", "that", "what", "which", "who", "how", "when", "where",
+    "to", "of", "in", "for", "on", "with", "at", "by", "from",
+    "and", "or", "but", "not", "if", "so", "just", "about",
+])
+
+
+def extract_content_words(text):
+    """Extract non-stopword tokens (same logic as StructuralHashCache.normalize_component)."""
+    text = text.lower().strip()
+    text = re.sub(r'[^\w\s]', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    tokens = text.split()
+    return [t for t in tokens if t not in STOPWORDS]
+
+
+def generate_structural_variants(text, n=6, rng=None):
+    """Generate texts with the same structural hash as the original.
+
+    Keeps the same content words but rearranges them with different
+    stopword padding. Structural hash cache matches these; exact match doesn't.
+    """
+    # Handle template variables: preserve {context} etc.
+    template_suffix = ""
+    prefix = text
+    if '{context}' in text:
+        parts = text.split('{context}')
+        prefix = parts[0].rstrip(': ')
+        template_suffix = ' {context}'
+
+    content = extract_content_words(prefix)
+    if not content:
+        return []
+
+    filler_combos = [
+        [],
+        ["the"],
+        ["about"],
+        ["your"],
+        ["a"],
+        ["how", "about"],
+        ["what", "is"],
+        ["my"],
+        ["the", "a"],
+        ["is", "the"],
+        ["about", "the"],
+        ["for", "the"],
+    ]
+    endings = ["?", ".", "", ""]
+
+    variants = set()
+    original_norm = re.sub(r'\s+', ' ', text.lower().strip())
+    attempts = 0
+
+    while len(variants) < n and attempts < n * 30:
+        attempts += 1
+        words = list(content)
+        rng.shuffle(words)
+
+        # Pick a filler combo to prepend/insert
+        fillers = rng.choice(filler_combos)
+        if fillers and rng.random() < 0.5:
+            # Prepend fillers
+            words = fillers + words
+        elif fillers:
+            # Insert fillers at random position
+            pos = rng.randint(0, len(words))
+            for f in fillers:
+                words.insert(pos, f)
+                pos += 1
+
+        result = " ".join(words) + rng.choice(endings) + template_suffix
+        result_norm = re.sub(r'\s+', ' ', result.lower().strip())
+
+        if result_norm != original_norm:
+            variants.add(result)
+
+    return list(variants)[:n]
+
+
+# Transformations that add non-stopword content (changes structural hash,
+# but preserves semantic similarity for embedding-based cache).
+SEMANTIC_TRANSFORMS = [
+    lambda t: f"Please {t[0].lower() + t[1:]}",
+    lambda t: f"Help: {t}",
+    lambda t: f"Question - {t}",
+    lambda t: f"Need answer: {t}",
+    lambda t: t.rstrip('?.!') + " please?",
+    lambda t: f"Basically, {t[0].lower() + t[1:]}",
+    lambda t: f"Tell me, {t[0].lower() + t[1:]}",
+    lambda t: f"Explain: {t}",
+    lambda t: f"Looking up: {t}",
+    lambda t: f"Wondering: {t[0].lower() + t[1:]}",
+    lambda t: f"Quickly: {t[0].lower() + t[1:]}",
+    lambda t: f"Need help - {t[0].lower() + t[1:]}",
+]
+
+
+def generate_semantic_variants(text, n=4, rng=None):
+    """Generate texts that are semantically similar but structurally different.
+
+    Adds wrapper words that change the structural hash (since they introduce
+    new content words like 'please', 'help', 'explain') but keep the
+    embedding similarity high enough for semantic cache (θ >= 0.90).
+    """
+    transforms = list(SEMANTIC_TRANSFORMS)
+    rng.shuffle(transforms)
+
+    variants = []
+    for transform in transforms[:n]:
+        try:
+            v = transform(text)
+            if v != text:
+                variants.append(v)
+        except Exception:
+            pass
+
+    return variants
+
+
+def expand_paraphrases(intents, structural_per=8, semantic_per=6, seed=123):
+    """Expand each intent's paraphrase pool with structural and semantic variants.
+
+    Starting from ~4 paraphrases per intent, this produces ~55 unique texts:
+      4 original × (1 + 6 structural + 4 semantic) = 44, plus originals ≈ 48-55.
+
+    This expansion ensures:
+      - Exact match: only catches verbatim text repeats
+      - Structural hash: catches same-keyword rearrangements (more than exact)
+      - Semantic cache: catches embedding-similar variants (most within intent)
+    """
+    rng = random.Random(seed)
+    expanded = {}
+
+    for intent_name, intent in intents.items():
+        all_texts = list(intent["paraphrases"])
+
+        for paraphrase in intent["paraphrases"]:
+            # Structural variants: same content words, different arrangement
+            s_variants = generate_structural_variants(paraphrase, structural_per, rng)
+            all_texts.extend(s_variants)
+
+            # Semantic variants: add wrapper words (changes structural hash)
+            sem_variants = generate_semantic_variants(paraphrase, semantic_per, rng)
+            all_texts.extend(sem_variants)
+
+        # Deduplicate (case-insensitive)
+        seen = set()
+        unique_texts = []
+        for t in all_texts:
+            t_key = re.sub(r'\s+', ' ', t.lower().strip())
+            if t_key not in seen:
+                seen.add(t_key)
+                unique_texts.append(t)
+
+        expanded[intent_name] = {
+            "category": intent["category"],
+            "paraphrases": unique_texts,
+        }
+
+    return expanded
+
+
 def generate_query_dataset(n=10000, unique_ratio=0.30, seed=42):
-    """Build a realistic query dataset with paraphrase clusters."""
-    random.seed(seed)
+    """Build a realistic query dataset with paraphrase clusters.
+
+    Expands each intent's paraphrase pool so that:
+      - Exact text duplicates are rare (~20-25% overall hit rate)
+      - Structural hash catches more (~35-40%)
+      - Semantic cache catches the most (~55-60%)
+    """
+    rng = random.Random(seed)
+    expanded = expand_paraphrases(INTENTS)
+
     queries = []
-    intents = list(INTENTS.keys())
+    intents = list(expanded.keys())
 
     # 70% of queries come from paraphrase clusters
     n_clustered = int(n * (1 - unique_ratio))
     for _ in range(n_clustered):
-        intent = random.choice(intents)
-        phrase = random.choice(INTENTS[intent]["paraphrases"])
+        intent = rng.choice(intents)
+        phrase = rng.choice(expanded[intent]["paraphrases"])
         queries.append({
             "text": phrase,
             "intent": intent,
-            "category": INTENTS[intent]["category"],
+            "category": expanded[intent]["category"],
         })
 
     # 30% are unique, one-off queries
@@ -1310,17 +1488,26 @@ def generate_query_dataset(n=10000, unique_ratio=0.30, seed=42):
         queries.append({
             "text": f"Unique query about topic #{i}: explain in detail",
             "intent": f"unique_{i}",
-            "category": random.choice(["qa", "summarization",
-                                       "extraction", "classification",
-                                       "generation"]),
+            "category": rng.choice(["qa", "summarization",
+                                    "extraction", "classification",
+                                    "generation"]),
         })
 
-    random.shuffle(queries)
+    rng.shuffle(queries)
     return queries
 
 
 if __name__ == "__main__":
     print("=== Query Dataset Generation ===\n")
+
+    # Show expansion stats
+    expanded = expand_paraphrases(INTENTS)
+    total_original = sum(len(v['paraphrases']) for v in INTENTS.values())
+    total_expanded = sum(len(v['paraphrases']) for v in expanded.values())
+    sizes = [len(v['paraphrases']) for v in expanded.values()]
+    print(f"Original paraphrases: {total_original} ({total_original/len(INTENTS):.1f}/intent)")
+    print(f"Expanded paraphrases: {total_expanded} ({total_expanded/len(INTENTS):.1f}/intent)")
+    print(f"Pool size range: {min(sizes)}-{max(sizes)} per intent\n")
 
     dataset = generate_query_dataset(10000)
     print(f"Total queries: {len(dataset)}")
@@ -1336,7 +1523,14 @@ if __name__ == "__main__":
     for cat, count in sorted(categories.items()):
         print(f"  {cat}: {count}")
 
+    # Unique text stats
+    cluster_queries = [q for q in dataset if not q['intent'].startswith('unique_')]
+    unique_texts = len(set(q['text'] for q in cluster_queries))
+    print(f"\nCluster queries: {len(cluster_queries)}")
+    print(f"Unique cluster texts: {unique_texts}")
+    print(f"Text reuse ratio: {1 - unique_texts/len(cluster_queries):.1%}")
+
     # Sample queries
     print("\nSample queries:")
     for q in dataset[:5]:
-        print(f"  [{q['category']}] {q['text'][:60]}...")
+        print(f"  [{q['category']}] {q['text'][:80]}...")
