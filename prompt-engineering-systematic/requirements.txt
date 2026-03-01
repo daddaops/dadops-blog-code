@@ -1,0 +1,6 @@
+# prompt-engineering-systematic dependencies
+# All scripts are stdlib-only (dataclasses, difflib, random)
+# No external dependencies required
+#
+# NOTE: The benchmark results in the blog require an LLM API (not included).
+# The scoring logic and selection algorithms can be tested without an API.
