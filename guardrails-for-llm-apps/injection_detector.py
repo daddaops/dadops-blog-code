@@ -32,7 +32,7 @@ INJECTION_PATTERNS = [
      "role-play attack"),
     (r"do\s+not\s+follow\s+(your|the|any)\s+(rules|instructions|guidelines)",
      "rule bypass"),
-    (r"\bDAN\b.*\bdo\s+anything\b|\bdo\s+anything\b.*\bDAN\b",
+    (r"\bdan\b.*\bdo\s+anything\b|\bdo\s+anything\b.*\bdan\b",
      "DAN jailbreak"),
     (r"(system|admin|developer)\s*:\s*",
      "fake role prefix"),

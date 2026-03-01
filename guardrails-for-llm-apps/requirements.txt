@@ -1,0 +1,4 @@
+# Guardrails for LLM Apps
+# Most scripts use only Python stdlib (re, dataclasses, typing, time)
+# unprotected_llm.py requires openai (and an API key)
+openai>=1.0.0

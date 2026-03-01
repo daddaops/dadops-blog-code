@@ -1,0 +1,2 @@
+output_safety refusal: passed=False, detail=Model refusal detected — may need prompt adjustment
+output_safety clean: passed=True

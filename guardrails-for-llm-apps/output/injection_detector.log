@@ -1,0 +1,3 @@
+injection_detector: 8 patterns loaded
+  clean input: passed=True
+  attack input: passed=False, detail=Matched pattern: instruction override

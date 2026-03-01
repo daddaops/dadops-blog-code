@@ -1,0 +1,3 @@
+pii_scanner: found={'email': 1, 'ssn': 1}
+  cleaned: Email me at [EMAIL_REDACTED], my SSN is [SSN_REDACTED]
+  passed=True (blog claims: always True)

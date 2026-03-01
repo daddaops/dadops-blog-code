@@ -15,9 +15,9 @@ import re
 from injection_detector import GuardrailResult
 
 REFUSAL_PATTERNS = [
-    r"I (?:can't|cannot|am unable to|won't|will not) (?:help|assist|provide|do that)",
-    r"as an AI(?: language model)?",
-    r"I (?:don't|do not) have (?:access|the ability)",
+    r"i (?:can't|cannot|am unable to|won't|will not) (?:help|assist|provide|do that)",
+    r"as an ai(?: language model)?",
+    r"i (?:don't|do not) have (?:access|the ability)",
     r"it(?:'s| is) (?:not appropriate|inappropriate) for me",
 ]
 
