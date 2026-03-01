@@ -1,0 +1,5 @@
+eps=0.01: 0/300 flipped (0% attack success)
+eps=0.05: 0/300 flipped (0% attack success)
+eps=0.10: 0/300 flipped (0% attack success)
+eps=0.20: 0/300 flipped (0% attack success)
+eps=0.30: 88/300 flipped (29% attack success)

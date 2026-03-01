@@ -1,0 +1,5 @@
+Attack success rate at eps=0.15:
+  FGSM (1 step):   0/50 = 0%
+  PGD  (20 steps): 0/50 = 0%
+
+PGD loss trajectory: 0.000 -> 0.011 (grew 63.0x)

@@ -33,7 +33,7 @@ if __name__ == "__main__":
         X.append(img); y.append(2)
     X, y = np.array(X), np.array(y)
 
-    def train_classifier(X, y, epochs=500, adversarial=False, eps=0.15):
+    def train_classifier(X, y, epochs=500, adversarial=False, eps=0.15, lr=1.0):
         """Train a 64->32->3 MLP, optionally with adversarial training."""
         np.random.seed(7)
         W1 = np.random.randn(64, 32) * np.sqrt(2 / 64)
@@ -61,9 +61,9 @@ if __name__ == "__main__":
             one_hot = np.zeros_like(probs)
             one_hot[np.arange(len(y)), y] = 1
             dz = (probs - one_hot) / len(X)
-            W2 -= 1.0 * h.T @ dz;   b2 -= 1.0 * dz.sum(axis=0)
+            W2 -= lr * h.T @ dz;   b2 -= lr * dz.sum(axis=0)
             dh = dz @ W2.T;          dh[h == 0] = 0
-            W1 -= 1.0 * X_batch.T @ dh;  b1 -= 1.0 * dh.sum(axis=0)
+            W1 -= lr * X_batch.T @ dh;  b1 -= lr * dh.sum(axis=0)
 
         return W1, b1, W2, b2
 
@@ -85,12 +85,18 @@ if __name__ == "__main__":
         return clean, robust
 
     W1s, b1s, W2s, b2s = train_classifier(X, y, adversarial=False)
-    W1r, b1r, W2r, b2r = train_classifier(X, y, adversarial=True, eps=0.15)
+    W1r, b1r, W2r, b2r = train_classifier(X, y, adversarial=True, eps=0.3, lr=0.3, epochs=1000)
 
     split = int(0.7 * len(X))
     X_te, y_te = X[split:], y[split:]
 
+    print(f"{'Model':>12s} | {'Clean':>7s} | {'eps=0.15':>8s} | {'eps=0.30':>8s} | {'eps=0.50':>8s}")
+    print("-" * 60)
     for name, w1, b1, w2, b2 in [("Standard", W1s, b1s, W2s, b2s),
                                    ("Adversarial", W1r, b1r, W2r, b2r)]:
-        clean, robust = accuracy(w1, b1, w2, b2, X_te, y_te, eps=0.15)
-        print(f"{name:>12s} | Clean: {clean:.1%} | FGSM (eps=0.15): {robust:.1%}")
+        clean, _ = accuracy(w1, b1, w2, b2, X_te, y_te)
+        results = [f"{clean:.1%}"]
+        for eps_eval in [0.15, 0.30, 0.50]:
+            _, robust = accuracy(w1, b1, w2, b2, X_te, y_te, eps=eps_eval)
+            results.append(f"{robust:.1%}")
+        print(f"{name:>12s} | {' | '.join(f'{r:>7s}' for r in results)}")

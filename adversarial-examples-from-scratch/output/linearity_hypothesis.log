@@ -1,0 +1,15 @@
+   Dim |  ||w||_1 | shift @ 0.01 | shift @ 0.05 | shift @ 0.10
+-----------------------------------------------------------------
+d=  10 |      0.7 |          0.0 |          0.0 |          0.1
+d=  50 |      3.8 |          0.0 |          0.2 |          0.4
+d= 100 |      7.4 |          0.1 |          0.4 |          0.7
+d= 500 |     39.6 |          0.4 |          2.0 |          4.0
+d=1000 |     79.7 |          0.8 |          4.0 |          8.0
+d=5000 |    398.3 |          4.0 |         19.9 |         39.8
+
+The output shift = epsilon * ||w||_1, which grows with dimension.
+At d=5000 and epsilon=0.01, the shift is ~40x the original output!
+
+d=1000: adversarial shift = 0.85
+d=1000: random noise shift = 0.00
+Adversarial perturbations are special: they align with the weights.

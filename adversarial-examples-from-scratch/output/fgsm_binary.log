@@ -1,0 +1,4 @@
+Original: class 1, confidence = 0.998
+Adversarial: class 0, confidence = 0.522
+Perturbation: (2.3, 0.5) -> (1.80, 0.00)
+L_inf norm of perturbation: 0.50
