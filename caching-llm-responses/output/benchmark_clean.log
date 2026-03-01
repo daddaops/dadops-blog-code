@@ -1,0 +1,78 @@
+=== LLM Response Cache Benchmark ===
+
+Generating 10K query dataset...
+Total queries: 10000
+Unique intents: 3140
+
+Benchmarking Exact Match Cache...
+  Done in 0.7s
+Benchmarking Structural Hash Cache...
+  Done in 0.7s
+Benchmarking Semantic Cache (θ=0.90)...
+  (Loading embedding model, this may take a moment...)
+Key                     | Status     |  | 
+------------------------+------------+--+-
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Done in 767.9s
+
+============================================================
+HIT RATE COMPARISON
+============================================================
+Strategy               Hit Rate      TP%      FP%
+------------------------------------------------
+Exact Match               22.8%    99.8%     0.2%
+Structural Hash           45.6%    99.7%     0.3%
+Semantic θ=0.90           80.2%    99.6%     0.4%
+
+Blog claims: Exact=22%, Structural=38%, Semantic=58%
+
+============================================================
+LATENCY COMPARISON (ms)
+============================================================
+Strategy                  p50      p95      p99
+----------------------------------------------
+Exact Match             0.03    0.04    0.06
+Structural Hash         0.03    0.05    0.07
+Semantic θ=0.90        16.19  304.94  395.28
+
+Blog claims: Exact p50=0.05ms, Structural p50=0.08ms, Semantic p50=16ms
+
+============================================================
+SEMANTIC CACHE THRESHOLD SWEEP
+============================================================
+ Threshold   Hit Rate      TP%      FP%
+--------------------------------------
+Key                     | Status     |  | 
+------------------------+------------+--+-
+
+      0.80      91.3%    97.3%     2.7%
+Key                     | Status     |  | 
+------------------------+------------+--+-
+
+      0.85      87.8%    98.9%     1.1%
+Key                     | Status     |  | 
+------------------------+------------+--+-
+
+      0.90      80.2%    99.6%     0.4% <-- recommended
+Traceback (most recent call last):
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/benchmark.py", line 167, in <module>
+    r = benchmark_strategy(SemanticCache(threshold=threshold), dataset)
+                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/caches.py", line 98, in __init__
+    self.model = SentenceTransformer(model_name)
+                 ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/sentence_transformers/SentenceTransformer.py", line 327, in __init__
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/sentence_transformers/SentenceTransformer.py", line 2305, in _load_sbert_model
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/sentence_transformers/models/Transformer.py", line 366, in load
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/sentence_transformers/models/Transformer.py", line 89, in __init__
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/sentence_transformers/models/Transformer.py", line 197, in _load_model
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 374, in from_pretrained
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 4030, in from_pretrained
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/models/bert/modeling_bert.py", line 619, in __init__
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 1263, in __init__
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 1859, in _check_and_adjust_experts_implementation
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 1908, in get_correct_experts_implementation
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 1730, in _grouped_mm_can_dispatch
+  File "/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 1945, in _can_set_experts_implementation
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/dadops-blog-code/caching-llm-responses/.venv/lib/python3.13/site-packages/transformers/models/bert/modeling_bert.py'
