@@ -1,0 +1,49 @@
+=== 1. VRAM Estimation Function ===
+  [PASS] Returns dict with expected keys
+  [PASS] Overhead is 0.8 by default
+  [PASS] Weights formula correct for 7B Q4 — got=4.4, manual=4.4
+  [PASS] KV cache formula correct for 7B 4K — got=0.5, manual=0.5
+  [PASS] Total formula correct for 7B Q4 4K — got=5.7, manual=5.7
+
+=== 2. Blog Table Verification ===
+  [PASS] 3B Q4 weights=1.9 — got=1.9
+  [PASS] 3B Q4 KV cache=0.2 — got=0.2
+  [PASS] 3B Q4 total=2.9 — got=2.9
+  [PASS] 7B Q4 weights=4.4 — got=4.4
+  [PASS] 7B Q4 KV cache=0.5 — got=0.5
+  [PASS] 7B Q4 total=5.7 — got=5.7
+  [PASS] 7B Q8 weights=8.8 — got=8.8
+  [PASS] 7B Q8 KV cache=0.5 — got=0.5
+  [PASS] 7B Q8 total=10.1 — got=10.1
+  [PASS] 13B Q4 weights=8.1 — got=8.1
+  [PASS] 13B Q4 KV cache=0.9 — got=0.9
+  [FAIL] 13B Q4 total=9.8 — got=9.9
+  [PASS] 7B Q4 32K weights=4.4 — got=4.4
+  [PASS] 7B Q4 32K KV cache=4.0 — got=4.0
+  [PASS] 7B Q4 32K total=9.2 — got=9.2
+  [PASS] 70B Q4 weights=43.8 — got=43.8
+  [PASS] 70B Q4 KV cache=5.0 — got=5.0
+  [FAIL] 70B Q4 total=49.6 — got=49.5
+
+=== 3. Blog Prose Claims ===
+  [PASS] 7B Q4 raw weights ≈ 3.5 GB — actual=3.5
+  [PASS] 7B Q4 with 25% overhead ≈ 4.4 GB — actual=4.4
+  [PASS] 7B 4K KV cache ≈ 256-512 MB — actual=512 MB (heuristic says 512 MB)
+  [PASS] 7B 32K KV cache = 4.0 GB by heuristic — actual=4.0 GB (blog prose says '2 GB', heuristic says 4.0)
+  [PASS] 7B@32K vs 13B@4K close in memory — 7B@32K=9.2, 13B@4K=9.9
+  [PASS] Weight scaling is linear — ratio=2.32, expected=2.33
+
+=== 4. JS Calculator Formula Match ===
+  [PASS] JS formula matches Python for 7B Q4 4K — py=5.7, js=5.7
+  [PASS] JS formula matches Python for 13B Q4 8K — py=10.8, js=10.8
+  [PASS] JS formula matches Python for 70B Q4 4K — py=49.5, js=49.5
+  [PASS] 90% VRAM rule: 12GB → 10.8 usable
+
+=== 5. Benchmark Table Consistency ===
+  [PASS] vLLM 20 concurrent aggregate ≈ 500 tok/s — 25 tok/s × 20 = 500 tok/s
+  [PASS] Ollama 20 concurrent aggregate ≈ 44 tok/s — 2.2 tok/s × 20 = 44 tok/s
+  [PASS] vLLM vs Ollama ≈ 10x at 20 concurrent — actual ratio=11.4x (blog says ~10x)
+
+==================================================
+Results: 34 passed, 2 failed, 36 total
+WARNING: 2 test(s) failed
