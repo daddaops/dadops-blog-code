@@ -1,0 +1,26 @@
+[
+    {
+        "input": "What is our refund policy?",
+        "expected": "30-day money-back guarantee",
+        "context": "We offer a 30-day money-back guarantee on all plans.",
+        "category": "factual"
+    },
+    {
+        "input": "Can I get a discount?",
+        "expected": null,
+        "context": "Pricing is listed on our website.",
+        "category": "unanswerable"
+    },
+    {
+        "input": "How do I cancel my subscription?",
+        "expected": "cancel anytime",
+        "context": "You can cancel anytime from your account settings.",
+        "category": "factual"
+    },
+    {
+        "input": "What are your business hours?",
+        "expected": "9am to 5pm",
+        "context": "Our support team is available 9am to 5pm EST, Monday through Friday.",
+        "category": "factual"
+    }
+]
