@@ -1,0 +1,4 @@
+numpy
+faiss-cpu
+psycopg2-binary
+pgvector
