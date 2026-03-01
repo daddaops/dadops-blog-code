@@ -1,0 +1,4 @@
+# For VRAM estimation and verification: no dependencies needed (stdlib only)
+# For Ollama/vLLM client scripts:
+openai
+requests
