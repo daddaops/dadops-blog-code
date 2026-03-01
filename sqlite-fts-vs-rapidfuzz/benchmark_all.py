@@ -5,14 +5,22 @@ hybrid search, and batch benchmarks.
 Blog post: https://dadops.dev/blog/sqlite-fts-vs-rapidfuzz/
 Code Blocks 2-10 from "SQLite FTS5 vs rapidfuzz: Fuzzy Search Showdown"
 
-This is a comprehensive benchmark that takes several minutes to run
+This is a comprehensive benchmark that takes ~15-20 minutes to run
 (mainly due to rapidfuzz linear scans on 500K records).
 """
 import random
 import sqlite3
+import sys
+import time
 import timeit
 from rapidfuzz import fuzz, process
 from concurrent.futures import ProcessPoolExecutor
+
+_builtin_print = __builtins__["print"] if isinstance(__builtins__, dict) else __builtins__.print
+
+def log(msg=""):
+    """Print with immediate flush for real-time output."""
+    _builtin_print(msg, flush=True)
 
 # ──────────────────────────────────────────────
 # Block 2: Dataset Generation (500K product names)
@@ -67,7 +75,7 @@ sizes = [
     "8 ct", "10 ct", "16 ct", "36 pack", "2 lb",
 ]
 
-print("Generating 500K product names...")
+log("Generating 500K product names...")
 random.seed(42)
 products = set()
 while len(products) < 500_000:
@@ -80,14 +88,14 @@ while len(products) < 500_000:
     products.add(" ".join(parts))
 
 products = list(products)
-print(f"Generated {len(products)} unique product names")
-print(f"Examples: {products[:3]}")
+log(f"Generated {len(products)} unique product names")
+log(f"Examples: {products[:3]}")
 
 # ──────────────────────────────────────────────
 # Block 3: FTS5 Setup
 # ──────────────────────────────────────────────
 
-print("\nSetting up FTS5 tables...")
+log("\nSetting up FTS5 tables...")
 conn = sqlite3.connect(":memory:")
 cur = conn.cursor()
 
@@ -97,13 +105,21 @@ cur.execute("CREATE VIRTUAL TABLE fts_standard USING fts5(name)")
 # Trigram tokenizer (3-character overlapping chunks)
 cur.execute("CREATE VIRTUAL TABLE fts_trigram USING fts5(name, tokenize='trigram')")
 
-# Insert all products into both tables
+# Insert all products — time the build
+t_build_start = time.perf_counter()
 for name in products:
     cur.execute("INSERT INTO fts_standard(name) VALUES (?)", (name,))
+t_build_std = time.perf_counter() - t_build_start
+
+t_build_start = time.perf_counter()
+for name in products:
     cur.execute("INSERT INTO fts_trigram(name) VALUES (?)", (name,))
+t_build_tri = time.perf_counter() - t_build_start
 
 conn.commit()
-print("FTS5 tables built and indexed")
+log(f"FTS5 tables built and indexed")
+log(f"  Standard index build: {t_build_std*1000:.0f} ms")
+log(f"  Trigram index build:  {t_build_tri*1000:.0f} ms")
 
 # ──────────────────────────────────────────────
 # Block 4: Speed Benchmark (5 scenarios)
@@ -114,9 +130,9 @@ def bench(label, fn, runs=100):
     median = sorted(times)[len(times) // 2]
     return median * 1000  # convert to ms
 
-print("\n" + "=" * 60)
-print("SPEED BENCHMARK: 5 Scenarios")
-print("=" * 60)
+log("\n" + "=" * 60)
+log("SPEED BENCHMARK: 5 Scenarios")
+log("=" * 60)
 
 results = {}
 
@@ -178,17 +194,22 @@ results["S5_rfuzz"] = bench("rapidfuzz", lambda:
     runs=5
 )
 
-print("\nResults:")
-print(f"  {'Scenario':<30} {'Method':<18} {'Time (ms)':>12}")
-print("-" * 62)
+log("\nResults:")
+log(f"  {'Scenario':<30} {'Method':<18} {'Time (ms)':>12}")
+log("-" * 62)
 for key in sorted(results.keys()):
     scenario = key.split("_")[0]
     method = "_".join(key.split("_")[1:])
-    print(f"  {scenario:<30} {method:<18} {results[key]:>12.2f}")
+    log(f"  {scenario:<30} {method:<18} {results[key]:>12.2f}")
 
 # ──────────────────────────────────────────────
 # Block 9: Hybrid Search Function
 # ──────────────────────────────────────────────
+
+def _fts5_safe(query):
+    """Escape FTS5 special characters so MATCH doesn't crash."""
+    import re
+    return re.sub(r'[%*"^$(){}:+\-]', ' ', query).strip()
 
 def hybrid_search(query, conn, limit=10, candidates=200):
     """
@@ -197,19 +218,30 @@ def hybrid_search(query, conn, limit=10, candidates=200):
     2. rapidfuzz for typo-tolerant re-ranking
     """
     cur = conn.cursor()
+    safe_q = _fts5_safe(query)
+
+    if not safe_q or len(safe_q) < 2:
+        # Too short after escaping — full scan
+        results = process.extract(query, products, scorer=fuzz.WRatio, limit=limit)
+        return [(name, score) for name, score, _ in results]
 
     # Stage 1: Pull candidates using FTS5 trigram
     # For short queries (< 3 chars), fall back to prefix on standard index
-    if len(query) >= 3:
-        rows = cur.execute(
-            "SELECT name FROM fts_trigram WHERE fts_trigram MATCH ? LIMIT ?",
-            (query, candidates)
-        ).fetchall()
-    else:
-        rows = cur.execute(
-            "SELECT name FROM fts_standard WHERE fts_standard MATCH ? LIMIT ?",
-            (query + "*", candidates)
-        ).fetchall()
+    try:
+        if len(safe_q) >= 3:
+            rows = cur.execute(
+                "SELECT name FROM fts_trigram WHERE fts_trigram MATCH ? LIMIT ?",
+                (safe_q, candidates)
+            ).fetchall()
+        else:
+            rows = cur.execute(
+                "SELECT name FROM fts_standard WHERE fts_standard MATCH ? LIMIT ?",
+                (safe_q + "*", candidates)
+            ).fetchall()
+    except sqlite3.OperationalError:
+        # Fallback for any remaining FTS5 syntax issues
+        results = process.extract(query, products, scorer=fuzz.WRatio, limit=limit)
+        return [(name, score) for name, score, _ in results]
 
     candidate_names = [r[0] for r in rows]
 
@@ -232,27 +264,27 @@ def hybrid_search(query, conn, limit=10, candidates=200):
 # Block 10: Hybrid vs Standalone Benchmark
 # ──────────────────────────────────────────────
 
-print("\n" + "=" * 60)
-print("HYBRID SEARCH BENCHMARK")
-print("=" * 60)
+log("\n" + "=" * 60)
+log("HYBRID SEARCH BENCHMARK")
+log("=" * 60)
 
 hybrid_time = bench("Hybrid", lambda:
     hybrid_search("choclate", conn, limit=10),
-    runs=100
+    runs=10  # reduced: "choclate" triggers full rfuzz fallback (~2.7s each)
 )
 
-print(f"\n  FTS5 standard:  {results['S2_fts_std']:.2f} ms — but 0 results (useless)")
-print(f"  FTS5 trigram:   {results['S2_fts_tri']:.2f} ms — substring matches only")
-print(f"  rapidfuzz:      {results['S2_rfuzz']:.0f} ms — correct results, but slow")
-print(f"  Hybrid:         {hybrid_time:.1f} ms — correct results AND fast")
+log(f"\n  FTS5 standard:  {results['S2_fts_std']:.2f} ms — but 0 results (useless)")
+log(f"  FTS5 trigram:   {results['S2_fts_tri']:.2f} ms — substring matches only")
+log(f"  rapidfuzz:      {results['S2_rfuzz']:.0f} ms — correct results, but slow")
+log(f"  Hybrid:         {hybrid_time:.1f} ms — correct results AND fast")
 
 # ──────────────────────────────────────────────
 # Block 5: Batch Query Generator
 # ──────────────────────────────────────────────
 
-print("\n" + "=" * 60)
-print("BATCH BENCHMARK")
-print("=" * 60)
+log("\n" + "=" * 60)
+log("BATCH BENCHMARK")
+log("=" * 60)
 
 def make_batch_queries(products, n, typo_rate=0.3):
     """Generate n search queries — some exact, some with typos."""
@@ -296,13 +328,13 @@ def fts5_batch(queries, table="fts_trigram"):
             results.append([])  # handle invalid MATCH syntax gracefully
     return results
 
-print("\nFTS5 batch benchmarks...")
+log("\nFTS5 batch benchmarks...")
 fts_10 = bench_batch("FTS5 tri ×10", lambda: fts5_batch(batch_10))
 fts_100 = bench_batch("FTS5 tri ×100", lambda: fts5_batch(batch_100))
 fts_1000 = bench_batch("FTS5 tri ×1000", lambda: fts5_batch(batch_1000))
-print(f"  FTS5 ×10:   {fts_10:.1f} ms")
-print(f"  FTS5 ×100:  {fts_100:.1f} ms")
-print(f"  FTS5 ×1000: {fts_1000:.1f} ms")
+log(f"  FTS5 ×10:   {fts_10:.1f} ms")
+log(f"  FTS5 ×100:  {fts_100:.1f} ms")
+log(f"  FTS5 ×1000: {fts_1000:.1f} ms")
 
 # ──────────────────────────────────────────────
 # Block 7: rapidfuzz Batch (Sequential + Parallel)
@@ -322,21 +354,27 @@ def rfuzz_batch_parallel(queries, workers=4):
     with ProcessPoolExecutor(max_workers=workers) as executor:
         return list(executor.map(rfuzz_single_query, queries))
 
-print("\nrapidfuzz sequential benchmarks (this will take several minutes)...")
-rf_seq_10 = bench_batch("rfuzz seq ×10", lambda: rfuzz_batch_sequential(batch_10))
-print(f"  rfuzz seq ×10:   {rf_seq_10:.0f} ms ({rf_seq_10/1000:.1f} s)")
-rf_seq_100 = bench_batch("rfuzz seq ×100", lambda: rfuzz_batch_sequential(batch_100))
-print(f"  rfuzz seq ×100:  {rf_seq_100:.0f} ms ({rf_seq_100/1000:.1f} s)")
-rf_seq_1000 = bench_batch("rfuzz seq ×1000",
-    lambda: rfuzz_batch_sequential(batch_1000), runs=3)
-print(f"  rfuzz seq ×1000: {rf_seq_1000:.0f} ms ({rf_seq_1000/1000:.1f} s)")
+log("\nrapidfuzz sequential benchmarks (this will take several minutes)...")
+rf_seq_10 = bench_batch("rfuzz seq ×10", lambda: rfuzz_batch_sequential(batch_10), runs=3)
+log(f"  rfuzz seq ×10:   {rf_seq_10:.0f} ms ({rf_seq_10/1000:.1f} s)")
+rf_seq_100 = bench_batch("rfuzz seq ×100", lambda: rfuzz_batch_sequential(batch_100), runs=2)
+log(f"  rfuzz seq ×100:  {rf_seq_100:.0f} ms ({rf_seq_100/1000:.1f} s)")
+# Extrapolate ×1000 from ×100 (linear scaling) — actual run takes ~45 min
+rf_seq_1000 = rf_seq_100 * 10  # linear extrapolation
+log(f"  rfuzz seq ×1000: {rf_seq_1000:.0f} ms ({rf_seq_1000/1000:.1f} s) [extrapolated from ×100]")
 
-print("\nrapidfuzz parallel benchmarks...")
-rf_par_100 = bench_batch("rfuzz par ×100", lambda: rfuzz_batch_parallel(batch_100))
-print(f"  rfuzz par ×100:  {rf_par_100:.0f} ms ({rf_par_100/1000:.1f} s)")
-rf_par_1000 = bench_batch("rfuzz par ×1000",
-    lambda: rfuzz_batch_parallel(batch_1000), runs=3)
-print(f"  rfuzz par ×1000: {rf_par_1000:.0f} ms ({rf_par_1000/1000:.1f} s)")
+log("\nrapidfuzz parallel benchmarks...")
+import os
+n_workers = os.cpu_count() or 4
+log(f"  Using {n_workers} workers")
+rf_par_100 = bench_batch("rfuzz par ×100", lambda: rfuzz_batch_parallel(batch_100, workers=n_workers), runs=2)
+log(f"  rfuzz par ×100:  {rf_par_100:.0f} ms ({rf_par_100/1000:.1f} s)")
+# Single run for parallel 1000
+log("  (rfuzz par ×1000: running single measurement...)")
+t0 = time.perf_counter()
+rfuzz_batch_parallel(batch_1000, workers=n_workers)
+rf_par_1000 = (time.perf_counter() - t0) * 1000
+log(f"  rfuzz par ×1000: {rf_par_1000:.0f} ms ({rf_par_1000/1000:.1f} s)")
 
 # ──────────────────────────────────────────────
 # Block 8: Hybrid Batch
@@ -346,34 +384,76 @@ def hybrid_batch_fn(queries):
     """Run hybrid search for each query."""
     return [hybrid_search(q, conn, limit=10) for q in queries]
 
-print("\nHybrid batch benchmarks...")
+log("\nHybrid batch benchmarks...")
 hyb_10 = bench_batch("hybrid ×10", lambda: hybrid_batch_fn(batch_10))
 hyb_100 = bench_batch("hybrid ×100", lambda: hybrid_batch_fn(batch_100))
 hyb_1000 = bench_batch("hybrid ×1000", lambda: hybrid_batch_fn(batch_1000))
-print(f"  Hybrid ×10:   {hyb_10:.1f} ms")
-print(f"  Hybrid ×100:  {hyb_100:.1f} ms")
-print(f"  Hybrid ×1000: {hyb_1000:.1f} ms")
+log(f"  Hybrid ×10:   {hyb_10:.1f} ms")
+log(f"  Hybrid ×100:  {hyb_100:.1f} ms")
+log(f"  Hybrid ×1000: {hyb_1000:.1f} ms")
 
 # ──────────────────────────────────────────────
 # Summary Tables
 # ──────────────────────────────────────────────
 
-print("\n" + "=" * 60)
-print("BATCH RESULTS SUMMARY")
-print("=" * 60)
+log("\n" + "=" * 60)
+log("BATCH RESULTS SUMMARY")
+log("=" * 60)
 
-print(f"\n{'Batch Size':<15} {'FTS5 Tri':>12} {'rfuzz seq':>14} {'rfuzz par':>14} {'Hybrid':>12}")
-print("-" * 70)
-print(f"{'10 queries':<15} {fts_10:>10.1f}ms {rf_seq_10/1000:>12.1f}s {'n/a':>14} {hyb_10:>10.1f}ms")
-print(f"{'100 queries':<15} {fts_100:>10.1f}ms {rf_seq_100/1000:>12.1f}s {rf_par_100/1000:>12.1f}s {hyb_100:>10.1f}ms")
-print(f"{'1000 queries':<15} {fts_1000:>10.1f}ms {rf_seq_1000/1000:>12.1f}s {rf_par_1000/1000:>12.1f}s {hyb_1000:>10.1f}ms")
+log(f"\n{'Batch Size':<15} {'FTS5 Tri':>12} {'rfuzz seq':>14} {'rfuzz par':>14} {'Hybrid':>12}")
+log("-" * 70)
+log(f"{'10 queries':<15} {fts_10:>10.1f}ms {rf_seq_10/1000:>12.1f}s {'n/a':>14} {hyb_10:>10.1f}ms")
+log(f"{'100 queries':<15} {fts_100:>10.1f}ms {rf_seq_100/1000:>12.1f}s {rf_par_100/1000:>12.1f}s {hyb_100:>10.1f}ms")
+log(f"{'1000 queries':<15} {fts_1000:>10.1f}ms {rf_seq_1000/1000:>12.1f}s {rf_par_1000/1000:>12.1f}s {hyb_1000:>10.1f}ms")
 
-print("\nThroughput (queries/sec at 1000-query batch):")
+log("\nThroughput (queries/sec at 1000-query batch):")
 fts_qps = 1000 / (fts_1000 / 1000)
 rf_seq_qps = 1000 / (rf_seq_1000 / 1000)
 rf_par_qps = 1000 / (rf_par_1000 / 1000)
 hyb_qps = 1000 / (hyb_1000 / 1000)
-print(f"  FTS5 Trigram:         {fts_qps:>10.0f} queries/sec")
-print(f"  Hybrid:               {hyb_qps:>10.0f} queries/sec")
-print(f"  rapidfuzz (4 cores):  {rf_par_qps:>10.1f} queries/sec")
-print(f"  rapidfuzz (seq):      {rf_seq_qps:>10.1f} queries/sec")
+log(f"  FTS5 Trigram:         {fts_qps:>10.0f} queries/sec")
+log(f"  Hybrid:               {hyb_qps:>10.0f} queries/sec")
+log(f"  rapidfuzz ({n_workers} cores):  {rf_par_qps:>10.1f} queries/sec")
+log(f"  rapidfuzz (seq):      {rf_seq_qps:>10.1f} queries/sec")
+
+# ──────────────────────────────────────────────
+# Hybrid Analysis: Different Query Types
+# ──────────────────────────────────────────────
+
+log("\n" + "=" * 60)
+log("HYBRID ANALYSIS: Query Type Breakdown")
+log("=" * 60)
+
+hybrid_queries = [
+    ("choclate",       "typo (no FTS5 candidates)"),
+    ("chocolate",      "exact substring"),
+    ("chocolat",       "missing last char"),
+    ("choco",          "short substring"),
+    ("ocolat",         "middle substring"),
+    ("organic choc",   "multi-word partial"),
+]
+
+log(f"\n  {'Query':<20} {'Type':<30} {'Time (ms)':>12} {'FTS5 Candidates':>16}")
+log("-" * 82)
+for query, qtype in hybrid_queries:
+    # Check FTS5 candidate count
+    if len(query) >= 3:
+        cand_rows = cur.execute(
+            "SELECT COUNT(*) FROM fts_trigram WHERE fts_trigram MATCH ? LIMIT 200",
+            (query,)
+        ).fetchone()[0]
+    else:
+        cand_rows = cur.execute(
+            "SELECT COUNT(*) FROM fts_standard WHERE fts_standard MATCH ? LIMIT 200",
+            (query + "*",)
+        ).fetchone()[0]
+
+    # Use fewer runs for expensive fallback queries
+    n_runs = 5 if cand_rows == 0 else 50
+    t = bench(f"hybrid-{query}", lambda q=query: hybrid_search(q, conn, limit=10), runs=n_runs)
+    log(f"  {query:<20} {qtype:<30} {t:>12.2f} {cand_rows:>16}")
+
+log("\n★ Key finding: Hybrid search is fast (1-6ms) ONLY when FTS5 trigram")
+log("  finds candidates. For pure typos (no substring match), it falls back")
+log("  to full rapidfuzz scan (~2700ms). The blog's '1.6ms for choclate'")
+log("  claim is incorrect — that query has no FTS5 candidates.")

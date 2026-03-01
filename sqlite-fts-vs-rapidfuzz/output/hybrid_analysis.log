@@ -1,0 +1,17 @@
+FTS5 Trigram Query Results:
+Query                     Type                  Results
+-------------------------------------------------------
+choclate                  typo                        0
+chocolate                 exact substring           200
+chocolat                  missing last char         200
+choco                     short substring           200
+ocolat                    middle substring          200
+organic choc              multi-word partial        200
+
+Hybrid search timing (queries where FTS5 finds candidates):
+  choclate             (typo                ):  2767.60 ms  top=Good & Gather Variety Pack Chocolate 3 l (79)
+  chocolate            (exact substring     ):     2.60 ms  top=Kettle Brand 1% Chocolate (85)
+  chocolat             (missing last char   ):     1.93 ms  top=Good & Gather Variety Pack Chocolate 3 l (79)
+  choco                (short substring     ):     1.23 ms  top=Amy's Double Chocolate Chocolate 500 ml (72)
+  ocolat               (middle substring    ):     1.77 ms  top=Good & Gather Variety Pack Chocolate 3 l (90)
+  organic choc         (multi-word partial  ):     6.02 ms  top=Rao's Organic Chocolate 64 oz (75)

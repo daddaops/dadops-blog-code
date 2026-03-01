@@ -1,0 +1,6 @@
+Pairwise similarity:
+  fuzz.ratio('chocolate milk', 'choclate milk') = 96.3
+  fuzz.token_sort_ratio('milk chocolate', 'chocolate milk') = 100.0
+
+Search a list:
+  process.extractOne('choclate milk', products) = ('Chocolate Milk 2%', 73.33333333333334, 0)

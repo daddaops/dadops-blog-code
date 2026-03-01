@@ -1,0 +1,89 @@
+Generating 500K product names...
+Generated 500000 unique product names
+Examples: ['Horizon Seasoned Coffee 1 gal', 'Up & Up Original Vinegar 12 pack', 'Good & Gather Extra Virgin Crackers 12 oz']
+
+Setting up FTS5 tables...
+FTS5 tables built and indexed
+  Standard index build: 3315 ms
+  Trigram index build:  7976 ms
+
+============================================================
+SPEED BENCHMARK: 5 Scenarios
+============================================================
+
+Results:
+  Scenario                       Method                Time (ms)
+--------------------------------------------------------------
+  S1                             fts_std                   47.71
+  S1                             fts_tri                   66.62
+  S1                             rfuzz                   2597.50
+  S2                             fts_std                    0.05
+  S2                             fts_tri                    0.09
+  S2                             rfuzz                   2557.48
+  S3                             fts_std                    3.59
+  S3                             rfuzz                    643.77
+  S4                             fts_std                   37.81
+  S4                             rfuzz                    882.10
+  S5                             fts_tri                   56.97
+  S5                             rfuzz                   1020.30
+
+============================================================
+HYBRID SEARCH BENCHMARK
+============================================================
+
+  FTS5 standard:  0.05 ms — but 0 results (useless)
+  FTS5 trigram:   0.09 ms — substring matches only
+  rapidfuzz:      2557 ms — correct results, but slow
+  Hybrid:         2672.3 ms — correct results AND fast
+
+============================================================
+BATCH BENCHMARK
+============================================================
+
+FTS5 batch benchmarks...
+  FTS5 ×10:   3.1 ms
+  FTS5 ×100:  39.7 ms
+  FTS5 ×1000: 357.0 ms
+
+rapidfuzz sequential benchmarks (this will take several minutes)...
+  rfuzz seq ×10:   26665 ms (26.7 s)
+  rfuzz seq ×100:  282816 ms (282.8 s)
+  rfuzz seq ×1000: 2828163 ms (2828.2 s) [extrapolated from ×100]
+
+rapidfuzz parallel benchmarks...
+  Using 6 workers
+  rfuzz par ×100:  56449 ms (56.4 s)
+  (rfuzz par ×1000: running single measurement...)
+  rfuzz par ×1000: 541605 ms (541.6 s)
+
+Hybrid batch benchmarks...
+Traceback (most recent call last):
+  File "/home/ubuntu/dadops-blog-code/sqlite-fts-vs-rapidfuzz/benchmark_all.py", line 372, in <module>
+    hyb_10 = bench_batch("hybrid ×10", lambda: hybrid_batch_fn(batch_10))
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dadops-blog-code/sqlite-fts-vs-rapidfuzz/benchmark_all.py", line 294, in bench_batch
+    times = timeit.repeat(fn, number=1, repeat=runs)
+  File "/usr/lib/python3.13/timeit.py", line 243, in repeat
+    return Timer(stmt, setup, timer, globals).repeat(repeat, number)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/timeit.py", line 208, in repeat
+    t = self.timeit(number)
+  File "/usr/lib/python3.13/timeit.py", line 180, in timeit
+    timing = self.inner(it, self.timer)
+  File "<timeit-src>", line 6, in inner
+  File "/home/ubuntu/dadops-blog-code/sqlite-fts-vs-rapidfuzz/benchmark_all.py", line 372, in <lambda>
+    hyb_10 = bench_batch("hybrid ×10", lambda: hybrid_batch_fn(batch_10))
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/ubuntu/dadops-blog-code/sqlite-fts-vs-rapidfuzz/benchmark_all.py", line 369, in hybrid_batch_fn
+    return [hybrid_search(q, conn, limit=10) for q in queries]
+            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/dadops-blog-code/sqlite-fts-vs-rapidfuzz/benchmark_all.py", line 220, in hybrid_search
+    rows = cur.execute(
+           ~~~~~~~~~~~^
+        "SELECT name FROM fts_trigram WHERE fts_trigram MATCH ? LIMIT ?",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        (query, candidates)
+        ^^^^^^^^^^^^^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: fts5: syntax error near "'"
