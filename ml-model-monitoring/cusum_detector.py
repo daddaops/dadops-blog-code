@@ -49,18 +49,18 @@ if __name__ == "__main__":
     random.seed(42)
     days = 60
     drift_start = 20
-    cusum = CUSUMDetector(threshold=4.0, drift_rate=0.3)
+    cusum = CUSUMDetector(threshold=3.0, drift_rate=0.2)
     fixed = FixedThresholdDetector(threshold=1.5)
 
     cusum_alarm_day = None
     fixed_alarm_day = None
 
     for day in range(days):
-        # Gradual drift starting at day 20: PSI increases by 0.02 per day
+        # Gradual drift starting at day 20: PSI increases by 0.08 per day
         if day < drift_start:
-            psi = random.gauss(0.05, 0.3)  # normal noise around baseline
+            psi = random.gauss(0.05, 0.15)  # normal noise around baseline
         else:
-            psi = random.gauss(0.05 + 0.08 * (day - drift_start), 0.3)
+            psi = random.gauss(0.05 + 0.08 * (day - drift_start), 0.15)
 
         if cusum.update(psi) and cusum_alarm_day is None:
             cusum_alarm_day = day

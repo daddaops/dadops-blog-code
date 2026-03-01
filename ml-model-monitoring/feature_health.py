@@ -75,14 +75,14 @@ if __name__ == "__main__":
     random.seed(42)
     reference = {
         'age': [random.gauss(35, 10) for _ in range(1000)],
-        'income': [random.gauss(60000, 15000) for _ in range(1000)],
+        'income': [random.gauss(60000, 5000) for _ in range(1000)],
         'plan': [random.choice(['basic', 'premium', 'enterprise']) for _ in range(1000)],
     }
 
     # Production: income pipeline broke (sending stale zeros), plan field case-changed
     production = {
         'age': [random.gauss(36, 10) for _ in range(500)],
-        'income': [0.0] * 350 + [random.gauss(60000, 15000) for _ in range(150)],
+        'income': [0.0] * 350 + [random.gauss(60000, 5000) for _ in range(150)],
         'plan': [random.choice(['Basic', 'Premium', 'Enterprise']) for _ in range(500)],
     }
 

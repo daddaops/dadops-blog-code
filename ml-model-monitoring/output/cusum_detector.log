@@ -1,6 +1,6 @@
 === CUSUM vs Fixed Threshold Demo ===
 
 Drift starts at day 20
-CUSUM alarm:           day 34
-Fixed threshold alarm: day 35
-CUSUM advantage:       1 days earlier
+CUSUM alarm:           day 30
+Fixed threshold alarm: day 38
+CUSUM advantage:       8 days earlier

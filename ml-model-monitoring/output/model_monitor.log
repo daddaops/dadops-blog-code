@@ -6,9 +6,9 @@
   alerts: none
 
 [Drifted] accuracy=68.5%
-  drift: {'age': '0.435 (RED)', 'spend': '1.261 (RED)'}
+  drift: {'age': '0.186 (YELLOW)', 'spend': '0.116 (YELLOW)'}
   alerts: none
 
-[Broken] accuracy=79.5%
+[Broken] accuracy=47.5%
   drift: {'age': '23.542 (RED)', 'spend': '1.185 (RED)'}
   alerts: CRITICAL: cumulative feature drift detected

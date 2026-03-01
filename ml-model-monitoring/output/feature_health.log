@@ -1,5 +1,5 @@
 === Feature Health Monitor Demo ===
 
   ✓ age        [GREEN] OK
-  ✓ income     [GREEN] OK
+  ✗ income     [RED] mean shifted 8.4σ, min 0.0 below range
   ✗ plan       [RED] 3 new categories

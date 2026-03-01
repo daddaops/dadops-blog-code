@@ -95,8 +95,8 @@ if __name__ == "__main__":
     r1 = monitor.run(prod1_feat, prod1_pred, prod1_lab)
 
     # Period 2: Gradual drift
-    prod2_feat = {'age': [random.gauss(40, 12) for _ in range(200)],
-                  'spend': [random.gauss(130, 35) for _ in range(200)]}
+    prod2_feat = {'age': [random.gauss(36.5, 10.5) for _ in range(200)],
+                  'spend': [random.gauss(110, 31) for _ in range(200)]}
     prod2_pred = [min(0.99, p * 1.2 + 0.05) for p in prod1_pred]
     prod2_lab = [1 if random.random() < p else 0 for p in prod1_pred]
     r2 = monitor.run(prod2_feat, prod2_pred, prod2_lab)
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     prod3_feat = {'age': [0.0] * 200,
                   'spend': [random.gauss(130, 35) for _ in range(200)]}
     prod3_pred = [0.5] * 200  # model confused, outputs uniform
-    prod3_lab = [1 if random.random() < 0.25 else 0 for _ in range(200)]
+    prod3_lab = [1 if random.random() < 0.55 else 0 for _ in range(200)]
     r3 = monitor.run(prod3_feat, prod3_pred, prod3_lab)
 
     for label, report in [("Stable", r1), ("Drifted", r2), ("Broken", r3)]:
