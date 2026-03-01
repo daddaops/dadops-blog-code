@@ -1,0 +1,22 @@
+=== TokenBucket Test ===
+  TokenBucket burst of 20: 0.0ms (should be near 0)
+  TokenBucket 21st acquire wait: 120.5ms (should be ~120ms)
+  PASS
+
+=== PromptCache Test ===
+  Hit rate: 33% (1 hit, 2 misses)
+  PASS
+
+=== CostTracker Test ===
+  1000 calls: $0.0270 (expected $0.0270)
+  Summary: [1000/5000] $0.0270 spent | ~$0.13 projected total
+  Over budget ($1.00)? False
+  PASS
+
+=== Checkpoint Test ===
+Resumed: 0 items from checkpoint
+Resumed: 3 items from checkpoint
+  Saved 3 items, resumed 3 items
+  PASS
+
+All utility tests passed!

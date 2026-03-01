@@ -1,0 +1,13 @@
+=== Backoff Delay Test ===
+  Attempt 0: base=1s, jitter=0.639s (range 0-1s)
+  Attempt 1: base=2s, jitter=0.050s (range 0-2s)
+  Attempt 2: base=4s, jitter=1.100s (range 0-4s)
+  Attempt 3: base=8s, jitter=1.786s (range 0-8s)
+  Attempt 4: base=16s, jitter=11.784s (range 0-16s)
+  PASS
+
+=== Retryable Status Codes Test ===
+  Retryable codes: [429, 500, 502, 503, 504]
+  PASS
+
+All retry logic tests passed!
