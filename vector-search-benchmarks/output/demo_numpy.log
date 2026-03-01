@@ -1,0 +1,10 @@
+Generating 10000 random 768-dimensional unit vectors...
+Top 10 neighbors of vector 0: [   0 1502  842 9434 1264 7160 1101 8494 1082 1482]
+Scores: [0.9999999  0.13346615 0.1271698  0.12708968 0.12164564 0.11677364
+ 0.11655162 0.11557619 0.11448684 0.11210971]
+Self-similarity (should be ~1.0): 1.000000
+
+Latency over 100 queries (10000 vectors, 768d):
+  p50: 1.340 ms
+  p95: 3.630 ms
+  p99: 4.448 ms

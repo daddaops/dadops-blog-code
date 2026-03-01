@@ -1,0 +1,255 @@
+Vector Search Benchmark
+Test matrix: [128, 384, 768, 1536] dims x [10000, 50000, 100000] sizes
+Queries: 100, k=10
+FAISS available: True
+pgvector enabled: False (available: False)
+
+============================================================
+BENCHMARK: 10,000 vectors, 128 dimensions
+============================================================
+Generated 10,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0037s | p50: 0.140ms | Mem: 5.1MB
+  FAISS Flat...
+    Index: 0.0062s | p50: 0.221ms | Recall@10: 100.00% | Mem: 5.1MB
+  FAISS IVF...
+    Index: 0.1246s | p50: 0.063ms | Recall@10: 34.60% | Mem: 5.2MB
+  FAISS HNSW...
+    Index: 0.3746s | p50: 0.180ms | Recall@10: 68.50%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 50,000 vectors, 128 dimensions
+============================================================
+Generated 50,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0288s | p50: 0.965ms | Mem: 25.6MB
+  FAISS Flat...
+    Index: 0.0295s | p50: 3.432ms | Recall@10: 100.00% | Mem: 25.6MB
+  FAISS IVF...
+    Index: 0.3110s | p50: 0.280ms | Recall@10: 33.40% | Mem: 25.7MB
+  FAISS HNSW...
+    Index: 6.3928s | p50: 0.349ms | Recall@10: 41.80%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 100,000 vectors, 128 dimensions
+============================================================
+Generated 100,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0513s | p50: 2.658ms | Mem: 51.2MB
+  FAISS Flat...
+    Index: 0.0740s | p50: 6.298ms | Recall@10: 100.00% | Mem: 51.2MB
+  FAISS IVF...
+    Index: 0.3329s | p50: 0.663ms | Recall@10: 34.50% | Mem: 51.3MB
+  FAISS HNSW...
+    Index: 18.5448s | p50: 0.582ms | Recall@10: 29.90%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 10,000 vectors, 384 dimensions
+============================================================
+Generated 10,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0022s | p50: 0.353ms | Mem: 15.4MB
+  FAISS Flat...
+    Index: 0.0208s | p50: 1.230ms | Recall@10: 100.00% | Mem: 15.4MB
+  FAISS IVF...
+    Index: 0.2749s | p50: 0.190ms | Recall@10: 27.80% | Mem: 15.5MB
+  FAISS HNSW...
+    Index: 1.5547s | p50: 0.506ms | Recall@10: 47.60%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 50,000 vectors, 384 dimensions
+============================================================
+Generated 50,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0702s | p50: 2.515ms | Mem: 76.8MB
+  FAISS Flat...
+    Index: 0.0754s | p50: 9.691ms | Recall@10: 100.00% | Mem: 76.8MB
+  FAISS IVF...
+    Index: 0.7016s | p50: 0.933ms | Recall@10: 22.70% | Mem: 77.0MB
+  FAISS HNSW...
+    Index: 26.0116s | p50: 0.843ms | Recall@10: 19.40%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 100,000 vectors, 384 dimensions
+============================================================
+Generated 100,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.1318s | p50: 6.001ms | Mem: 153.6MB
+  FAISS Flat...
+    Index: 0.1759s | p50: 19.017ms | Recall@10: 100.00% | Mem: 153.6MB
+  FAISS IVF...
+    Index: 0.9477s | p50: 2.020ms | Recall@10: 21.00% | Mem: 153.8MB
+  FAISS HNSW...
+    Index: 58.3854s | p50: 0.903ms | Recall@10: 10.40%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 10,000 vectors, 768 dimensions
+============================================================
+Generated 10,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0043s | p50: 0.852ms | Mem: 30.7MB
+  FAISS Flat...
+    Index: 0.0353s | p50: 4.112ms | Recall@10: 100.00% | Mem: 30.7MB
+  FAISS IVF...
+    Index: 0.4902s | p50: 0.365ms | Recall@10: 20.10% | Mem: 31.0MB
+  FAISS HNSW...
+    Index: 2.6626s | p50: 0.826ms | Recall@10: 38.90%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 50,000 vectors, 768 dimensions
+============================================================
+Generated 50,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.1436s | p50: 5.613ms | Mem: 153.6MB
+  FAISS Flat...
+    Index: 0.1991s | p50: 18.306ms | Recall@10: 100.00% | Mem: 153.6MB
+  FAISS IVF...
+    Index: 1.4380s | p50: 2.017ms | Recall@10: 18.80% | Mem: 153.9MB
+  FAISS HNSW...
+    Index: 45.8246s | p50: 1.406ms | Recall@10: 13.00%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 100,000 vectors, 768 dimensions
+============================================================
+Generated 100,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.2985s | p50: 11.356ms | Mem: 307.2MB
+  FAISS Flat...
+    Index: 0.4160s | p50: 34.189ms | Recall@10: 100.00% | Mem: 307.2MB
+  FAISS IVF...
+    Index: 1.9600s | p50: 3.926ms | Recall@10: 21.00% | Mem: 307.5MB
+  FAISS HNSW...
+    Index: 113.5995s | p50: 1.296ms | Recall@10: 8.90%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 10,000 vectors, 1536 dimensions
+============================================================
+Generated 10,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.0502s | p50: 2.220ms | Mem: 61.4MB
+  FAISS Flat...
+    Index: 0.0625s | p50: 7.961ms | Recall@10: 100.00% | Mem: 61.4MB
+  FAISS IVF...
+    Index: 0.9797s | p50: 0.729ms | Recall@10: 18.50% | Mem: 62.1MB
+  FAISS HNSW...
+    Index: 6.2605s | p50: 1.610ms | Recall@10: 30.80%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 50,000 vectors, 1536 dimensions
+============================================================
+Generated 50,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.2518s | p50: 10.407ms | Mem: 307.2MB
+  FAISS Flat...
+    Index: 0.2911s | p50: 33.548ms | Recall@10: 100.00% | Mem: 307.2MB
+  FAISS IVF...
+    Index: 2.7702s | p50: 3.812ms | Recall@10: 14.70% | Mem: 307.8MB
+  FAISS HNSW...
+    Index: 84.3247s | p50: 2.199ms | Recall@10: 10.60%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+============================================================
+BENCHMARK: 100,000 vectors, 1536 dimensions
+============================================================
+Generated 100,000 database vectors and 100 queries
+
+  NumPy brute-force...
+    Index: 0.5911s | p50: 20.818ms | Mem: 614.4MB
+  FAISS Flat...
+    Index: 0.6364s | p50: 65.975ms | Recall@10: 100.00% | Mem: 614.4MB
+  FAISS IVF...
+    Index: 3.1441s | p50: 6.908ms | Recall@10: 18.40% | Mem: 615.0MB
+  FAISS HNSW...
+    Index: 207.2557s | p50: 2.359ms | Recall@10: 5.50%
+  pgvector: SKIPPED (set PGVECTOR_ENABLED=1 to enable)
+
+Results saved to output/benchmark_results.json
+
+================================================================================
+SUMMARY TABLES
+================================================================================
+
+--- 128 dimensions ---
+Method               Size   Index(s)    p50(ms)    p95(ms)    p99(ms)  Recall@10    Mem(MB)
+--------------------------------------------------------------------------------------
+NumPy                10K     0.0037      0.140      0.203      0.237    100.00%        5.1
+FAISS Flat           10K     0.0062      0.221      0.427      0.457    100.00%        5.1
+FAISS IVF            10K     0.1246      0.063      0.089      0.097     34.60%        5.2
+FAISS HNSW           10K     0.3746      0.180      0.217      0.227     68.50%        N/A
+NumPy                50K     0.0288      0.965      4.597      8.080    100.00%       25.6
+FAISS Flat           50K     0.0295      3.432      3.635      3.911    100.00%       25.6
+FAISS IVF            50K     0.3110      0.280      0.367      0.403     33.40%       25.7
+FAISS HNSW           50K     6.3928      0.349      0.465      0.523     41.80%        N/A
+NumPy               100K     0.0513      2.658      4.835      5.333    100.00%       51.2
+FAISS Flat          100K     0.0740      6.298      6.875      7.261    100.00%       51.2
+FAISS IVF           100K     0.3329      0.663      0.803      0.834     34.50%       51.3
+FAISS HNSW          100K    18.5448      0.582      0.975      1.494     29.90%        N/A
+
+--- 384 dimensions ---
+Method               Size   Index(s)    p50(ms)    p95(ms)    p99(ms)  Recall@10    Mem(MB)
+--------------------------------------------------------------------------------------
+NumPy                10K     0.0022      0.353      2.979      6.779    100.00%       15.4
+FAISS Flat           10K     0.0208      1.230      1.619      1.651    100.00%       15.4
+FAISS IVF            10K     0.2749      0.190      0.233      0.318     27.80%       15.5
+FAISS HNSW           10K     1.5547      0.506      0.638      0.715     47.60%        N/A
+NumPy                50K     0.0702      2.515      3.756      6.781    100.00%       76.8
+FAISS Flat           50K     0.0754      9.691     10.714     12.151    100.00%       76.8
+FAISS IVF            50K     0.7016      0.933      1.050      1.730     22.70%       77.0
+FAISS HNSW           50K    26.0116      0.843      1.088      1.183     19.40%        N/A
+NumPy               100K     0.1318      6.001     11.212     13.645    100.00%      153.6
+FAISS Flat          100K     0.1759     19.017     20.570     27.736    100.00%      153.6
+FAISS IVF           100K     0.9477      2.020      2.149      3.613     21.00%      153.8
+FAISS HNSW          100K    58.3854      0.903      1.105      1.249     10.40%        N/A
+
+--- 768 dimensions ---
+Method               Size   Index(s)    p50(ms)    p95(ms)    p99(ms)  Recall@10    Mem(MB)
+--------------------------------------------------------------------------------------
+NumPy                10K     0.0043      0.852      0.971      1.105    100.00%       30.7
+FAISS Flat           10K     0.0353      4.112      4.395      4.674    100.00%       30.7
+FAISS IVF            10K     0.4902      0.365      0.431      0.452     20.10%       31.0
+FAISS HNSW           10K     2.6626      0.826      1.103      1.230     38.90%        N/A
+NumPy                50K     0.1436      5.613      8.218     11.661    100.00%      153.6
+FAISS Flat           50K     0.1991     18.306     19.794     20.307    100.00%      153.6
+FAISS IVF            50K     1.4380      2.017      2.256      2.390     18.80%      153.9
+FAISS HNSW           50K    45.8246      1.406      1.815      2.066     13.00%        N/A
+NumPy               100K     0.2985     11.356     17.197     18.989    100.00%      307.2
+FAISS Flat          100K     0.4160     34.189     37.915     40.300    100.00%      307.2
+FAISS IVF           100K     1.9600      3.926      4.449      5.249     21.00%      307.5
+FAISS HNSW          100K   113.5995      1.296      1.703      1.881      8.90%        N/A
+
+--- 1536 dimensions ---
+Method               Size   Index(s)    p50(ms)    p95(ms)    p99(ms)  Recall@10    Mem(MB)
+--------------------------------------------------------------------------------------
+NumPy                10K     0.0502      2.220      4.553      5.843    100.00%       61.4
+FAISS Flat           10K     0.0625      7.961      8.870      8.996    100.00%       61.4
+FAISS IVF            10K     0.9797      0.729      0.831      0.863     18.50%       62.1
+FAISS HNSW           10K     6.2605      1.610      2.122      2.327     30.80%        N/A
+NumPy                50K     0.2518     10.407     13.237     16.371    100.00%      307.2
+FAISS Flat           50K     0.2911     33.548     36.212     41.743    100.00%      307.2
+FAISS IVF            50K     2.7702      3.812      3.984      4.167     14.70%      307.8
+FAISS HNSW           50K    84.3247      2.199      2.918      3.198     10.60%        N/A
+NumPy               100K     0.5911     20.818     23.818     26.117    100.00%      614.4
+FAISS Flat          100K     0.6364     65.975     69.198     70.136    100.00%      614.4
+FAISS IVF           100K     3.1441      6.908      7.454      8.010     18.40%      615.0
+FAISS HNSW          100K   207.2557      2.359      3.183      3.450      5.50%        N/A

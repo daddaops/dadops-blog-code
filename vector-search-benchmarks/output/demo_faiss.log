@@ -1,0 +1,24 @@
+Generating 10000 random 768-dimensional unit vectors...
+
+--- IndexFlatIP (exact brute force) ---
+Index size: 10000 vectors
+Top 10 neighbors: [   0 1502  842 9434 1264 7160 1101 8494 1082 1482]
+Scores: [0.9999998  0.13346615 0.12716979 0.12708965 0.12164564 0.11677364
+ 0.11655162 0.11557619 0.11448684 0.11210969]
+
+--- IndexIVFFlat (nlist=100, nprobe=10) ---
+Index size: 10000 vectors
+Top 10 neighbors: [   0 1264 8494 9713 3989 1117 7821 1550 8162 6122]
+Scores: [0.9999998  0.12164564 0.11557619 0.10887107 0.10553204 0.10539088
+ 0.10475723 0.10252093 0.10249269 0.10244389]
+
+--- IndexHNSWFlat (M=32, efConstruction=64, efSearch=40) ---
+Index size: 10000 vectors
+Top 10 neighbors: [   0 1502 9434 1264 7160 7975 9713 6823 3238 5077]
+Scores: [0.9999998  0.13346615 0.12708965 0.12164564 0.11677364 0.1091776
+ 0.10887109 0.10848451 0.10637847 0.10553209]
+
+--- Latency comparison (100 queries, 10K vectors, 768d) ---
+  FAISS  Flat: p50=4.059 ms, p95=4.592 ms, p99=6.740 ms
+  FAISS   IVF: p50=0.385 ms, p95=0.540 ms, p99=0.911 ms
+  FAISS  HNSW: p50=0.911 ms, p95=1.227 ms, p99=1.810 ms
