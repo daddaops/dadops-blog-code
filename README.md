@@ -1,6 +1,6 @@
 # DadOps Blog Code
 
-Verified, runnable code from [DadOps blog posts](https://daddaops.github.io/dadops-site/blog.html).
+Verified, runnable code from [DadOps blog posts](https://daddaops.com/blog.html).
 
 Every code example in our blog posts has been extracted, tested, and verified on real hardware. No fabricated benchmarks — only real measurements.
 
