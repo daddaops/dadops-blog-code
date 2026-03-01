@@ -1,0 +1,8 @@
+=== Prediction Quality Demo ===
+
+At launch:
+  ECE = 0.0369
+  Prediction shift = 0.0000
+At month 6 (overconfident):
+  ECE = 0.2152
+  Prediction shift = 0.3960

@@ -1,0 +1,10 @@
+=== Drift Detection Demo ===
+
+Stable production (no drift):
+  PSI = 0.0302
+  KS  = 0.0220
+  JS  = 0.0036
+Drifted production (mean +8, std +2):
+  PSI = 0.7202
+  KS  = 0.3260
+  JS  = 0.0740

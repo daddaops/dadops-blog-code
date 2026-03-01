@@ -1,0 +1,14 @@
+=== Model Monitor Pipeline Demo ===
+
+
+[Stable] accuracy=74.0%
+  drift: {'age': '0.063 (GREEN)', 'spend': '0.051 (GREEN)'}
+  alerts: none
+
+[Drifted] accuracy=68.5%
+  drift: {'age': '0.435 (RED)', 'spend': '1.261 (RED)'}
+  alerts: none
+
+[Broken] accuracy=79.5%
+  drift: {'age': '23.542 (RED)', 'spend': '1.185 (RED)'}
+  alerts: CRITICAL: cumulative feature drift detected
