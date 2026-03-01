@@ -1,0 +1,38 @@
+LLM Effective Cost Calculator
+================================================================================
+Scenario: 100K requests/day, 500 input + 200 output tokens each
+
+Model                  Base $/Kreq    Eff $/Kreq    Overhead     Monthly
+------------------------------------------------------------------------
+GPT-4o                $     3.250  $     3.381        4.0%  $   10,143
+GPT-4o-mini           $     0.195  $     0.197        1.0%  $      591
+Claude Sonnet         $     4.500  $     4.590        2.0%  $   13,771
+Claude Haiku          $     0.375  $     0.377        0.5%  $    1,131
+
+================================================================================
+BLOG CLAIMS VERIFICATION
+================================================================================
+
+GPT-4o:
+  Base:      code=0.003250  blog=0.003250  MATCH
+  Effective: code=0.003381  blog=0.003390  MATCH
+  Overhead:  code=4.0%  blog=4.1%  MATCH
+  Monthly:   code=$10,143  blog=$10,170  MATCH
+
+GPT-4o-mini:
+  Base:      code=0.000195  blog=0.000195  MATCH
+  Effective: code=0.000197  blog=0.000197  MATCH
+  Overhead:  code=1.0%  blog=1.0%  MATCH
+  Monthly:   code=$591  blog=$591  MATCH
+
+Claude Sonnet:
+  Base:      code=0.004500  blog=0.004500  MATCH
+  Effective: code=0.004590  blog=0.004600  MATCH
+  Overhead:  code=2.0%  blog=2.0%  MATCH
+  Monthly:   code=$13,771  blog=$13,800  MATCH
+
+Claude Haiku:
+  Base:      code=0.000375  blog=0.000375  MATCH
+  Effective: code=0.000377  blog=0.000377  MATCH
+  Overhead:  code=0.5%  blog=0.5%  MATCH
+  Monthly:   code=$1,131  blog=$1,131  MATCH

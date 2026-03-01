@@ -1,0 +1,10 @@
+LLM API Latency Benchmark Client
+==================================================
+
+No API keys found. Set OPENAI_API_KEY and/or ANTHROPIC_API_KEY.
+Skipping live benchmarks.
+
+To run:
+  export OPENAI_API_KEY='sk-...'
+  export ANTHROPIC_API_KEY='sk-ant-...'
+  python benchmark_client.py
