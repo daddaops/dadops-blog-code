@@ -1,0 +1,4 @@
+n= 10 | asyncio: 0.30s | threading: 0.30s | ratio: 1.01x
+n= 50 | asyncio: 0.90s | threading: 0.91s | ratio: 1.01x
+n=100 | asyncio: 1.51s | threading: 1.51s | ratio: 1.00x
+n=500 | asyncio: 7.53s | threading: 7.51s | ratio: 1.00x

@@ -1,0 +1,4 @@
+GIL: enabled | Workers: 4
+
+I/O-bound  | Sequential: 2.00s | Threaded: 0.50s | Speedup: 4.0x
+CPU-bound  | Sequential: 12.25s | Threaded: 12.71s | Multiproc: 3.75s | MP speedup: 3.3x

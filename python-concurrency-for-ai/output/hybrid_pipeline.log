@@ -1,0 +1,3 @@
+Sequential           | 8 queries | 3.49s | 2.3 qps
+Async-only           | 8 queries | 3.61s | 2.2 qps
+Hybrid               | 8 queries | 1.52s | 5.3 qps

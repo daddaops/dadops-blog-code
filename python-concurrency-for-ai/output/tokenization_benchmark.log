@@ -1,0 +1,6 @@
+Sequential: 1.48s
+
+Workers=1 | Threads: 1.56s (1.0x) | Processes: 2.00s (0.7x)
+Workers=2 | Threads: 1.55s (1.0x) | Processes: 1.23s (1.2x)
+Workers=4 | Threads: 1.61s (0.9x) | Processes: 0.65s (2.3x)
+Workers=8 | Threads: 1.75s (0.8x) | Processes: 0.39s (3.8x)
