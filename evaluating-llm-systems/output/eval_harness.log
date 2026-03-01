@@ -1,0 +1,15 @@
+=== EvalHarness Demo ===
+
+Loaded 4 eval cases
+
+Pass rate: 50.0%
+Contains expected: 75%
+Faithfulness: 50%
+
+Failures (2):
+  Input: Can I get a discount?
+  Scores: {'contains_expected': 1.0, 'faithfulness': 0.0}
+
+  Input: How do I cancel my subscription?
+  Scores: {'contains_expected': 0.0, 'faithfulness': 0.0}
+

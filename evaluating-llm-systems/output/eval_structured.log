@@ -1,0 +1,22 @@
+=== Structured Output Evaluation Demo ===
+
+Test 1: Receipt parser (missing date field)
+  Accuracy: 0.75
+  date: missing (score=0.0)
+  items: match (score=1.0)
+  store: match (score=1.0)
+  total: match (score=1.0)
+
+Test 2: Perfect match
+  Accuracy: 1.00
+
+Test 3: Extra hallucinated field
+  Accuracy: 0.67
+  name: match (score=1.0)
+  age: match (score=1.0)
+  zodiac: extra (score=0.0)
+
+Test 4: Value mismatch
+  Accuracy: 0.50
+  name: match (score=1.0)
+  total: mismatch (score=0.0)
