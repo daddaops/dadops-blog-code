@@ -1,0 +1,3 @@
+# ml-experiment-tracking dependencies
+# Most scripts are stdlib-only; numpy is needed for reproducible_pipeline.py
+numpy
