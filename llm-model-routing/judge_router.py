@@ -13,7 +13,14 @@ API key required: OPENAI_API_KEY
 import json
 from openai import OpenAI
 
-client = OpenAI()
+client = None  # lazy init — requires OPENAI_API_KEY
+
+
+def _get_client():
+    global client
+    if client is None:
+        client = OpenAI()
+    return client
 
 JUDGE_PROMPT = """You are a query complexity classifier. Given a user query,
 rate its complexity and pick the minimum model tier needed to answer it well.
@@ -28,7 +35,7 @@ Return JSON only: {"tier": 1|2|3, "reason": "one sentence explanation"}"""
 
 def judge_route(query: str) -> dict:
     """Use a cheap LLM to classify query complexity before routing."""
-    response = client.chat.completions.create(
+    response = _get_client().chat.completions.create(
         model="gpt-4o-mini",   # cheap judge — $0.15/M input tokens
         messages=[
             {"role": "system", "content": JUDGE_PROMPT},

@@ -1,0 +1,71 @@
+Tier 1 exhausted, escalating to Tier 2
+Tier 1 exhausted, escalating to Tier 2
+Tier 1 exhausted, escalating to Tier 2
+Tier 1 exhausted, escalating to Tier 2
+Tier 1 exhausted, escalating to Tier 2
+Circuit OPEN for haiku-fail after 5 failures
+Tier 1 exhausted, escalating to Tier 2
+============================================================
+LLM Model Routing — Verification Suite
+============================================================
+
+--- Heuristic Router ---
+  PASS: Simple query → Tier 1
+  PASS: Moderate query → Tier 1 (blog claims 2, but score=1 < threshold 2)
+  PASS: Complex query → Tier 2 (blog claims 3, but score=3 < threshold 5)
+  PASS: Empty query → Tier 1
+  PASS: Short question → Tier 1
+  PASS: Query with code → gets code bonus
+  PASS: Multi-question → higher tier
+  PASS: COMPLEX_KEYWORDS is a set
+  PASS: MODERATE_KEYWORDS is a set
+  PASS: 10 complex keywords
+  PASS: 9 moderate keywords
+
+--- Quality Check (Cascade) ---
+  PASS: Good response passes
+  PASS: Short response to long query fails
+  PASS: Refusal detected
+  PASS: AI refusal detected
+  PASS: JSON format check passes
+  PASS: JSON format check fails
+  PASS: Multi-question coverage check
+  PASS: Multi-question passes with paragraphs
+
+--- CascadeResult ---
+  PASS: CascadeResult fields
+  PASS: TIER_MODELS has 3 tiers
+  PASS: TIER_COSTS has 3 tiers
+  PASS: Tier 1 cheapest
+
+--- Cascade Route ---
+  PASS: Cascade escalates past Tier 1 (haiku refused)
+  PASS: Cascade stops at Tier 2 (good sonnet response)
+  PASS: Attempts = tier_used
+  PASS: Total cost > 0
+  PASS: Good Tier 1 response stays at Tier 1
+
+--- RouterMetrics ---
+  PASS: Accuracy = 80%
+  PASS: Cost savings = 80%
+  PASS: Quality preservation = 90%
+  PASS: Empty metrics: accuracy = 0
+  PASS: Empty metrics: cost_savings = 0
+
+--- Evaluate Router ---
+  PASS: Evaluated 3 queries
+  PASS: Heuristic accuracy = 100% against actual oracle
+  PASS: Quality preservation = 100%
+  PASS: Cost savings > 0% vs frontier
+
+--- ProductionRouter ---
+  PASS: Simple query routed successfully
+  PASS: Stats tracked total
+  PASS: Stats tracked tier distribution
+  PASS: Fallback to Tier 2 on Tier 1 failure
+  PASS: Fallback count = 1
+  PASS: Circuit opens after 5 failures
+
+============================================================
+Results: 43 passed, 0 failed, 43 total
+============================================================

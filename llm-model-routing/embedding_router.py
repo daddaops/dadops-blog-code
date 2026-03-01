@@ -24,11 +24,25 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2")
 labeled_data = [
     ("What is my account balance?", 1),
     ("Extract the customer name from this email", 1),
+    ("What is the refund policy?", 1),
+    ("Look up order number 12345", 1),
+    ("What are your business hours?", 1),
+    ("Classify this support ticket as billing or technical", 1),
     ("Summarize the key points from this meeting transcript", 2),
     ("Write a professional follow-up email to this lead", 2),
+    ("Generate a product description for this item", 2),
+    ("Rewrite this paragraph to be more concise", 2),
+    ("Translate this customer complaint to French", 2),
+    ("Draft a response to this negative review", 2),
     ("Analyze why our churn rate spiked last quarter and "
      "propose three retention strategies with expected ROI", 3),
-    # ... hundreds more in practice
+    ("Compare microservices vs monolith architecture for our scale "
+     "and explain the trade-offs step by step", 3),
+    ("Debug this race condition in our payment processing pipeline "
+     "and evaluate three possible fixes with their risks", 3),
+    ("Explain why our recommendation engine performs worse on cold-start "
+     "users and design an A/B test to validate improvements", 3),
+    # ... hundreds more in practice (expanded for runnable demo)
 ]
 
 queries, tiers = zip(*labeled_data)

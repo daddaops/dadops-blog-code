@@ -1,0 +1,8 @@
+INFO:llm_router:tier=1 provider=haiku-a latency=0ms
+WARNING:llm_router:Tier 1 exhausted, escalating to Tier 2
+INFO:llm_router:tier=2 provider=sonnet-a latency=0ms
+Result: [haiku-a] Response to: What time is it?...
+Stats: {1: 1}
+
+Fallback result: [sonnet-a] Response to: What time is it?...
+Fallbacks: 1
