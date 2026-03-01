@@ -1,0 +1,19 @@
+Segment analysis (Bonferroni alpha = 0.0167)
+   Segment        A        B     Lift      p-val   Sig
+-----------------------------------------------------
+   Desktop    5.0%    5.9%   +0.9%     0.1236    No
+    Mobile    3.4%    3.0%   -0.4%     0.3397    No
+    Tablet    2.9%    5.1%   +2.2%     0.0121   Yes
+
+=== Guardrail Check (max 10% latency increase) ===
+  Desktop: 120ms -> 125ms (+4%) [Pass]
+  Mobile: 200ms -> 240ms (+20%) [FAIL]
+  Tablet: 180ms -> 185ms (+3%) [Pass]
+
+==================================================
+
+=== Fraud Detection A/B Test ===
+Z = 4.258 (boundary: 1.960)
+Significant: True
+Guardrails pass: False
+Verdict: Blocked by guardrail

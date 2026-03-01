@@ -1,0 +1,25 @@
+=== Proportion Test (Conversion Rate) ===
+Model A: 0.0302  |  Model B: 0.0274
+Lift: -0.0028 (-9.3% relative)
+Z = -0.837, p-value = 0.4025
+Significant at alpha=0.05? No
+
+=== Welch's t-test (Revenue per User) ===
+Model A: $1.55  |  Model B: $1.48
+t = 0.284, p = 0.7762, Cohen's d = -0.006
+95% CI for difference: ($-0.55, $0.41)
+
+==================================================
+
+To detect 3.1% -> 3.3%: 121,560 users/group (243,120 total)
+At 1,000 users/day: 243 days to complete
+
+Baseline: 5% conversion rate
+   MDE (abs)   Relative    N/group      Total
+----------------------------------------------
+       0.5%       10%     31,231     62,462
+       1.0%       20%      8,155     16,310
+       1.5%       30%      3,778      7,556
+       2.0%       40%      2,210      4,420
+       3.0%       60%      1,057      2,114
+       5.0%      100%        432        864
