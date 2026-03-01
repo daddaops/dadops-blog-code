@@ -1,0 +1,17 @@
+=== extract_file_context Test ===
+  Imports found: 2
+  Functions found: 6
+  Classes found: 0
+  PASS
+
+=== map_line_to_diff_position Test ===
+  Position map: {('app/auth.py', 12): 4, ('app/auth.py', 13): 5}
+  Added line 12 at diff position 4
+  Added line 13 at diff position 5
+  PASS
+
+=== enrich_diff_with_context Test ===
+  Enriched diff length: 586 chars (vs 114 original)
+  PASS
+
+All context extractor tests passed!

@@ -1,0 +1,17 @@
+=== map_line_to_diff_position Test ===
+  Position map entries: 4
+    app/auth.py:12 -> diff position 4
+    app/auth.py:13 -> diff position 5
+    app/auth.py:14 -> diff position 6
+    app/utils.py:2 -> diff position 3
+  PASS
+
+=== Comment Filtering Test ===
+  Findings in: 3, Findings kept: 1
+  Kept: critical - SQL injection
+  PASS
+
+SKIP: GITHUB_TOKEN not set — cannot post actual PR reviews.
+Set GITHUB_TOKEN=ghp_... to use post_github_review().
+
+All GitHub poster tests passed!

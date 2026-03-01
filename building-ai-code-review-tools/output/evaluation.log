@@ -1,0 +1,19 @@
+=== Code Review Evaluation Framework ===
+
+Test cases: 5
+True positives:  4
+False positives: 0
+False negatives: 1
+
+Precision: 100.0%
+Recall:    80.0%
+F1:        88.9%
+
+--- Per-case breakdown ---
+  Case 1 [HIT]: query = f'SELECT * FROM users WHERE id = {uid}'...
+  Case 2 [HIT]: data = json.loads(request.data)...
+  Case 3 [HIT]: result = eval(user_input)...
+  Case 4 [MISS]: items = [x**2 for x in range(1000000)]...
+  Case 5 [HIT]: try:...
+
+All evaluation tests completed!

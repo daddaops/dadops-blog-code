@@ -1,0 +1,7 @@
+SKIP: ANTHROPIC_API_KEY not set — cannot run LLM-based reviewer.
+Set ANTHROPIC_API_KEY=sk-... to test the reviewer.
+
+Scripts verified structurally (imports, Pydantic models, function signatures).
+  ReviewFinding model: OK (warning)
+  FileReview model: OK (1 finding(s))
+  Specialist agents: ['security', 'performance', 'style']
