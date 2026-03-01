@@ -1,0 +1,10 @@
+[system] You are a helpful assistant.
+
+Known facts:
+[Project] database: PostgreSQL, frame...
+[user] I'm building a SaaS dashboard with React and PostgreSQL
+[assistant] Great stack! Let's plan the architecture.
+[user] I prefer pytest for testing with coverage reports
+[assistant] I'll set up pytest-cov in the project config.
+[user] Now let's set up the deployment pipeline
+[user] Which database should the CI pipeline test against?

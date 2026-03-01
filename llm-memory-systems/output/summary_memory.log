@@ -1,0 +1,8 @@
+PINNED FACTS:
+- User's database: PostgreSQL
+
+CONVERSATION SUMMARY:
+I want to build a REST API with Express. Let's plan the route structure. I need endpoints for users, posts, and comments
+
+RECENT MESSAGES:
+user: Add pagination to all list endpoints

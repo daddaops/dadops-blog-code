@@ -1,0 +1,3 @@
+[Project] database: MySQL, framework: React
+[API] auth_method: JWT
+[{'turn': 12, 'entity': 'Project', 'attribute': 'database', 'old': 'PostgreSQL', 'new': 'MySQL'}]

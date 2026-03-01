@@ -1,0 +1,56 @@
+============================================================
+LLM Memory Systems — Verification Suite
+============================================================
+
+--- ConversationBuffer ---
+  PASS: 3 messages stored
+  PASS: Token count > 0
+  PASS: Not near limit with 3 messages
+  PASS: get_messages returns clean format
+  PASS: Near limit with small max_tokens
+
+--- SlidingWindowMemory ---
+  PASS: Window size = 5 (3 recent + 2 important)
+  PASS: PostgreSQL decision survives window
+  PASS: Decision scores higher than 'sounds good'
+  PASS: Score capped at 1.0
+  PASS: Small set returns all messages
+
+--- SummaryMemory ---
+  PASS: Pinned fact in context
+  PASS: Summary generated after 4 turns
+  PASS: Buffer has 1 message after summarization
+  PASS: Pinned section appears in context
+  PASS: Summary section appears in context
+  PASS: Recent section appears in context
+  PASS: Duplicate pin prevented
+
+--- EntityMemory ---
+  PASS: MySQL is current database (recency wins)
+  PASS: React framework preserved
+  PASS: JWT auth preserved
+  PASS: Changelog has 1 contradiction
+  PASS: Changelog: old value is PostgreSQL
+  PASS: Changelog: new value is MySQL
+  PASS: Changelog: turn 12
+
+--- SemanticMemoryStore ---
+  PASS: Retrieves 2 results
+  PASS: Results have score, text, type
+  PASS: Scores are numeric
+  PASS: Empty store returns []
+  PASS: Embedding is unit vector
+  PASS: Embedding dimension correct
+  PASS: Same text → same embedding
+
+--- HybridMemoryManager ---
+  PASS: Prompt is a list
+  PASS: First message is system
+  PASS: Last message is user query
+  PASS: Last message is the query
+  PASS: Entity memory injected into system prompt
+  PASS: Within token budget (75 est tokens < 3500)
+
+============================================================
+Results: 37 passed, 0 failed, 37 total
+============================================================

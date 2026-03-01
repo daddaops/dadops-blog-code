@@ -1,0 +1,2 @@
+[preference] (score: 0.020) User prefers pytest with verbose output and coverage reports
+[decision] (score: 0.006) Project uses PostgreSQL 16 with pgvector extension

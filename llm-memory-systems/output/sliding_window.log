@@ -1,0 +1,6 @@
+Window size: 5
+  user: I decide to use PostgreSQL for the database
+  assistant: What's next?
+  user: Let's work on the API layer
+  assistant: I'll set up Express routes
+  user: Add error handling too
