@@ -1,0 +1,6 @@
+# Core dependencies
+openai
+pillow
+
+# Optional: for Claude alternative
+# anthropic
