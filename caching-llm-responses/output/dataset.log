@@ -1,0 +1,19 @@
+=== Query Dataset Generation ===
+
+Total queries: 10000
+Unique intents: 3140
+Intent count: 140 defined intents
+
+Category distribution:
+  classification: 1991
+  extraction: 1931
+  generation: 2025
+  qa: 2010
+  summarization: 2043
+
+Sample queries:
+  [qa] Unique query about topic #1082: explain in detail...
+  [summarization] Headlines recap: {context}...
+  [summarization] Unique query about topic #1439: explain in detail...
+  [classification] Document type classification: {context}...
+  [summarization] What changed in this release? {context}...
