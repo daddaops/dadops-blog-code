@@ -1,0 +1,39 @@
+============================================================
+Multi-GPU Memory Comparison: 13B model (FP16 + Adam)
+============================================================
+
+--- data_parallel, 2 GPUs ---
+Strategy: data_parallel
+  Per-GPU memory: 208.0 GB (model/grads/optimizer)
+  Communication: AllReduce gradients every step
+  Scaling: ~2x throughput (linear scaling)
+
+--- data_parallel, 4 GPUs ---
+Strategy: data_parallel
+  Per-GPU memory: 208.0 GB (model/grads/optimizer)
+  Communication: AllReduce gradients every step
+  Scaling: ~4x throughput (linear scaling)
+
+--- pipeline_parallel, 2 GPUs ---
+Strategy: pipeline_parallel
+  Per-GPU memory: 104.0 GB (model/grads/optimizer)
+  Communication: Activations sent between pipeline stages
+  Scaling: ~2x capacity, <2x throughput (pipeline bubbles)
+
+--- pipeline_parallel, 4 GPUs ---
+Strategy: pipeline_parallel
+  Per-GPU memory: 52.0 GB (model/grads/optimizer)
+  Communication: Activations sent between pipeline stages
+  Scaling: ~4x capacity, <4x throughput (pipeline bubbles)
+
+--- fsdp_zero3, 2 GPUs ---
+Strategy: fsdp_zero3
+  Per-GPU memory: 104.0 GB (model/grads/optimizer)
+  Communication: AllGather params before forward, ReduceScatter gradients
+  Scaling: ~2x capacity, good throughput with overlap
+
+--- fsdp_zero3, 4 GPUs ---
+Strategy: fsdp_zero3
+  Per-GPU memory: 52.0 GB (model/grads/optimizer)
+  Communication: AllGather params before forward, ReduceScatter gradients
+  Scaling: ~4x capacity, good throughput with overlap

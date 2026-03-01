@@ -1,0 +1,24 @@
+
+--- 7B (FP16, Adam, 80GB GPU) ---
+Fixed memory:  112.0 GB (params=14.0, grads=14.0, optimizer=84.0)
+Activation/sample: 1611 MB
+Available for activations: -32.0 GB
+Max batch size: 0
+
+--- 7B (FP16, Adam, 24GB GPU) ---
+Fixed memory:  112.0 GB (params=14.0, grads=14.0, optimizer=84.0)
+Activation/sample: 1611 MB
+Available for activations: -88.0 GB
+Max batch size: 0
+
+--- 13B (FP16, Adam, 80GB GPU) ---
+Fixed memory:  208.0 GB (params=26.0, grads=26.0, optimizer=156.0)
+Activation/sample: 2517 MB
+Available for activations: -128.0 GB
+Max batch size: 0
+
+--- 1.3B (FP16, Adam, 24GB GPU) ---
+Fixed memory:  20.8 GB (params=2.6, grads=2.6, optimizer=15.6)
+Activation/sample: 604 MB
+Available for activations: 3.2 GB
+Max batch size: 5
