@@ -1,0 +1,5 @@
+Pool size: 500, Batch size: 10
+
+Top-K          : avg_uncertainty=0.6931, spread=0.7075
+K-Centers      : avg_uncertainty=0.4094, spread=4.6350
+Hybrid         : avg_uncertainty=0.6427, spread=2.5291

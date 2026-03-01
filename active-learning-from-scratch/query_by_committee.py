@@ -23,7 +23,11 @@ def query_by_committee(X_pool, y_pool, X_train, y_train,
         # Train committee on bootstrap samples
         committee = []
         for _ in range(n_committee):
-            X_boot, y_boot = resample(X_train, y_train)
+            # Resample until we have both classes (small seed sets can produce single-class boots)
+            for _attempt in range(100):
+                X_boot, y_boot = resample(X_train, y_train)
+                if len(np.unique(y_boot)) >= 2:
+                    break
             model = LogisticRegression().fit(X_boot, y_boot)
             committee.append(model)
 

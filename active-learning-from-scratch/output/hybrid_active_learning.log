@@ -1,0 +1,4 @@
+Pool size: 500, Seed size: 4, Queries: 50
+
+Pure Uncertainty    : start=0.820, end=0.918, avg=0.905
+Hybrid (eps=0.15)   : start=0.820, end=0.918, avg=0.907
