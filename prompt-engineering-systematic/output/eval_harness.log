@@ -1,0 +1,6 @@
+=== Eval Harness — Scoring Logic Test ===
+
+Good output: {'category_correct': True, 'extraction_quality': 1.0, 'parseable': True}
+Wrong category: {'category_correct': False, 'extraction_quality': 1.0, 'parseable': True}
+Unparseable: {'category_correct': False, 'extraction_quality': 0.0, 'parseable': False}
+Partial extraction: {'category_correct': True, 'extraction_quality': 0.0, 'parseable': True}

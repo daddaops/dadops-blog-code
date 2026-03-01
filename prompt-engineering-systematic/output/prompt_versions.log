@@ -1,0 +1,16 @@
+=== Prompt Version Comparison ===
+
+This script requires an LLM API key to run the full benchmark.
+The V5 system prompt is defined as SYSTEM_PROMPT_V5 constant.
+
+V5 prompt length: 1533 characters
+V5 prompt lines: 34
+
+Claimed results (from blog, require LLM API to verify):
+Version              Accuracy    Parse   Tokens
+------------------------------------------------
+V1 Baseline               62%      70%     5100
+V2 + Role                 91%      97%     2100
+V3 + FewShot              94%      97%     2400
+V4 + Structure            94%      99%     2200
+V5 + Constraints          96%      99%     1680

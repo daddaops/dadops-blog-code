@@ -1,0 +1,23 @@
+=== Diverse Example Selection Demo ===
+
+Strategy A (random):
+  [billing] I was charged twice for order #4821
+  [returns] I want to return this but I also need a refund for the shipping
+  [account] How do I change my password?
+
+Strategy B (stratified):
+  [billing] I was charged twice for order #4821
+  [shipping] My package says delivered but I never got it
+  [account] How do I change my password?
+
+Strategy C (diverse):
+  [billing] I was charged twice for order #4821
+  [technical] The app crashes when I try to checkout and then I got charged anyway
+  [shipping] My package says delivered but I never got it
+
+Diversity scores (avg min-distance from neighbors):
+  A random: avg pairwise distance = 0.688
+  B stratified: avg pairwise distance = 0.694
+  C diverse: avg pairwise distance = 0.719
+
+Note: Claimed accuracy results (82%/88%/94%) require LLM API calls — SKIP
