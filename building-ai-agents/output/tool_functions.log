@@ -1,0 +1,26 @@
+=== search_files Test ===
+  *.py in current dir: 3 files found
+  Non-existent pattern: 0 files (correct)
+  PASS
+
+=== read_file Test ===
+  Read /home/ubuntu/dadops-blog-code/building-ai-agents/tool_functions.py: 161 total lines, returned first 5
+  Non-existent file: File not found: /nonexistent/path/file.txt
+  PASS
+
+=== calculate Test ===
+  2 + 3 = 5, (10+20)/3 = 10.0, 3.14*2 = 6.28
+  Blocked 'import os': Invalid characters in expression
+  PASS
+
+=== truncate_result Test ===
+  Short result: {"key": "value"}
+  Long result truncated to: 134 chars
+  PASS
+
+=== Error Handling Pattern Test ===
+  Unknown tool: Unknown tool 'nonexistent_tool'. Available: ['search_files', 'read_file', 'calculate']
+  Wrong args: Wrong arguments for calculate: calculate() got an unexpected keyword argument 'wrong_arg'.
+  PASS
+
+All tool function tests passed!
