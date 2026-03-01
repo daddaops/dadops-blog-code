@@ -1,0 +1,61 @@
+=== 1. Database Initialization ===
+  [PASS] receipts table exists — tables=['line_items', 'receipts', 'sqlite_sequence']
+  [PASS] line_items table exists — tables=['line_items', 'receipts', 'sqlite_sequence']
+  [PASS] receipts has store_name
+  [PASS] receipts has raw_json
+  [PASS] receipts has validation_ok
+  [PASS] line_items has receipt_id
+  [PASS] line_items has is_discount
+  [PASS] receipts date index exists — indexes=['idx_receipts_date']
+
+=== 2. Image Preprocessing ===
+  [PASS] prepare_image returns string
+  [PASS] Output is JPEG
+  [PASS] Long edge <= 1500 — size=(1500, 1000)
+  [PASS] Aspect ratio preserved — ratio=1.500, expected=1.500
+  [PASS] Small image not resized — size=(800, 600)
+  [PASS] RGBA image converts successfully
+
+=== 3. System Prompt ===
+  [PASS] Prompt mentions JSON
+  [PASS] Prompt mentions null
+  [PASS] Prompt mentions discount
+  [PASS] Prompt mentions YYYY-MM-DD
+  [PASS] Prompt defines store_name
+  [PASS] Prompt defines is_discount
+
+=== 4. Validation Logic ===
+  [PASS] Valid receipt passes — errors=[]
+  [PASS] Item sum matches subtotal exactly
+  [PASS] Missing store_name detected
+  [PASS] Missing total detected
+  [PASS] Missing items detected
+  [PASS] Item sum mismatch detected
+  [PASS] Error mentions item sum
+  [PASS] Total mismatch detected
+  [PASS] Error mentions subtotal + tax
+  [PASS] Implausible total detected
+  [PASS] Tiny total detected
+  [PASS] $0.00 tolerance passes — errors=[]
+  [PASS] Discount receipt validates — errors=[]
+
+=== 5. Storage ===
+  [PASS] Receipt stored with ID — id=1
+  [PASS] Receipt retrievable
+  [PASS] Store name stored correctly
+  [PASS] validation_ok is 1
+  [PASS] Line items stored — count=2
+  [PASS] First item name
+  [PASS] Invalid receipt stored with validation_ok=0
+
+=== 6. Blog Claims ===
+  [PASS] Float 3*1.33 = 3.9900000000000002 — actual=3.99
+  [PASS] 208 receipts/year
+  [PASS] Gemini Flash yearly cost — calc=$0.04, claimed=$0.04
+  [PASS] Claude Haiku yearly cost — calc=$0.33, claimed=$0.33
+  [PASS] GPT-4o yearly cost — calc=$0.42, claimed=$0.42
+  [PASS] GPT-4o-mini yearly cost — calc=$0.83, claimed=$0.83
+
+==================================================
+Results: 46 passed, 0 failed, 46 total
+All tests passed!

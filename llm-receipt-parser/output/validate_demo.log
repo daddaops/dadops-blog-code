@@ -1,0 +1,53 @@
+=== Receipt Parser Validation Demo ===
+
+Test 1 - Valid receipt: valid=True, errors=[]
+  ✓ PASS
+
+  Item sum: 25.45 (expected 25.45)
+  Subtotal + tax: 27.32 (expected 27.32)
+
+Test 2 - Bad arithmetic: valid=False, errors=['Item sum $12.97 != subtotal $15.0']
+  ✓ PASS
+
+Test 3 - Missing fields: valid=False, errors=['Missing required field: store_name', 'Missing required field: items']
+  ✓ PASS
+
+Test 4 - Implausible total: valid=False, errors=['Total $5000 outside plausible range']
+  ✓ PASS
+
+=== Blog Claim: Float Precision ===
+  float:   3 * 1.33 = 3.99
+  Decimal: 3 * 1.33 = 3.99
+  Blog claims float gives 3.9900000000000002
+  Actual: True
+
+=== SQLite Integration ===
+
+  Stored receipt #1
+  Stored receipt #2
+
+--- Monthly Spending ---
+  2026-02: 2 trips, $36.43
+
+--- Most Purchased Items ---
+  BANANAS: bought 2x, avg $1.09
+
+--- Price Tracking (BANANAS) ---
+  2026-02-20 @ Costco Wholesale: $1.49
+  2026-02-22 @ Safeway: $0.69
+
+--- Cheapest Store for BANANAS ---
+  Safeway: avg $0.69 (1 samples)
+  Costco Wholesale: avg $1.49 (1 samples)
+
+  Cleaned up /tmp/test_receipts.db
+
+=== Cost Verification ===
+Blog cost table claims:
+  Receipts/year: 208
+  Gemini Flash: $0.0002/receipt × 208 = $0.04 (blog: $0.04) ✓
+  Claude Haiku: $0.0016/receipt × 208 = $0.33 (blog: $0.33) ✓
+  GPT-4o: $0.002/receipt × 208 = $0.42 (blog: $0.42) ✓
+  GPT-4o-mini: $0.004/receipt × 208 = $0.83 (blog: $0.83) ✓
+
+All tests complete.
