@@ -1,0 +1,11 @@
+# Core (no API key needed)
+# json (stdlib)
+
+# OpenAI fine-tuning (requires OPENAI_API_KEY)
+# openai
+
+# LoRA fine-tuning (requires GPU)
+# transformers
+# peft
+# trl
+# bitsandbytes
