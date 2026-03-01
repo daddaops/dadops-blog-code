@@ -1,0 +1,20 @@
+=== Hyperparameter Search Demo ===
+
+Grid search: 9 configs
+  {'lr': 0.001, 'batch_size': 32}
+  {'lr': 0.001, 'batch_size': 64}
+  {'lr': 0.001, 'batch_size': 128}
+  {'lr': 0.01, 'batch_size': 32}
+  {'lr': 0.01, 'batch_size': 64}
+  ... (9 total)
+
+Random search: 10 configs
+  lr=0.003612, batch=16, drop=0.371
+  lr=0.000095, batch=32, drop=0.368
+  lr=0.005091, batch=16, drop=0.295
+
+10x10 grid: 100 evaluations, 10 distinct LRs
+Random 100: 100 evaluations, 100 distinct LRs
+
+Successive halving best config:
+  lr=0.002626, batch=64, drop=0.102

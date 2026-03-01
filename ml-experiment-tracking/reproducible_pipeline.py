@@ -114,7 +114,8 @@ if __name__ == "__main__":
     print(f"\nRandom sequences match: {seq1 == seq2}")
     print(f"  Sequence: {[round(x, 6) for x in seq1]}")
 
-    # Cleanup
+    # Cleanup — both runs share the same parent "runs/" dir
     shutil.rmtree(os.path.dirname(config_path))
-    shutil.rmtree(os.path.dirname(run1))
-    shutil.rmtree(os.path.dirname(run2))
+    runs_dir = os.path.dirname(run1)
+    if os.path.exists(runs_dir):
+        shutil.rmtree(runs_dir)

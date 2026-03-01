@@ -1,0 +1,15 @@
+=== Experiment & Model Registry Demo ===
+
+Run saved to /tmp/tmpyr870nlq/lr_sweep_resnet18/2026-03-01_133219_ad912a
+Run saved to /tmp/tmpyr870nlq/lr_sweep_resnet18/2026-03-01_133219_bf8256
+Experiment: lr_sweep_resnet18
+  Run 1: /tmp/tmpyr870nlq/lr_sweep_resnet18/2026-03-01_133219_ad912a
+  Run 2: /tmp/tmpyr870nlq/lr_sweep_resnet18/2026-03-01_133219_bf8256
+
+Registered v1 (accuracy=0.91)
+Registered v2 (accuracy=0.94)
+
+Production model: v2 (accuracy=0.94)
+  v1: stage=development
+  v2: stage=archived
+  v3: stage=production

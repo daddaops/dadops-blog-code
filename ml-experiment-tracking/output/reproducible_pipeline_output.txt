@@ -1,0 +1,11 @@
+=== Reproducible Pipeline Demo ===
+
+Run saved to runs/2026-03-01_133242_ae5ea5
+Run saved to runs/2026-03-01_133242_faa0fa
+
+Fingerprint 1: 385ab13cef62
+Fingerprint 2: 385ab13cef62
+Fingerprints match: True
+
+Random sequences match: True
+  Sequence: [0.639427, 0.025011, 0.275029, 0.223211, 0.736471]

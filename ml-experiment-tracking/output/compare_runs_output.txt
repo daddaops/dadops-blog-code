@@ -1,0 +1,24 @@
+=== Run Comparison Demo ===
+
+Run saved to /tmp/tmp1x0vtknr/2026-03-01_133213_b37606
+Run saved to /tmp/tmp1x0vtknr/2026-03-01_133213_7b0e4d
+Run saved to /tmp/tmp1x0vtknr/2026-03-01_133213_4dc1de
+Run saved to /tmp/tmp1x0vtknr/2026-03-01_133213_7c694d
+Run saved to /tmp/tmp1x0vtknr/2026-03-01_133213_6fa687
+Loaded 5 runs
+
+Rank  Run                           Score     LR        Batch   
+----------------------------------------------------------------
+1     2026-03-01_133213_7c694d      0.8351    0.0001    128     
+2     2026-03-01_133213_4dc1de      0.7944    0.01      32      
+3     2026-03-01_133213_6fa687      0.7936    0.003     64      
+4     2026-03-01_133213_b37606      0.7928    0.001     32      
+5     2026-03-01_133213_7b0e4d      0.7914    0.003     64      
+
+--- Diff: 2026-03-01_133213_4dc1de vs 2026-03-01_133213_6fa687 ---
+Parameter           Run A               Run B               
+------------------------------------------------------------
+batch_size          32                  64                  
+epochs              15                  20                  
+lr                  0.01                0.003               
+model               resnet34            resnet50            

@@ -1,0 +1,38 @@
+=== ExperimentTracker Demo ===
+
+Run saved to /tmp/tmpipeb9nol/2026-03-01_133212_e81a34
+
+Run directory contents:
+  git_info.json (91 bytes)
+  metrics.csv (328 bytes)
+  params.json (143 bytes)
+  summary.json (259 bytes)
+
+params.json:
+{
+  "model": "resnet18",
+  "lr": 0.003,
+  "batch_size": 64,
+  "epochs": 20,
+  "dropout": 0.3,
+  "optimizer": "adam",
+  "data_version": "v2.1"
+}
+metrics.csv:
+step,name,value
+0,train_loss,0.9971
+0,val_loss,1.0948
+0,val_accuracy,0.4989
+1,train_loss,0.864
+1,val_loss,0.9762
+1,val_accuracy,0.565
+2,train_loss,0.7066
+2,val_loss,0.852
+2,val_accuracy,0.6578
+3,train_loss,0.5523
+3,val_loss,0.747
+3,val_accuracy,0.7516
+4,train_loss,0.4131
+4,val_loss,0.6233
+4,val_accuracy,0.8126
+

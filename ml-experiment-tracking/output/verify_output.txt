@@ -1,0 +1,97 @@
+
+=== Block 1: ExperimentTracker ===
+  PASS: Run dir created
+  PASS: Run dir has timestamp_hex format
+  PASS: params.json created
+  PASS: params.json has correct keys
+  PASS: params.json lr value
+  PASS: metrics.csv created
+  PASS: metrics.csv header
+  PASS: metrics.csv has 3 rows
+  PASS: metrics.csv first row
+  PASS: artifact copied
+  PASS: git_info has commit
+  PASS: git_info has uncommitted_changes
+Run saved to /tmp/tmpozaz16qa/2026-03-01_133246_54b20f
+  PASS: summary.json created
+  PASS: summary has run_dir
+  PASS: summary has start_time
+  PASS: summary has end_time
+  PASS: summary has duration_seconds
+  PASS: summary has final_metrics
+  PASS: Run dir has expected files
+
+=== Block 3: compare_runs ===
+Run saved to /tmp/tmpr58jidr0/2026-03-01_133246_2a82f9
+Run saved to /tmp/tmpr58jidr0/2026-03-01_133246_8c3ae5
+Run saved to /tmp/tmpr58jidr0/2026-03-01_133246_f5fecc
+  PASS: load_all_runs count
+  PASS: runs have params
+  PASS: runs have summary
+  PASS: compare_runs produces output
+  PASS: compare_runs has header line with dashes
+  PASS: diff_runs produces output
+  PASS: diff_runs identical
+
+=== Block 4: Reproducible Pipeline ===
+  PASS: seed_everything deterministic (random)
+  PASS: seed_everything deterministic (numpy)
+  PASS: fingerprint is 12 chars hex
+  PASS: fingerprint deterministic
+  PASS: fingerprint matches manual hash
+Run saved to runs/2026-03-01_133246_40f107
+  PASS: pipeline run creates directory
+  PASS: pipeline run saves params
+  PASS: pipeline run saves summary
+  PASS: pipeline run saves metrics
+  PASS: pipeline run saves config artifact
+
+=== Block 5: Experiment & Model Registry ===
+  PASS: experiment dir created
+  PASS: new_run returns ExperimentTracker
+  PASS: tags.json created
+  PASS: tags content correct
+Run saved to /tmp/tmpkqumcc0i/lr_sweep_resnet18/2026-03-01_133246_f8639e
+Run saved to /tmp/tmpkqumcc0i/lr_sweep_resnet18/2026-03-01_133246_ef4a77
+  PASS: first version is 1
+  PASS: second version is 2
+  PASS: v1 initial stage is development
+  PASS: v2 initial stage is development
+  PASS: production model is v2
+  PASS: production model metrics
+  PASS: third version is 3
+  PASS: v2 archived after v3 promoted
+  PASS: v3 is production
+  PASS: production model now v3
+  PASS: unknown model returns None
+  PASS: registry persists
+
+=== Block 6: Hyperparameter Search ===
+  PASS: grid search 3x3 = 9 configs
+  PASS: grid has all 3 LRs
+  PASS: grid has all 3 batch sizes
+  PASS: 10x10 grid = 100 evals
+  PASS: 10x10 grid only 10 distinct LRs
+  PASS: random search returns 50 configs
+  PASS: random configs have all keys
+  PASS: random 100 = 100 distinct LRs
+  PASS: log_uniform min >= 1e-5
+  PASS: log_uniform max <= 1e-1
+  FAIL: log_uniform median < geometric mean — Median: 0.001270, geo mean: 0.001000
+  PASS: successive_halving returns a config
+  PASS: successive_halving config has keys
+  PASS: successive_halving n=1 returns config
+  PASS: choice samples from options
+  PASS: choice uses all options
+  PASS: uniform min >= 0.0
+  PASS: uniform max <= 0.5
+
+=== Blog Claims ===
+  PASS: ExperimentTracker under 60 lines
+  PASS: grid search O(k^d): 3^3 = 27
+  PASS: successive halving total evals (8 configs)
+  PASS: stdlib scripts exist and are readable
+
+==================================================
+TOTAL: 73 passed, 1 failed out of 74
+SOME TESTS FAILED

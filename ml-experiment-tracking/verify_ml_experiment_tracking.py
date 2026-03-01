@@ -357,11 +357,12 @@ sampler = SearchSpace.log_uniform(1e-5, 1e-1)
 samples = [sampler() for _ in range(1000)]
 check("log_uniform min >= 1e-5", min(samples) >= 1e-5)
 check("log_uniform max <= 1e-1", max(samples) <= 1e-1)
-# Log-uniform should have more samples near lower end
+# Log-uniform median ≈ geometric mean = sqrt(low * high)
+geo_mean = math.sqrt(1e-5 * 1e-1)
 median = sorted(samples)[500]
-check("log_uniform median < geometric mean",
-      median < math.sqrt(1e-5 * 1e-1),
-      f"Median: {median:.6f}, geo mean: {math.sqrt(1e-5 * 1e-1):.6f}")
+check("log_uniform median near geometric mean",
+      geo_mean / 2 < median < geo_mean * 2,
+      f"Median: {median:.6f}, geo mean: {geo_mean:.6f}")
 
 # Test: successive_halving finds good config
 random.seed(42)
