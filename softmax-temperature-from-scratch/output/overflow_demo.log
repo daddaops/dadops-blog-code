@@ -1,0 +1,15 @@
+/home/ubuntu/dadops-blog-code/softmax-temperature-from-scratch/overflow_demo.py:17: RuntimeWarning: overflow encountered in exp
+  e = np.exp(z)
+/home/ubuntu/dadops-blog-code/softmax-temperature-from-scratch/overflow_demo.py:18: RuntimeWarning: invalid value encountered in divide
+  return e / np.sum(e)
+=== Overflow with naive softmax ===
+[nan nan nan]
+
+=== Stable softmax ===
+[0.24472847 0.66524096 0.09003057]
+
+=== Verification: naive vs stable ===
+Naive:  [0.23707731 0.08721587 0.01180338 0.64444295 0.01946049]
+Stable: [0.23707731 0.08721587 0.01180338 0.64444295 0.01946049]
+Naive:  [0.11731043 0.86681333 0.01587624]
+Stable: [0.11731043 0.86681333 0.01587624]

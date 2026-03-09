@@ -1,0 +1,5 @@
+Head dimension d_k = 64
+Effective temperature T = sqrt(64) = 8.0
+
+This is equivalent to:
+  softmax(QK^T / 8.0) = softmax_with_temperature(QK^T, T=8.0)

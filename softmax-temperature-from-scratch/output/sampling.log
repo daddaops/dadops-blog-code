@@ -1,0 +1,17 @@
+=== Top-k Sampling (k=3) ===
+  mat      50.6%
+  rug      30.7%
+  floor    18.6%
+
+=== Top-p Sampling (p=0.9) ===
+Top-p=0.9 nucleus:
+  mat      42.9%
+  rug      26.0%
+  floor    15.8%
+  carpet   9.6%
+  ground   5.8%
+
+=== Temperature vs Nucleus Size ===
+T=0.3: nucleus size for p=0.9 is 2 tokens
+T=1.0: nucleus size for p=0.9 is 5 tokens
+T=2.0: nucleus size for p=0.9 is 6 tokens

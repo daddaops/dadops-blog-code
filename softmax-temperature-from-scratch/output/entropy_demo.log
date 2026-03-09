@@ -1,0 +1,6 @@
+=== Entropy vs Temperature ===
+T= 0.1  entropy=0.001 bits  (max possible: 2.322)
+T= 0.5  entropy=0.903 bits  (max possible: 2.322)
+T= 1.0  entropy=1.795 bits  (max possible: 2.322)
+T= 2.0  entropy=2.181 bits  (max possible: 2.322)
+T= 5.0  entropy=2.300 bits  (max possible: 2.322)
