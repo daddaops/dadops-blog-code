@@ -1,0 +1,15 @@
+Original: The happy dog had a good fast run in the big park
+
+Synonym replace: The joyful dog had a good fast run in the huge park
+Random insert: The enormous happy dog had a good fast run in the big park
+Random delete: happy dog had good fast run in the big park
+Random swap: The fast dog had a good happy run in the big park
+
+Full EDA (5 augmentations):
+  1: The in dog enormous had good fast run cheerful the big park
+  2: The happy dog had a wonderful run fast glad in the big
+  3: The cheerful dog had a the fast run in good enormous big
+  4: The dog good a had fast run in the huge
+  5: The happy in had a good fast dog rapid the vast park
+
+All EDA tests passed.

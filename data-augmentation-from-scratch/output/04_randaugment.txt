@@ -1,0 +1,7 @@
+Original shape: (16, 16)
+Augmented shape: (16, 16)
+Augmented range: [0.007, 0.992]
+  Run 1: range [0.007, 0.992]
+  Run 2: range [0.007, 0.992]
+  Run 3: range [0.083, 0.785]
+RandAugment test passed.

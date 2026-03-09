@@ -1,0 +1,7 @@
+Original shape: (8, 8)
+Flipped shape: (8, 8)
+Flip correct: True
+Rotated 45° shape: (8, 8)
+Cropped shape: (4, 4)
+Sheared shape: (8, 8)
+All geometric transforms passed.

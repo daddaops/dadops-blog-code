@@ -1,0 +1,8 @@
+Original shape: (16, 16, 3)
+Original range: [0.001, 0.999]
+Brightness +0.2 range: [0.201, 1.000]
+Contrast 1.5x range: [0.000, 1.000]
+Desaturated (factor=0) — all channels equal: True
+Random erasing: 40 zero pixels
+Color jitter shape: (16, 16, 3)
+All photometric transforms passed.

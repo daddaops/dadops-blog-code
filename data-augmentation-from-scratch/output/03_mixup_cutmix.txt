@@ -1,0 +1,10 @@
+Mixup:
+  Mixed image shape: (16, 16, 3)
+  Mixed label: [0.55568677 0.44431323 0.        ]
+  Label sums to 1: True
+
+CutMix:
+  Mixed image shape: (16, 16, 3)
+  Mixed label: [0.78125 0.21875 0.     ]
+  Label sums to 1: True
+All Mixup/CutMix tests passed.
