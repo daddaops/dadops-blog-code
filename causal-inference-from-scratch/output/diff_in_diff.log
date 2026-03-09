@@ -1,0 +1,15 @@
+=== Difference-in-Differences ===
+Treated cities:  before=103.1  after=119.5  change=+16.4
+Control cities:  before=82.6  after=91.0  change=+8.3
+
+First diff (treated):  +16.4
+First diff (control):  +8.3
+DiD estimate:          +8.1
+True effect:           +8.0
+
+Naive post-only:       +28.6  (inflated by baseline gap!)
+DiD removes the baseline difference between groups.
+
+Parallel trends check (pre-treatment gaps):
+  Gaps: ['20.4', '20.5', '20.6', '20.4']
+  Stable gap ≈ 20.5 confirms parallel trends assumption

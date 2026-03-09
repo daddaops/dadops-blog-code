@@ -1,0 +1,9 @@
+True ATE:        $5.00K
+Naive estimate:  $-6.48K
+Selection bias:  $-11.48K
+Check: naive ≈ ATE + bias: 5.00 + (-11.48) = -6.48
+
+Treated group avg experience:   2.0 years
+Untreated group avg experience: 7.7 years
+Less experienced workers self-selected into training,
+dragging down the treated group's observed outcomes.

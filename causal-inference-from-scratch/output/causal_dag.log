@@ -1,0 +1,10 @@
+Fork -- condition on StoneSize: True (Backdoor criterion satisfied)
+Fork -- condition on nothing:   False (Unblocked backdoor through 'StoneSize')
+
+Chain -- no confounders, empty set works:
+  Condition on nothing: True (Backdoor criterion satisfied)
+  (Do NOT condition on Dosage -- it's a mediator, not a confounder)
+
+Collider -- Talent and Looks are independent:
+  But conditioning on Hollywood creates a spurious association!
+  (Among Hollywood actors, less talented ones tend to be better looking)

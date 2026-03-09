@@ -1,0 +1,9 @@
+True causal return to education: $3.00K/year
+OLS estimate:                    $4.80K/year  (biased upward)
+2SLS IV estimate:                $2.65K/year  (consistent)
+
+OLS bias: ability is a confounder (smarter people get more education
+AND earn more, inflating the apparent return to education)
+
+First-stage F-statistic: 161.7  (Strong instrument)
+Rule of thumb: F > 10 indicates a strong instrument

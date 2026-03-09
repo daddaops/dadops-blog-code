@@ -1,0 +1,7 @@
+True ATE:         $4.00K
+Naive estimate:   $8.55K  (biased by self-selection)
+PSM estimate:     $4.32K  (bias reduced!)
+
+Bias reduction:   4.23K closer to truth
+Treated group:    750 workers
+Matched pairs:    750
