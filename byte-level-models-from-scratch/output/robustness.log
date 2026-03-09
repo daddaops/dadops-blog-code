@@ -1,0 +1,6 @@
+Original:  'The transformer architecture'
+Perturbed: 'Teh transfomer achitecture'
+Byte edit distance:    4 (small, proportional to typos)
+Token edit distance:   8 (large, tokenization shatters)
+Byte stability ratio:  14.29%
+Token stability ratio: 200.00%

@@ -1,0 +1,11 @@
+Input:  'Hello, world!'
+Bytes:  13 positions, shape (13, 128)
+Pooled: 3 positions (/4), shape (3, 128)
+
+Input:  '你好世界'
+Bytes:  12 positions, shape (12, 128)
+Pooled: 3 positions (/4), shape (3, 128)
+
+Byte embedding:    256 x 128 = 32,768 params
+Subword embedding: 50257 x 128 = 6,432,896 params
+Reduction: 196x fewer embedding params
