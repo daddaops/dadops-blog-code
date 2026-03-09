@@ -1,0 +1,5 @@
+Step   0 | Dense loss: 3.258 | MoE loss: 3.258 (aux: 0.0100)
+Step  10 | Dense loss: 3.258 | MoE loss: 3.258 (aux: 0.0100)
+Step  20 | Dense loss: 3.258 | MoE loss: 3.258 (aux: 0.0100)
+Step  30 | Dense loss: 3.258 | MoE loss: 3.258 (aux: 0.0100)
+Step  40 | Dense loss: 3.258 | MoE loss: 3.258 (aux: 0.0100)

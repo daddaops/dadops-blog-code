@@ -1,0 +1,2 @@
+SharedExpertMoE output shape: (10, 64)
+Aux loss: 0.0132

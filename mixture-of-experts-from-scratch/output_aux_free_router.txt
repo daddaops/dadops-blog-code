@@ -1,0 +1,5 @@
+Step 0: expert counts = [np.int64(6), np.int64(11), np.int64(11), np.int64(13), np.int64(7), np.int64(15), np.int64(29), np.int64(8)], bias range = [-0.0010, 0.0010]
+Step 1: expert counts = [np.int64(6), np.int64(11), np.int64(11), np.int64(13), np.int64(7), np.int64(15), np.int64(29), np.int64(8)], bias range = [-0.0020, 0.0020]
+Step 2: expert counts = [np.int64(6), np.int64(11), np.int64(11), np.int64(13), np.int64(7), np.int64(15), np.int64(29), np.int64(8)], bias range = [-0.0030, 0.0030]
+Step 3: expert counts = [np.int64(6), np.int64(11), np.int64(11), np.int64(13), np.int64(7), np.int64(15), np.int64(29), np.int64(8)], bias range = [-0.0040, 0.0040]
+Step 4: expert counts = [np.int64(6), np.int64(11), np.int64(11), np.int64(13), np.int64(7), np.int64(15), np.int64(29), np.int64(8)], bias range = [-0.0050, 0.0050]

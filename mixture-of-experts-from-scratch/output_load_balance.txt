@@ -1,0 +1,2 @@
+Balanced loss:  0.0101
+Collapsed loss: 0.0754

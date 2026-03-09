@@ -1,0 +1,4 @@
+Dense FFN:  (10, 64)  |  params:   33,024
+MoE Layer:  (10, 64)  |  params:  264,704
+Aux loss:   0.0132
+Parameter ratio: 8.0x
