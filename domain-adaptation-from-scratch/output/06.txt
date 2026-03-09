@@ -1,0 +1,6 @@
+Epoch 10: class=1.015 coral=0.000 domain=1.370 lambda=0.72
+Epoch 20: class=1.005 coral=0.000 domain=1.389 lambda=0.96
+Epoch 30: class=1.027 coral=0.000 domain=1.359 lambda=0.99
+Epoch 40: class=0.948 coral=0.001 domain=1.413 lambda=1.00
+Epoch 50: class=0.931 coral=0.000 domain=1.400 lambda=1.00
+Training complete.

@@ -1,0 +1,2 @@
+CORAL loss: 0.2201
+Same cov:   0.0087

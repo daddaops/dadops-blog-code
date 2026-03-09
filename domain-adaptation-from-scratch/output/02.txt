@@ -1,0 +1,2 @@
+Same dist MMD^2: -0.0002
+Shifted MMD^2:   0.0076

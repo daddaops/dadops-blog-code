@@ -1,0 +1,5 @@
+Class logits shape: torch.Size([8, 3])
+Domain logits shape: torch.Size([8, 1])
+Lambda at 50%: 0.9866
+Lambda at 100%: 0.9999
+DANN model OK
