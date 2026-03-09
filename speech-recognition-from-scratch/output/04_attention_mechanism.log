@@ -1,0 +1,5 @@
+Encoder states: (75, 256)
+Attention weights sum: 1.0000
+Peak attention at frame 57 (expected: 30-65 range)
+Context vector norm: 6.4046
+Top-5 attended frames: [57 48 58 54 35]

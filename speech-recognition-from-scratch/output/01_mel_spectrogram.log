@@ -1,0 +1,4 @@
+Waveform:       48,000 samples
+Mel spectrogram: 297 frames x 80 mels
+Transcript:      'set a timer' (11 chars)
+Mismatch:        297 frames -> 11 characters

@@ -1,0 +1,4 @@
+Reference:  'set a timer for five minutes'
+Hypothesis: 'set the timer for five minute'
+S=2, D=0, I=0, N=6
+WER = (2+0+0)/6 = 33.3%

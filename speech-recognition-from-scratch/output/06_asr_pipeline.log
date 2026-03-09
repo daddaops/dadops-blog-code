@@ -1,0 +1,4 @@
+Utterance:  'hi dad'
+Frames:      15 (logits shape: (15, 28))
+Decoded:    'hi dad'
+WER:         0.0%
