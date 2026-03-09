@@ -1,0 +1,3 @@
+MDN NLL (2 components):  -0.26
+MSE-equiv NLL (1 Gauss): 1.59
+MDN assigns 10^1x higher likelihood

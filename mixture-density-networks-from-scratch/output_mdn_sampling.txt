@@ -1,0 +1,5 @@
+Sample mean: 0.504
+Sample std:  0.261
+  Mode 1 (0.00-0.35): 104 samples
+  Mode 2 (0.35-0.65): 88 samples
+  Mode 3 (0.65-1.00): 108 samples

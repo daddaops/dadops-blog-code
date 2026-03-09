@@ -1,0 +1,2 @@
+MSE prediction for y=0.5: x = 0.514
+True solutions: x ≈ 0.20, 0.50, 0.80 — the mean misses all three
