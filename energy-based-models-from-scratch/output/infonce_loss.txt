@@ -1,0 +1,1 @@
+InfoNCE loss: 7.244

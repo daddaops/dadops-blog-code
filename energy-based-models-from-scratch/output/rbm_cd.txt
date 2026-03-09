@@ -1,0 +1,5 @@
+Epoch 0: reconstruction error = 0.2496
+Epoch 100: reconstruction error = 0.1897
+Epoch 200: reconstruction error = 0.1861
+Epoch 300: reconstruction error = 0.1963
+Epoch 400: reconstruction error = 0.1441

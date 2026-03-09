@@ -1,0 +1,4 @@
+Sample mean energies per cluster:
+  Near (-2, -1): 44 samples, mean E = -1.89
+  Near (2, 1): 22 samples, mean E = -1.28
+  Near (0, 3): 18 samples, mean E = -1.43

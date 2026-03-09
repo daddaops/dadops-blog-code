@@ -1,0 +1,3 @@
+DSM loss (zero model): 3.907
+(A trained model would have lower loss)
+DSM loss concept: target is -noise/sigma (direction back to clean data)
