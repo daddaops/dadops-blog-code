@@ -48,5 +48,5 @@ if __name__ == "__main__":
     print(f"Score of '{' '.join(tags[t] for t in seq1)}': {crf.score(x, seq1):.2f}")
     print(f"Score of '{' '.join(tags[t] for t in seq2)}': {crf.score(x, seq2):.2f}")
     # Output:
-    # Score of 'DET NOUN VERB NOUN': 7.84
-    # Score of 'DET VERB VERB VERB': -2.93
+    # Score of 'DET NOUN VERB NOUN': 4.79
+    # Score of 'DET VERB VERB VERB': -5.11

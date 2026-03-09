@@ -71,6 +71,6 @@ if __name__ == "__main__":
     print(f"log Z (brute force): {log_Z_brute:.6f}")
     print(f"Match: {np.isclose(log_Z_forward, log_Z_brute)}")
     # Output:
-    # log Z (forward):     9.512743
-    # log Z (brute force): 9.512743
+    # log Z (forward):     8.547796
+    # log Z (brute force): 8.547796
     # Match: True

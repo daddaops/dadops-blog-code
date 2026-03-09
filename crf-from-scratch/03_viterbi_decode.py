@@ -66,5 +66,5 @@ if __name__ == "__main__":
     print(f"Viterbi: {' '.join(tags[t] for t in best_seq)} (score: {best_score:.2f})")
     print(f"Greedy:  {' '.join(tags[t] for t in greedy_seq)} (score: {crf.score(x, greedy_seq):.2f})")
     # Output:
-    # Viterbi: DET NOUN VERB NOUN (score: 7.84)
-    # Greedy:  DET NOUN NOUN NOUN (score: 5.26)
+    # Viterbi: ADJ NOUN VERB DET (score: 7.67)
+    # Greedy:  ADJ NOUN VERB DET (score: 7.67)

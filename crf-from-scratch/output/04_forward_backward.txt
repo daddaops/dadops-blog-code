@@ -1,0 +1,11 @@
+log Z = 8.547796
+
+Node marginals (rows=positions, cols=labels):
+         DET   NOUN   VERB    ADJ
+  pos 0: 0.075 0.071 0.019 0.834
+  pos 1: 0.019 0.938 0.026 0.017
+  pos 2: 0.066 0.048 0.876 0.011
+  pos 3: 0.496 0.382 0.068 0.054
+
+Node marginals sum per position: [1. 1. 1. 1.]
+Edge marginals sum per edge: [1. 1. 1.]

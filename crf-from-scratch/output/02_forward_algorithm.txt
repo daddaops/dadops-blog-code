@@ -1,0 +1,3 @@
+log Z (forward):     8.547796
+log Z (brute force): 8.547796
+Match: True

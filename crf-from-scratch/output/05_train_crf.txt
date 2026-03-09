@@ -1,0 +1,15 @@
+Epoch 10: avg log-likelihood = -0.262
+Epoch 20: avg log-likelihood = -0.178
+Epoch 30: avg log-likelihood = -0.159
+Epoch 40: avg log-likelihood = -0.153
+Epoch 50: avg log-likelihood = -0.151
+
+Learned transition weights (rows=from, cols=to):
+       DET   NOUN  VERB  ADJ
+  DET  [+0.5, +2.1, -0.9, +1.1]
+  NOUN [-1.2, -1.4, +1.7, -0.6]
+  VERB [+1.4, -0.7, -1.1, -0.6]
+  ADJ  [-0.9, +1.6, -0.7, -0.5]
+
+Prediction: DET NOUN VERB DET DET NOUN
+Expected:   DET NOUN VERB DET DET NOUN

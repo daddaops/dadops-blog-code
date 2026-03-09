@@ -1,0 +1,2 @@
+Score of 'DET NOUN VERB NOUN': 4.79
+Score of 'DET VERB VERB VERB': -5.11

@@ -1,0 +1,2 @@
+Viterbi: ADJ NOUN VERB DET (score: 7.67)
+Greedy:  ADJ NOUN VERB DET (score: 7.67)
