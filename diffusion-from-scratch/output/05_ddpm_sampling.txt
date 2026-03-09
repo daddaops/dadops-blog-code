@@ -1,0 +1,6 @@
+Generating samples with DDPM (untrained model demo)...
+  Sample 0: [-369.39655895  -84.77758291]
+  Sample 1: [ 194.97588124 -166.03971923]
+  Sample 2: [-169.92429293   64.65043566]
+  Sample 3: [77.96757453 50.78113732]
+  Sample 4: [  43.53306075 -131.23181204]

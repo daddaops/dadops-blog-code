@@ -104,8 +104,8 @@ def train_diffusion(model, data, T=1000, alpha_bar=alpha_bar,
     return losses
 
 losses = train_diffusion(model, data)
-# Step     0  Loss: 2.1847
-# Step  1000  Loss: 0.8234
-# Step  2000  Loss: 0.5127
-# Step  5000  Loss: 0.2941
-# Step  9000  Loss: 0.1853
+# With autograd-based gradients, loss would decrease:
+# Step     0  Loss: ~2.0  (random predictions)
+# Step  5000  Loss: ~0.3  (learning spiral structure)
+# Step  9000  Loss: ~0.2  (converged)
+# Note: gradient computation omitted — loss stays ~2.0 without updates

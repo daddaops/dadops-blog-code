@@ -1,0 +1,5 @@
+t=   0  linear SNR= 9999.00  cosine SNR=24221.33
+t= 250  linear SNR=    1.09  cosine SNR=    5.49
+t= 500  linear SNR=    0.08  cosine SNR=    0.97
+t= 750  linear SNR=    0.00  cosine SNR=    0.17
+t= 999  linear SNR=    0.00  cosine SNR=    0.00

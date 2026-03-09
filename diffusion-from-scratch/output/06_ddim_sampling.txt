@@ -1,0 +1,3 @@
+DDIM sampling with different step counts (untrained model demo):
+   50 steps -> [277.40508948  62.65235859]
+   10 steps -> [277.44704358  62.69440711]

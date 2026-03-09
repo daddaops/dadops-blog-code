@@ -25,7 +25,7 @@ for t in [0, 250, 500, 750, 999]:
     snr_lin = alpha_bar_lin[t] / (1 - alpha_bar_lin[t])
     snr_cos = alpha_bar_cos[t] / (1 - alpha_bar_cos[t])
     print(f"t={t:4d}  linear SNR={snr_lin:8.2f}  cosine SNR={snr_cos:8.2f}")
-# t=   0  linear SNR= 9999.00  cosine SNR=24183.47
+# t=   0  linear SNR= 9999.00  cosine SNR=24221.33
 # t= 250  linear SNR=    1.09  cosine SNR=    5.49
 # t= 500  linear SNR=    0.08  cosine SNR=    0.97
 # t= 750  linear SNR=    0.00  cosine SNR=    0.17
