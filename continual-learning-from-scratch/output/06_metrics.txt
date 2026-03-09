@@ -1,0 +1,2 @@
+naive : avg_acc=96%, forgetting=5%
+ewc   : avg_acc=94%, forgetting=7%
