@@ -1,0 +1,17 @@
+=== Text-to-Image Search ===
+Query: 'sunset over the ocean'
+Top 5 results:
+  image_17: score=0.0352
+  image_0: score=0.0325
+  image_1: score=0.0267
+  image_12: score=0.0259
+  image_10: score=0.0237
+
+=== Image-to-Image Search ===
+Top 5 similar images:
+  image_11: score=0.9985
+  image_0: score=0.9970
+  image_5: score=0.9969
+  image_6: score=0.9966
+  image_17: score=0.9966
+PASS

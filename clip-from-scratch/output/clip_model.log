@@ -1,0 +1,6 @@
+CLIP model created with 5,195,937 parameters
+Image embeddings shape: torch.Size([2, 64])
+Text embeddings shape:  torch.Size([2, 64])
+Logit scale: 14.29
+Image embedding norms: [1.0, 1.0] (should be ~1.0)
+PASS

@@ -1,0 +1,10 @@
+Training CLIP on 32 synthetic samples, batch_size=8
+Model parameters: 5,195,937
+
+Epoch 1: loss=2.2354, temperature=1/0.0703
+Epoch 2: loss=2.0994, temperature=1/0.0705
+Epoch 3: loss=2.1165, temperature=1/0.0707
+Epoch 4: loss=2.0918, temperature=1/0.0709
+Epoch 5: loss=2.0955, temperature=1/0.0711
+
+PASS

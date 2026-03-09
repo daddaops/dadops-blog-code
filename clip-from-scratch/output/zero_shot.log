@@ -1,0 +1,14 @@
+=== Zero-Shot Classification ===
+Predicted class: dog
+Similarities:
+         dog: +0.1460
+         cat: +0.0136
+         car: +0.1386
+    airplane: +0.0628
+       pizza: +0.0667
+
+=== Prompt Ensembling ===
+Using 25 prompt templates
+Ensemble weights shape: torch.Size([5, 64])
+Predicted class (ensemble): airplane (score=0.1119)
+PASS
