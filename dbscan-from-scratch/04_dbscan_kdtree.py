@@ -48,6 +48,6 @@ for n in [500, 2000, 5000]:
     t_tree = time.time() - t0
 
     print(f"n={n:>5d} | Naive dist matrix: {t_naive:.3f}s | KD-tree DBSCAN: {t_tree:.3f}s")
-# n=  500 | Naive dist matrix: 0.004s | KD-tree DBSCAN: 0.008s
-# n= 2000 | Naive dist matrix: 0.051s | KD-tree DBSCAN: 0.025s
-# n= 5000 | Naive dist matrix: 0.318s | KD-tree DBSCAN: 0.059s
+# n=  500 | Naive dist matrix: 0.025s | KD-tree DBSCAN: 0.021s
+# n= 2000 | Naive dist matrix: 0.372s | KD-tree DBSCAN: 0.146s
+# n= 5000 | Naive dist matrix: 2.520s | KD-tree DBSCAN: 0.632s

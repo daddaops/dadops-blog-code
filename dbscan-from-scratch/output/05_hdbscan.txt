@@ -1,0 +1,5 @@
+Core dists — tight: 0.087, medium: 0.196, loose: 0.532
+MST edges: 259, weight range [0.040, 1.486]
+DBSCAN eps=0.2: 3 clusters, 74 noise
+DBSCAN eps=0.5: 4 clusters, 11 noise
+DBSCAN eps=1.0: 3 clusters, 1 noise

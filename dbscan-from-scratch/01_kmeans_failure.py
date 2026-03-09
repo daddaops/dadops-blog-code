@@ -24,5 +24,5 @@ circle_labels = kmeans(circles_X, 2)
 # Circles: left and right halves instead of inner and outer rings
 print(f"Moons — K-Means accuracy: {max(np.mean(moon_labels == moons_y), np.mean(moon_labels != moons_y)):.0%}")
 print(f"Circles — K-Means accuracy: {max(np.mean(circle_labels == circles_y), np.mean(circle_labels != circles_y)):.0%}")
-# Moons — K-Means accuracy: 73%
-# Circles — K-Means accuracy: 50%  (no better than random!)
+# Moons — K-Means accuracy: 75%
+# Circles — K-Means accuracy: 51%  (no better than random!)

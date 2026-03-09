@@ -26,6 +26,6 @@ def find_eps_elbow(X, k=5):
 from sklearn.datasets import make_moons
 X, _ = make_moons(300, noise=0.06, random_state=42)
 eps = find_eps_elbow(X, k=5)
-# k-distance elbow at index 283/300
-# Suggested eps: 0.1412
-# Range around elbow: [0.1178, 0.1830]
+# k-distance elbow at index 298/300
+# Suggested eps: 0.1928
+# Range around elbow: [0.1704, 0.2074]

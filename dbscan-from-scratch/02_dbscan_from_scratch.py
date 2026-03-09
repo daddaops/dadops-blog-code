@@ -50,4 +50,4 @@ labels = dbscan(X, eps=0.15, min_pts=5)
 n_clusters = len(set(labels) - {-1})
 n_noise = np.sum(labels == -1)
 print(f"Clusters found: {n_clusters}, Noise points: {n_noise}")
-# Clusters found: 2, Noise points: 3
+# Clusters found: 2, Noise points: 0

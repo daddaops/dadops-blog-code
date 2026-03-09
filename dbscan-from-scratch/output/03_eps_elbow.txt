@@ -1,0 +1,3 @@
+k-distance elbow at index 298/300
+Suggested eps: 0.1928
+Range around elbow: [0.1704, 0.2074]

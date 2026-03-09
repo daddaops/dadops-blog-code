@@ -1,0 +1,2 @@
+Moons — K-Means accuracy: 75%
+Circles — K-Means accuracy: 51%

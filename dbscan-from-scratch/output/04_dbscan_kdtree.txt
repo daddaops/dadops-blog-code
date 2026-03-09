@@ -1,0 +1,3 @@
+n=  500 | Naive dist matrix: 0.025s | KD-tree DBSCAN: 0.021s
+n= 2000 | Naive dist matrix: 0.372s | KD-tree DBSCAN: 0.146s
+n= 5000 | Naive dist matrix: 2.520s | KD-tree DBSCAN: 0.632s

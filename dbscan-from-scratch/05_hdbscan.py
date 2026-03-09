@@ -58,8 +58,8 @@ print(f"Core dists — tight: {core_dists[:80].mean():.3f}, "
       f"medium: {core_dists[80:200].mean():.3f}, "
       f"loose: {core_dists[200:].mean():.3f}")
 print(f"MST edges: {len(mst)}, weight range [{mst[0][2]:.3f}, {mst[-1][2]:.3f}]")
-# Core dists — tight: 0.079, medium: 0.214, loose: 0.501
-# MST edges: 259, weight range [0.039, 1.826]
+# Core dists — tight: 0.087, medium: 0.196, loose: 0.532
+# MST edges: 259, weight range [0.040, 1.486]
 # The MST's heaviest edges bridge between clusters — cutting them reveals structure
 
 # Compare: DBSCAN with a single eps can't handle all three densities
@@ -88,6 +88,6 @@ for eps in [0.2, 0.5, 1.0]:
     nc = len(set(lbl) - {-1})
     nn = np.sum(lbl == -1)
     print(f"DBSCAN eps={eps}: {nc} clusters, {nn} noise")
-# DBSCAN eps=0.2: 1 clusters, 168 noise  (only finds tight cluster)
-# DBSCAN eps=0.5: 2 clusters, 48 noise   (merges tight, finds medium)
-# DBSCAN eps=1.0: 2 clusters, 5 noise    (merges tight+medium, finds loose)
+# DBSCAN eps=0.2: 3 clusters, 74 noise   (fragments sparse clusters)
+# DBSCAN eps=0.5: 4 clusters, 11 noise   (finds more but still fragments)
+# DBSCAN eps=1.0: 3 clusters, 1 noise    (merges tight+medium, finds loose)
