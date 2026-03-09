@@ -1,0 +1,11 @@
+W1 gradient check: max diff = 3.24e-12
+Epoch    0: loss=0.6974
+Epoch  500: loss=0.0027
+Epoch 1000: loss=0.0012
+Epoch 1500: loss=0.0008
+
+Final predictions:
+  [0. 0.] -> 0.0000 (target: 0)
+  [0. 1.] -> 0.9978 (target: 1)
+  [1. 0.] -> 1.0000 (target: 1)
+  [1. 1.] -> 0.0000 (target: 0)

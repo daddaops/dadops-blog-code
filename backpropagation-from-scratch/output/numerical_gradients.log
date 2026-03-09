@@ -1,0 +1,8 @@
+Numerical gradient:  -5.8735006980
+Analytic gradient:   -5.8735007035
+Difference:          5.51e-09
+
+Neural net weight gradient:
+Numerical:  -0.1586312778
+Analytic:   -0.1586312784
+Difference: 5.17e-10

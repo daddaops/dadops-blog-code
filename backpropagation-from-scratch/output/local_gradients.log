@@ -1,0 +1,10 @@
+Addition: da=1.0, db=1.0 ✓ (gradient distributor)
+Multiply: da=5.0 (=b), db=3.0 (=a) ✓ (swap rule)
+ReLU grad: [0. 1. 0. 1.] ✓ (binary gate)
+Sigmoid grad: [0.25   0.1966 0.1966 0.0066]
+  Max sigmoid grad = 0.2500 (at x=0)
+  MatMul dW: diff=2.61e-11 [PASS]
+
+Softmax+CE gradient: [-0.341   0.2424  0.0986]
+  = probs - target = [0.659  0.2424 0.0986] - [1. 0. 0.]
+  (prediction minus truth — that's it!)
