@@ -9,9 +9,6 @@ Blog post: https://dadops.dev/blog/feature-selection-from-scratch/
 import numpy as np
 from dataset import make_dataset
 
-X, y, names, n = make_dataset()
-
-
 def lasso_coordinate_descent(X, y, lam, epochs=500):
     """Lasso via coordinate descent. Returns coefficients."""
     n, d = X.shape
@@ -32,19 +29,22 @@ def lasso_coordinate_descent(X, y, lam, epochs=500):
     return w
 
 
-# Standardize features for fair penalization
-X_std = (X - X.mean(axis=0)) / X.std(axis=0)
-y_centered = y - y.mean()
+if __name__ == "__main__":
+    X, y, names, n = make_dataset()
 
-# Regularization path: sweep lambda from high to low
-lambdas = np.logspace(0, -2, 30)
-paths = np.zeros((30, 10))
+    # Standardize features for fair penalization
+    X_std = (X - X.mean(axis=0)) / X.std(axis=0)
+    y_centered = y - y.mean()
 
-for i, lam in enumerate(lambdas):
-    paths[i] = lasso_coordinate_descent(X_std, y_centered, lam)
+    # Regularization path: sweep lambda from high to low
+    lambdas = np.logspace(0, -2, 30)
+    paths = np.zeros((30, 10))
 
-print("Lambda    Nonzero features (selected)")
-print("-" * 50)
-for i in [0, 5, 10, 15, 20, 29]:
-    nonzero = [names[j] for j in range(10) if abs(paths[i, j]) > 1e-8]
-    print(f"  {lambdas[i]:.4f}   [{len(nonzero)}] {nonzero}")
+    for i, lam in enumerate(lambdas):
+        paths[i] = lasso_coordinate_descent(X_std, y_centered, lam)
+
+    print("Lambda    Nonzero features (selected)")
+    print("-" * 50)
+    for i in [0, 5, 10, 15, 20, 29]:
+        nonzero = [names[j] for j in range(10) if abs(paths[i, j]) > 1e-8]
+        print(f"  {lambdas[i]:.4f}   [{len(nonzero)}] {nonzero}")

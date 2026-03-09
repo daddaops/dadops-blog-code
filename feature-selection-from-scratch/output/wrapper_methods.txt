@@ -1,0 +1,10 @@
+Forward Selection path:
+  Step 1: +redun_0    acc = 0.817
+  Step 2: +info_1     acc = 0.900
+  Step 3: +info_2     acc = 0.967
+  Step 4: +info_0     acc = 0.983
+  Step 5: +redun_2    acc = 0.983
+  Step 6: +redun_1    acc = 0.983
+
+RFE elimination order: ['noise_2', 'noise_3', 'noise_0', 'noise_1', 'redun_2', 'redun_1', 'redun_0']
+RFE surviving features: ['info_0', 'info_1', 'info_2']

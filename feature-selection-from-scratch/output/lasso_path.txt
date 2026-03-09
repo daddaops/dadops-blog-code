@@ -1,0 +1,8 @@
+Lambda    Nonzero features (selected)
+--------------------------------------------------
+  1.0000   [0] []
+  0.4520   [0] []
+  0.2043   [2] ['info_1', 'redun_0']
+  0.0924   [4] ['info_0', 'info_1', 'info_2', 'redun_2']
+  0.0418   [5] ['info_0', 'info_1', 'info_2', 'redun_1', 'redun_2']
+  0.0100   [7] ['info_0', 'info_1', 'info_2', 'redun_1', 'redun_2', 'noise_1', 'noise_2']

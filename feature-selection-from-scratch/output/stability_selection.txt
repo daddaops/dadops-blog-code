@@ -1,0 +1,13 @@
+Selection frequencies (50 bootstrap runs):
+  info_0     freq = 1.00 STABLE
+  info_1     freq = 0.94 STABLE
+  redun_2    freq = 0.84 STABLE
+  info_2     freq = 0.74 STABLE
+  redun_1    freq = 0.46
+  redun_0    freq = 0.14
+  noise_2    freq = 0.08
+  noise_3    freq = 0.06
+  noise_0    freq = 0.02
+  noise_1    freq = 0.00
+
+Stable feature set: ['info_0', 'info_1', 'info_2', 'redun_2']

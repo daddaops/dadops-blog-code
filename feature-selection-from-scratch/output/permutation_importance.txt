@@ -1,0 +1,11 @@
+Permutation importance ranking:
+  info_0     drop = +0.172 *
+  info_1     drop = +0.147 *
+  redun_0    drop = +0.138
+  redun_1    drop = +0.107
+  info_2     drop = +0.073 *
+  redun_2    drop = +0.052
+  noise_3    drop = +0.021
+  noise_1    drop = +0.013
+  noise_0    drop = +0.009
+  noise_2    drop = +0.009

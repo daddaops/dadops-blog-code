@@ -1,0 +1,2 @@
+Naive MI top-5:  ['info_0', 'redun_0', 'info_1', 'redun_1', 'info_2']
+mRMR top-5:      ['info_0', 'info_1', 'redun_2', 'noise_1', 'noise_0']
