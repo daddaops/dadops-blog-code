@@ -1,0 +1,11 @@
+Cumulative pseudo-regret after 10,000 steps (avg over 20 runs):
+  Greedy:           547.2 (std=976.7)
+  Epsilon-greedy:   331.3 (std=19.2)
+  UCB1:             175.3 (std=19.4)
+  Thompson:         21.9 (std=5.0)
+
+Asymptotic rates:
+  Greedy:           O(T)          -- linear, catastrophic
+  Eps-greedy:       O(eps * T)    -- linear, proportional to eps
+  UCB1:             O(sqrt(KT logT)) -- sublinear, logarithmic
+  Thompson:         Lai-Robbins   -- optimal, can't do better

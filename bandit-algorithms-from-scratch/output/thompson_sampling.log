@@ -1,0 +1,9 @@
+Thompson Sampling final regret: 17.1
+Pull distribution: [   4 4940   31   17    8]
+
+Posterior parameters (alpha, beta) per arm:
+  Arm 0: Beta(1, 5) -> mean=0.167 (true=0.400)
+  Arm 1: Beta(4253, 689) -> mean=0.861 (true=0.861)
+  Arm 2: Beta(20, 13) -> mean=0.606 (true=0.686)
+  Arm 3: Beta(8, 11) -> mean=0.421 (true=0.579)
+  Arm 4: Beta(3, 7) -> mean=0.300 (true=0.225)

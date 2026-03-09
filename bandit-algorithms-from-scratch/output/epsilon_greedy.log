@@ -1,0 +1,3 @@
+eps=0.10 fixed  -> final regret: 165.7
+eps=0.01 fixed  -> final regret: 237.9
+eps=1/sqrt(t)   -> final regret: 49.1

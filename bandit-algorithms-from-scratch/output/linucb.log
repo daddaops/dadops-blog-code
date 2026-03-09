@@ -1,0 +1,5 @@
+LinUCB after 2000 rounds:
+  Total reward:   905.2
+  Optimal reward: 920.3
+  Regret:         15.1
+  Avg regret/step: 0.0076

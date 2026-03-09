@@ -1,0 +1,6 @@
+True arm probabilities: [0.4   0.861 0.686 0.579 0.225]
+Best arm: 1 (p=0.861)
+
+Greedy chose arm 1 most often (1993 pulls)
+Pull distribution: [   1 1993    2    3    1]
+Cumulative regret: 41.1
