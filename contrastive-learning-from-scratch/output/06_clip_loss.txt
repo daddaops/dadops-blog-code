@@ -1,0 +1,5 @@
+CLIP loss (random embeddings):  4.8513
+CLIP loss (near-matched pairs): 0.0006
+CLIP loss (perfect match):      0.0005
+
+Loss decreases as alignment improves: True

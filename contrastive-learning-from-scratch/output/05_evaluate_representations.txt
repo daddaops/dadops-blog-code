@@ -1,0 +1,15 @@
+Before training (random encoder):
+Same-cluster similarity:  0.996
+Diff-cluster similarity:  0.234
+Separation gap:           0.762
+
+Training SimCLR...
+Epoch   0 | Loss: 2.7380
+Epoch  25 | Loss: 2.6236
+Epoch  50 | Loss: 2.5923
+Epoch  75 | Loss: 2.3749
+
+After contrastive training:
+Same-cluster similarity:  0.996
+Diff-cluster similarity:  0.237
+Separation gap:           0.759

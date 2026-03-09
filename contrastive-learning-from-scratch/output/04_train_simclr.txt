@@ -1,0 +1,7 @@
+Epoch   0 | Loss: 2.4598
+Epoch  25 | Loss: 2.3940
+Epoch  50 | Loss: 2.1996
+Epoch  75 | Loss: 2.1827
+
+Final loss: 2.1742
+Loss reduction: 2.4598 -> 2.1742

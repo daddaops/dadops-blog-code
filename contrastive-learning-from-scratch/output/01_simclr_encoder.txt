@@ -1,0 +1,5 @@
+Input shape:          (8, 2)
+Representation shape: (8, 64)
+Projection shape:     (8, 32)
+Projection norms:     [1. 1. 1. 1. 1. 1. 1. 1.]
+All norms ≈ 1.0: True

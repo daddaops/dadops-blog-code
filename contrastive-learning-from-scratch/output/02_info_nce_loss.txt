@@ -1,0 +1,3 @@
+InfoNCE loss (random embeddings): 1.5486
+InfoNCE loss (identical pairs):   0.9027
+Loss decreased: True
