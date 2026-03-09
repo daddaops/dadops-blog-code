@@ -1,0 +1,3 @@
+Dataset: 1000 images, 10 classes
+Initial loss on first sample: 2.8277
+Prediction: 9, True label: 2

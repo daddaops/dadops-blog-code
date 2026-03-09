@@ -1,0 +1,2 @@
+Channel means after BN: [-0.  0.  0.  0.  0.  0.]
+Channel stds after BN: [1. 1. 1. 1. 1. 1.]

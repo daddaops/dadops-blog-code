@@ -1,0 +1,2 @@
+Before pooling: (8, 14, 14)
+After pooling: (8, 7, 7)

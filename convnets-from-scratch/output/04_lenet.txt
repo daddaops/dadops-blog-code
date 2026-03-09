@@ -1,0 +1,2 @@
+Logits shape: (10,)
+Prediction: 4
