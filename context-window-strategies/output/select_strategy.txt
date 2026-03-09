@@ -1,0 +1,15 @@
+=== Strategy Selector Demo ===
+
+Strategy: chunk_summarize
+Reason: Mid-size doc: chunk and summarize
+
+      10,000 tokens | 1 doc  |         qa |  10000ms ->               direct | Fits in context, no processing needed
+      75,000 tokens | 1 doc  |   analysis |  10000ms ->      chunk_summarize | Analysis needs full coverage
+      75,000 tokens | 1 doc  |         qa |  10000ms ->     smart_truncation | Default for moderate single docs
+     200,000 tokens | 1 doc  |         qa |   3000ms ->     smart_truncation | Tight latency: fast truncation
+     200,000 tokens | 1 doc  |         qa |  15000ms ->      chunk_summarize | Mid-size doc: chunk and summarize
+     100,000 tokens | 5 docs | comparison |  10000ms ->           map_reduce | 5 docs: parallel map then reduce
+   1,000,000 tokens | 1 doc  |   overview |  10000ms ->         hierarchical | Huge doc + overview: recursive summarization
+   1,000,000 tokens | 1 doc  |         qa |  10000ms ->              agentic | Huge doc + specific task: selective reading
+
+Done.

@@ -1,0 +1,34 @@
+=== Smart Truncation Demo ===
+
+Budget=200 tokens (no query):
+Introduction: This contract governs the terms of service between Party A and Party B for the delivery of software consulting services.
+
+Section 1: Definitions. 'Services' means the consulting work described in Appendix A. 'Deliverables' means all work products.
+
+Section 2: Payment terms. Party A shall pay Party B within 30 days of receiving each invoice. Late payments accrue 1.5% monthly interest.
+
+Section 3: Intellectual property. All deliverables become the property of Party A upon full payment. Party B retains rights to pre-existing tools.
+
+Section 5: Liability cap. Total liability shall not exceed the fees paid under this contract in the 12 months preceding the claim.
+
+Section 6: Termination. Either party may terminate with 30 days written notice. Fees for completed work remain due upon termination.
+
+Section 7: Governing law. This contract is governed by the laws of the State of Delaware. Disputes resolved by binding arbitration.
+
+Budget=150 tokens (query='payment terms invoice'):
+Introduction: This contract governs the terms of service between Party A and Party B for the delivery of software consulting services.
+
+Section 1: Definitions. 'Services' means the consulting work described in Appendix A. 'Deliverables' means all work products.
+
+Section 2: Payment terms. Party A shall pay Party B within 30 days of receiving each invoice. Late payments accrue 1.5% monthly interest.
+
+Section 3: Intellectual property. All deliverables become the property of Party A upon full payment. Party B retains rights to pre-existing tools.
+
+Section 5: Liability cap. Total liability shall not exceed the fees paid under this contract in the 12 months preceding the claim.
+
+Budget=50 tokens (query='liability'):
+Introduction: This contract governs the terms of service between Party A and Party B for the delivery of software consulting services.
+
+Section 1: Definitions. 'Services' means the consulting work described in Appendix A. 'Deliverables' means all work products.
+
+Done.
