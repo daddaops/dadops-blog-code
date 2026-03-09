@@ -4,7 +4,7 @@ from sklearn.datasets import make_moons
 
 X, y_true = make_moons(n_samples=200, noise=0.06, random_state=42)
 
-def rbf_similarity(X, sigma=0.3):
+def rbf_similarity(X, sigma=0.1):
     """Fully connected similarity matrix with RBF kernel."""
     n = X.shape[0]
     dists_sq = np.sum((X[:, None] - X[None, :]) ** 2, axis=2)
@@ -25,7 +25,7 @@ def compute_laplacian(W, normalized=False):
 
 if __name__ == "__main__":
     # Build Laplacian and examine its spectrum
-    W = rbf_similarity(X, sigma=0.3)
+    W = rbf_similarity(X, sigma=0.1)
     L = compute_laplacian(W, normalized=False)
     eigenvalues, eigenvectors = np.linalg.eigh(L)
 

@@ -43,7 +43,7 @@ def spectral_clustering(X, k=2, sigma=0.3, normalized=True):
 
 if __name__ == "__main__":
     # Run on two moons
-    labels, evals, embedding = spectral_clustering(X, k=2, sigma=0.3)
+    labels, evals, embedding = spectral_clustering(X, k=2, sigma=0.1)
     accuracy = max(np.mean(labels == y_true), np.mean(labels != y_true))
     print(f"Spectral clustering accuracy: {accuracy:.1%}")
 

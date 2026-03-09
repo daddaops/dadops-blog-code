@@ -1,0 +1,6 @@
+First 10 eigenvalues:
+[0.       0.0004   0.026423 0.027143 0.10483  0.107294 0.1806   0.255275
+ 0.295483 0.381888]
+
+Eigengap (lambda_3 - lambda_2): 0.0260
+This suggests k=2 clusters

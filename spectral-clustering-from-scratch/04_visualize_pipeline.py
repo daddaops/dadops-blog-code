@@ -32,7 +32,7 @@ def spectral_clustering(X, k=2, sigma=0.3, normalized=True):
     return labels, eigenvalues, U_normalized
 
 if __name__ == "__main__":
-    labels, evals, embedding = spectral_clustering(X, k=2, sigma=0.3)
+    labels, evals, embedding = spectral_clustering(X, k=2, sigma=0.1)
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 4))
 

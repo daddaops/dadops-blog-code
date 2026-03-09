@@ -50,7 +50,7 @@ def graph_cut_values(W, labels):
     return cut, ratiocut, ncut
 
 if __name__ == "__main__":
-    labels, _, _ = spectral_clustering(X, k=2, sigma=0.3)
+    labels, _, _ = spectral_clustering(X, k=2, sigma=0.1)
     W = rbf_similarity(X, sigma=0.3)
 
     # Spectral clustering partition

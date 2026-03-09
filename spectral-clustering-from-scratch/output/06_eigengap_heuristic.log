@@ -1,0 +1,13 @@
+2 clusters (moons)
+  First 8 eigenvalues: [-0.      4.8422 11.436  16.3341 20.8851 21.6894 21.9718 22.3214]
+  Largest gap at k=2 (gap=6.5939)
+
+3 clusters (blobs)
+  First 8 eigenvalues: [-0.00000e+00  0.00000e+00  1.00000e-04  9.58500e+00  9.58510e+00
+  9.58600e+00  1.15023e+01  1.15026e+01]
+  Largest gap at k=3 (gap=9.5850)
+
+2 clusters (circles)
+  First 8 eigenvalues: [ 0.     16.7524 16.9943 24.504  25.6861 30.0112 30.2869 31.5808]
+  Largest gap at k=1 (gap=16.7524)
+
