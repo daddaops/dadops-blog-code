@@ -1,0 +1,18 @@
+
+Query: how to fix a leaking faucet
+  Hard negatives:
+    - how to replace a bathroom faucet cartridge
+    - learning python: first steps in programming
+    - vitamin supplements: what you need to know
+
+Query: best programming language for beginners
+  Hard negatives:
+    - common cold vs flu: how to tell the difference
+    - javascript framework comparison react vue angular
+    - plumbing repair: stopping drips from fixtures
+
+Query: symptoms of vitamin D deficiency
+  Hard negatives:
+    - vitamin supplements: what you need to know
+    - how to replace a bathroom faucet cartridge
+    - kitchen renovation cost estimates 2024

@@ -1,0 +1,2 @@
+MaxSim(query, related_doc): 0.847
+MaxSim(query, random_doc):  0.632
