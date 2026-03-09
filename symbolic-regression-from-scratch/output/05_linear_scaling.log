@@ -1,0 +1,7 @@
+Expression: (x * x)
+Target: 5*x^2 + 3
+
+Raw MSE (no scaling): 364.5800
+Linear-scaled fitness: 0.003000
+Learned scaling: a=5.0000, b=3.0000
+(Expected: a=5.0, b=3.0)
