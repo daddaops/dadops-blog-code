@@ -1,0 +1,2 @@
+# No external dependencies - all code uses Python stdlib only
+# (random, math modules)
