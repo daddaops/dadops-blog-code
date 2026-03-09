@@ -1,0 +1,15 @@
+Bayesian Optimization: minimizing sin(3x) + x^2 - 0.7x
+Initial best: f(-0.127) = -0.2674
+
+Iter  1: eval x= -0.928, f(x)= 1.1600  | best: f(-0.127)=-0.2674
+Iter  2: eval x=  0.445, f(x)= 0.8588  | best: f(-0.127)=-0.2674
+Iter  3: eval x= -2.000, f(x)= 5.6794  | best: f(-0.127)=-0.2674
+Iter  4: eval x= -0.327, f(x)=-0.4951  | best: f(-0.327)=-0.4951
+Iter  5: eval x=  1.176, f(x)= 0.1825  | best: f(-0.327)=-0.4951
+Iter  6: eval x= -0.367, f(x)=-0.5001  | best: f(-0.367)=-0.5001
+Iter  7: eval x= -0.357, f(x)=-0.5003  | best: f(-0.357)=-0.5003
+Iter  8: eval x= -0.347, f(x)=-0.4996  | best: f(-0.357)=-0.5003
+Iter  9: eval x= -0.347, f(x)=-0.4996  | best: f(-0.357)=-0.5003
+Iter 10: eval x= -0.347, f(x)=-0.4996  | best: f(-0.357)=-0.5003
+Iter 11: eval x= -0.347, f(x)=-0.4996  | best: f(-0.357)=-0.5003
+Iter 12: eval x= -0.337, f(x)=-0.4978  | best: f(-0.357)=-0.5003

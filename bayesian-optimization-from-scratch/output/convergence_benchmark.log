@@ -1,0 +1,4 @@
+After 25 evaluations (10 trials):
+  BO:     -0.9906 +/- 0.0032
+  Random: -0.7860 +/- 0.2015
+  True minimum: -1.0316

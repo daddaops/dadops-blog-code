@@ -1,0 +1,3 @@
+Grid search (25 evals):   90.3% accuracy
+Random search (25 evals): 92.0% accuracy
+Bayesian opt (25 evals):  94.6% accuracy
