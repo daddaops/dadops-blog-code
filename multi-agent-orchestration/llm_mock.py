@@ -32,11 +32,27 @@ _MOCK_RESPONSES = {
 }
 
 
+_KEYWORD_MAP = {
+    "task planner": "Planner",
+    "focused analyst": "Worker",
+    "quality reviewer": "Reviewer",
+    "named entities": "Entity Extractor",
+    "concise 3-paragraph": "Summarizer",
+    "critically evaluate": "Critic",
+    "multiple specialists": "Synthesizer",
+    "optimistic analyst": "Analyst A (Advocate)",
+    "skeptical analyst": "Analyst B (Skeptic)",
+    "advocate and a skeptic": "Judge",
+    "summarizer": "Summarizer",
+}
+
+
 def call_llm(model, system, message):
     """Mock LLM call returning (response, token_count)."""
-    # Determine which agent is calling based on system prompt keywords
-    for agent_name, response in _MOCK_RESPONSES.items():
-        if agent_name.lower() in system.lower():
+    sys_lower = system.lower()
+    for keyword, agent_name in _KEYWORD_MAP.items():
+        if keyword in sys_lower:
+            response = _MOCK_RESPONSES[agent_name]
             return response, len(message.split()) + len(response.split())
 
     # Fallback
