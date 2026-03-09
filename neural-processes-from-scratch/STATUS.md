@@ -1,11 +1,15 @@
 # neural-processes-from-scratch — Homework Status
 
-## Current Phase: EXTRACT complete
+## Current Phase: VERIFY complete
 
-### Scripts extracted (6 scripts)
-1. `cnp.py` — Conditional Neural Process
-2. `permutation_test.py` — Permutation invariance verification
-3. `latent_np.py` — Latent NP with stochastic sampling
-4. `attentive_np.py` — Attentive NP with cross-attention
-5. `train_cnp.py` — Episodic meta-learning training
-6. `gp_comparison.py` — GP vs NP comparison
+### Scripts verified (all 6 pass)
+1. `cnp.py` — CNP predictions with mu/sigma
+2. `permutation_test.py` — Max difference 2.78e-17 ≈ 0.00e+00 ✓
+3. `latent_np.py` — 5 samples, std=0.104 across functions
+4. `attentive_np.py` — ANP predictions with attention
+5. `train_cnp.py` — NLL: 0.566→0.172 over 2000 episodes
+6. `gp_comparison.py` — GP 3.0ms vs NP 0.8ms
+
+### Blog updates
+- No output comments needed correction
+- Verified Code badge added
