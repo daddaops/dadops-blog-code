@@ -1,0 +1,27 @@
+Input shape:  (6, 64)
+Output shape: (6, 64)
+Weight shape: (8, 6, 6)
+
+Head 0 — where does token 0 attend?
+  token 0: 0.807 ████████████████████████████████
+  token 1: 0.000 
+  token 2: 0.186 ███████
+  token 3: 0.000 
+  token 4: 0.001 
+  token 5: 0.006 
+
+Head 1 — where does token 0 attend?
+  token 0: 0.000 
+  token 1: 0.999 ███████████████████████████████████████
+  token 2: 0.000 
+  token 3: 0.000 
+  token 4: 0.000 
+  token 5: 0.001 
+
+Head 2 — where does token 0 attend?
+  token 0: 0.064 ██
+  token 1: 0.156 ██████
+  token 2: 0.000 
+  token 3: 0.000 
+  token 4: 0.777 ███████████████████████████████
+  token 5: 0.002 
