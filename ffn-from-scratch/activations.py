@@ -26,17 +26,6 @@ def silu(x):
     return x * (1.0 / (1.0 + np.exp(-x)))
 
 
-# Compare at key points
-test_points = np.array([-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0])
-
-print("     x   |  ReLU  |  GELU  |  SiLU")
-print("---------+--------+--------+-------")
-for xi in test_points:
-    print(f"  {xi:5.1f}  | {relu(xi):6.3f} | {gelu_exact(xi):6.3f} | {silu(xi):6.3f}")
-
-print()
-
-# Gradients
 def relu_grad(x):
     """Gradient of ReLU: 1 if x > 0, else 0"""
     return 1.0 if x > 0 else 0.0
@@ -52,7 +41,18 @@ def silu_grad(x):
     sig = 1.0 / (1.0 + np.exp(-x))
     return sig + x * sig * (1.0 - sig)
 
-print("     x   | ReLU' | GELU'  | SiLU'")
-print("---------+-------+--------+------")
-for xi in [-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0]:
-    print(f"  {xi:5.1f}  | {relu_grad(xi):5.3f} | {gelu_grad(xi):6.3f} | {silu_grad(xi):6.3f}")
+
+if __name__ == "__main__":
+    test_points = np.array([-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0])
+
+    print("     x   |  ReLU  |  GELU  |  SiLU")
+    print("---------+--------+--------+-------")
+    for xi in test_points:
+        print(f"  {xi:5.1f}  | {relu(xi):6.3f} | {gelu_exact(xi):6.3f} | {silu(xi):6.3f}")
+
+    print()
+
+    print("     x   | ReLU' | GELU'  | SiLU'")
+    print("---------+-------+--------+------")
+    for xi in [-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0]:
+        print(f"  {xi:5.1f}  | {relu_grad(xi):5.3f} | {gelu_grad(xi):6.3f} | {silu_grad(xi):6.3f}")

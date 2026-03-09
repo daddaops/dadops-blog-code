@@ -1,0 +1,6 @@
+Theoretical: 10922.7
+LLaMA 7B:   11008
+
+Classic FFN params per layer: 134,217,728
+SwiGLU FFN params per layer:  135,266,304
+Difference: 0.8%

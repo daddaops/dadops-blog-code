@@ -1,0 +1,4 @@
+Attention params:   16,384  (33.2%)
+FFN params:         32,832  (66.5%)
+Norm params:           128  (0.3%)
+Total:              49,344

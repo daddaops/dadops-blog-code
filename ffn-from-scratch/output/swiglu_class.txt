@@ -1,0 +1,3 @@
+Input:      (5, 64)
+Output:     (5, 64)
+Parameters: 32,832

@@ -1,0 +1,5 @@
+Input shape:  (3, 8)
+Output shape: (3, 8)
+Parameters:   552
+First token in:  [-0.239 -0.908 -0.577  0.755]
+First token out: [-0.     0.21  -0.145  0.806]
