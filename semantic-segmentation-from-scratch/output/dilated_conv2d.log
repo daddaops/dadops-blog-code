@@ -1,0 +1,3 @@
+Rate 1: effective 3x3 receptive field, output (16, 16)
+Rate 2: effective 5x5 receptive field, output (16, 16)
+Rate 4: effective 9x9 receptive field, output (16, 16)
