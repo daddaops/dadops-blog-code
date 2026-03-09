@@ -83,7 +83,7 @@ for epoch in range(300):
 
 teacher_acc = accuracy(teacher, X_test, y_test)
 print(f"Teacher accuracy: {teacher_acc:.4f}")
-# Teacher accuracy: 0.8833  (results vary by random seed)
+# Teacher accuracy: 0.9133  (results vary by random seed)
 
 # ─── Approach 1: Student trained from scratch (hard labels only) ───
 student_scratch = MLP(2, 32, 3)
@@ -144,7 +144,7 @@ for epoch in range(300):
 
 print(f"Student (KD, T=4):      {accuracy(student_kd, X_test, y_test):.4f}")
 
-# Teacher accuracy:       0.8833  (results vary by random seed)
-# Student (scratch):      0.8433
-# Student (hard distill):  0.8500
-# Student (KD, T=4):      0.8600
+# Teacher accuracy:       0.9133  (results vary by random seed)
+# Student (scratch):      0.9200
+# Student (hard distill): 0.9067
+# Student (KD, T=4):      0.9133
