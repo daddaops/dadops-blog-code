@@ -1,0 +1,5 @@
+Step     0 | Loss: 1.1324
+Step  1000 | Loss: 0.9573
+Step  2000 | Loss: 0.9766
+Step  3000 | Loss: 0.9833
+Step  4000 | Loss: 0.9099

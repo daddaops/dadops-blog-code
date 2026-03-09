@@ -1,0 +1,6 @@
+Signal preserved at each timestep (alpha_bar):
+  t=   0: alpha_bar=0.9999, signal=1.000, noise=0.010
+  t= 249: alpha_bar=0.5241, signal=0.724, noise=0.690
+  t= 499: alpha_bar=0.0786, signal=0.280, noise=0.960
+  t= 749: alpha_bar=0.0034, signal=0.058, noise=0.998
+  t= 999: alpha_bar=0.0000, signal=0.006, noise=1.000

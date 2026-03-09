@@ -82,9 +82,10 @@ for step in range(5000):
     if step % 1000 == 0:
         print(f"Step {step:5d} | Loss: {loss:.4f}")
 
-# With a real framework (PyTorch), loss decreases as the model learns:
-# Step     0 | Loss: 1.0234
-# Step  1000 | Loss: 0.8912
-# Step  2000 | Loss: 0.7456
-# Step  3000 | Loss: 0.6103
-# Step  4000 | Loss: 0.5287
+# Without autograd, loss stays ~1.0 (no weight updates happen):
+# Step     0 | Loss: 1.1324
+# Step  1000 | Loss: 0.9573
+# Step  2000 | Loss: 0.9766
+# Step  3000 | Loss: 0.9833
+# Step  4000 | Loss: 0.9099
+# With a real framework (PyTorch), loss would decrease as the model learns.

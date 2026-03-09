@@ -1,0 +1,2 @@
+Training step loss (random model): 2.0407
+(Expected ~2.0 for random predictions of unit-variance noise)

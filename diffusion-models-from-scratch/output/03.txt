@@ -1,0 +1,10 @@
+Sinusoidal embedding demo:
+  t=   0: shape=(1, 64), norm=5.657, first 4 values: [0.000, 0.000, 0.000, 0.000]
+  t= 100: shape=(1, 64), norm=5.657, first 4 values: [-0.506, -0.398, -0.309, -0.971]
+  t= 500: shape=(1, 64), norm=5.657, first 4 values: [-0.468, -0.890, -1.000, -0.354]
+  t= 999: shape=(1, 64), norm=5.657, first 4 values: [-0.026, 0.992, 0.536, 0.297]
+
+U-Net structure:
+  Down path channels: 32 -> 64 -> 128
+  Bottleneck channels: 128
+  Up path channels: 64 -> 32 -> 32

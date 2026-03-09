@@ -1,0 +1,7 @@
+Running DDPM sampling (100 steps)...
+  Output shape: (1, 8, 8), mean: -0.6765, std: 2.0438
+
+Running DDIM sampling (20 steps from 100)...
+  Output shape: (1, 8, 8), mean: -0.0693, std: 0.8203
+
+DDPM used 100 model calls, DDIM used 20 model calls (5x faster)
