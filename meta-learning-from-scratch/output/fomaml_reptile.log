@@ -1,0 +1,12 @@
+FOMAML Task     0: eval_loss=3.9004
+FOMAML Task  2000: eval_loss=3.4320
+FOMAML Task  4000: eval_loss=3.1558
+FOMAML Task  6000: eval_loss=3.1156
+FOMAML Task  8000: eval_loss=3.0256
+
+Reptile Task     0: eval_loss=3.9004
+Reptile Task  2000: eval_loss=3.8542
+Reptile Task  4000: eval_loss=3.8198
+Reptile Task  6000: eval_loss=3.7923
+Reptile Task  8000: eval_loss=3.7711
+

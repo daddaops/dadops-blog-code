@@ -8,13 +8,13 @@ import numpy as np
 # Generate 5-way 5-shot synthetic data (20-dimensional features)
 np.random.seed(42)
 n_classes, k_shot, dim = 5, 5, 20
-centers = np.random.randn(n_classes, dim) * 3  # class centroids
+centers = np.random.randn(n_classes, dim) * 0.8  # class centroids (close together)
 
 # Support set: 5 examples per class = 25 total training points
 X_train, y_train = [], []
 for c in range(n_classes):
     for _ in range(k_shot):
-        X_train.append(centers[c] + np.random.randn(dim) * 0.5)
+        X_train.append(centers[c] + np.random.randn(dim) * 1.5)
         y_train.append(c)
 X_train, y_train = np.array(X_train), np.array(y_train)
 
@@ -22,7 +22,7 @@ X_train, y_train = np.array(X_train), np.array(y_train)
 X_test, y_test = [], []
 for c in range(n_classes):
     for _ in range(50):
-        X_test.append(centers[c] + np.random.randn(dim) * 0.5)
+        X_test.append(centers[c] + np.random.randn(dim) * 1.5)
         y_test.append(c)
 X_test, y_test = np.array(X_test), np.array(y_test)
 

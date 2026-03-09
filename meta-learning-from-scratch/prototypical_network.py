@@ -12,6 +12,7 @@ class PrototypicalNetwork:
 
     def __init__(self, input_dim, embed_dim=32, hidden_dim=64):
         # Embedding network: input -> hidden -> embed
+        # He initialization
         scale1 = np.sqrt(2.0 / input_dim)
         scale2 = np.sqrt(2.0 / hidden_dim)
         self.W1 = np.random.randn(input_dim, hidden_dim) * scale1
@@ -171,12 +172,12 @@ if __name__ == "__main__":
     # Each class is a cluster centered at a random point
     data, labels = [], []
     for c in range(n_meta_classes):
-        center = np.random.randn(dim) * 3
+        center = np.random.randn(dim) * 1.0
         for _ in range(n_examples_per_class):
-            data.append(center + np.random.randn(dim) * 0.5)
+            data.append(center + np.random.randn(dim) * 1.0)
             labels.append(c)
     data, labels = np.array(data), np.array(labels)
 
     model = PrototypicalNetwork(input_dim=dim, embed_dim=32, hidden_dim=64)
     train_prototypical_net(model, data, labels, episodes=1000,
-                           n_way=5, k_shot=5, n_query=10, lr=0.001)
+                           n_way=5, k_shot=5, n_query=10, lr=0.01)

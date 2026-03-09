@@ -1,0 +1,5 @@
+Task     0: query_loss=3.0364
+Task  2000: query_loss=0.4334
+Task  4000: query_loss=3.1345
+Task  6000: query_loss=6.7194
+Task  8000: query_loss=0.5441

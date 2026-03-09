@@ -1,0 +1,5 @@
+Episode    0: loss=2.171, query_acc=72%
+Episode  200: loss=0.599, query_acc=94%
+Episode  400: loss=0.030, query_acc=98%
+Episode  600: loss=0.235, query_acc=98%
+Episode  800: loss=0.319, query_acc=90%

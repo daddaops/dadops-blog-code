@@ -26,6 +26,11 @@ def mse_grad(params, x, y):
     dh1 = dh2 @ params['W2'].T * (h1_pre > 0)
     grads['W1'] = x.T @ dh1
     grads['b1'] = dh1.sum(axis=0)
+    # Gradient clipping
+    for k in grads:
+        g_norm = np.linalg.norm(grads[k])
+        if g_norm > 10.0:
+            grads[k] = grads[k] * 10.0 / g_norm
     return loss, grads
 
 
@@ -63,10 +68,9 @@ def reptile_step(theta, task_data, inner_steps=5, inner_lr=0.01):
 
 def init_params(rng):
     """Initialize MLP parameters: 1 -> 40 -> 40 -> 1."""
-    s1, s2, s3 = np.sqrt(2/1), np.sqrt(2/40), np.sqrt(2/40)
-    return {'W1': rng.randn(1, 40)*s1,  'b1': np.zeros(40),
-            'W2': rng.randn(40, 40)*s2, 'b2': np.zeros(40),
-            'W3': rng.randn(40, 1)*s3,  'b3': np.zeros(1)}
+    return {'W1': rng.randn(1, 40)*0.1,   'b1': np.zeros(40),
+            'W2': rng.randn(40, 40)*0.05,  'b2': np.zeros(40),
+            'W3': rng.randn(40, 1)*0.05,   'b3': np.zeros(1)}
 
 
 def sample_task(rng, k_support=5, k_query=10):

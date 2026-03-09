@@ -1,0 +1,7 @@
+Method                    Acc   Steps  Note
+-----------------------------------------------------------------
+Train from scratch       20%   10000  No prior knowledge
+Prototypical Net         88%       0  Nearest centroid in learned space
+MAML (3 steps)           85%       3  Adapt from meta-learned init
+FOMAML                   83%       3  MAML without Hessian
+Reptile                  81%       5  Move toward task solutions
