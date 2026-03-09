@@ -1,0 +1,4 @@
+Epoch 10: loss=254.408, acc=23.3%
+Epoch 20: loss=247.867, acc=23.3%
+Epoch 30: loss=239.558, acc=23.3%
+Epoch 40: loss=236.783, acc=26.7%
