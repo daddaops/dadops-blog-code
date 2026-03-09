@@ -1,0 +1,5 @@
+alpha=0.01: coverage=100%, avg_size=1.26, singletons=82%
+alpha=0.05: coverage=95%, avg_size=0.98, singletons=98%
+alpha=0.10: coverage=90%, avg_size=0.92, singletons=92%
+alpha=0.20: coverage=81%, avg_size=0.81, singletons=81%
+alpha=0.50: coverage=46%, avg_size=0.46, singletons=46%

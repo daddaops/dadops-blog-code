@@ -1,0 +1,9 @@
+Score statistics:
+  Mean: 0.436
+  Median: 0.416
+  90th percentile: 0.751
+  95th percentile: 0.811
+
+Conformal quantile (alpha=0.1): 0.755
+  Include label y if 1 - f(x)_y <= 0.755
+  Equivalently: include if f(x)_y >= 0.245
