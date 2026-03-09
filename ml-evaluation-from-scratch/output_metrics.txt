@@ -1,0 +1,3 @@
+Accuracy: 99.0%
+Precision: 0.000, Recall: 0.000, F1: 0.000
+MCC: 0.000
