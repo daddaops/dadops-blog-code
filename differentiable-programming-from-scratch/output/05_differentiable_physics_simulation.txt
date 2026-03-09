@@ -1,0 +1,4 @@
+step   0  angle= 40.21 deg  landing= 19.48  loss=89.9146
+step  20  angle= 70.53 deg  landing= 10.00  loss=0.0000
+step  40  angle= 70.53 deg  landing= 10.00  loss=0.0000
+step  60  angle= 70.53 deg  landing= 10.00  loss=0.0000
