@@ -1,0 +1,2 @@
+Output spike counts: [0 4 0]
+Predicted class: 1

@@ -1,0 +1,3 @@
+Input 0.2: rate=8 spikes/50 steps, temporal=spike at t=39
+Input 0.5: rate=31 spikes/50 steps, temporal=spike at t=24
+Input 0.9: rate=47 spikes/50 steps, temporal=spike at t=4
