@@ -1,0 +1,7 @@
+True counts: {'red': 5, 'blue': 4, 'green': 3, 'yellow': 2}
+
+Selection frequency (epsilon=1.0, 1000 trials):
+     red: 46.7%
+    blue: 27.3%
+   green: 15.8%
+  yellow: 10.2%

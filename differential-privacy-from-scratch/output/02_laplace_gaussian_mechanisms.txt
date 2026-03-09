@@ -1,0 +1,5 @@
+True mean salary: $61,396
+
+  epsilon= 0.1  Laplace: $58,327  Gaussian: $28,821
+  epsilon= 1.0  Laplace: $60,728  Gaussian: $59,015
+  epsilon=10.0  Laplace: $61,765  Gaussian: $61,573

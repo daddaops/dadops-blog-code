@@ -1,0 +1,13 @@
+After 100 queries at epsilon=0.1 each:
+  Basic composition:    epsilon_total = 10.00
+  Advanced composition: epsilon_total = 4.80
+  Improvement: 2.1x tighter
+
+After 1000 queries at epsilon=0.1 each:
+  Basic composition:    epsilon_total = 100.00
+  Advanced composition: epsilon_total = 15.17
+  Improvement: 6.6x tighter
+
+With 1% subsampling:
+  Effective epsilon per query: 0.0020
+  100 queries (basic): 0.200 total

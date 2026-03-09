@@ -1,0 +1,3 @@
+True rate:      0.400
+Observed rate:  0.456
+Estimated rate: 0.412

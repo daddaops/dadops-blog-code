@@ -1,0 +1,2 @@
+Standard SGD accuracy: 100.0%
+DP-SGD accuracy:       100.0%
