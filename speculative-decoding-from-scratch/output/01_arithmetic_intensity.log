@@ -1,0 +1,5 @@
+Decode:  1.0 FLOP/byte
+Prefill: 1000 FLOP/byte
+
+Decode GPU utilization:  0.6%
+Prefill GPU utilization: ~100%

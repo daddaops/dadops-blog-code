@@ -1,0 +1,9 @@
+Running 10000 trials of rejection sampling for draft_token='cat' (idx 1)...
+
+Acceptance rate: 0.674 (expected ~0.667)
+
+Empirical vs target distribution:
+  'the': empirical=0.167, target=0.500
+  'cat': empirical=0.674, target=0.200
+  'sat': empirical=0.000, target=0.100
+  'dog': empirical=0.160, target=0.200

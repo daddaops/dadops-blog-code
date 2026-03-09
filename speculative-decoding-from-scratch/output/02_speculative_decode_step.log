@@ -1,0 +1,5 @@
+Trial 1: accepted 1 tokens (max possible: 6) -> [3]
+Trial 2: accepted 3 tokens (max possible: 6) -> [3, 1, 2]
+Trial 3: accepted 2 tokens (max possible: 6) -> [0, 1]
+Trial 4: accepted 6 tokens (max possible: 6) -> [1, 2, 3, 1, 1, 2]
+Trial 5: accepted 2 tokens (max possible: 6) -> [0, 0]
