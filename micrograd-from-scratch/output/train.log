@@ -1,0 +1,9 @@
+Number of parameters: 41
+Step   0 | Loss: 5.278844
+Step  10 | Loss: 0.396590
+Step  20 | Loss: 0.110623
+Step  30 | Loss: 0.057727
+Step  40 | Loss: 0.037652
+
+Final predictions: ['0.9461', '-0.9023', '-0.9274', '0.9014']
+Targets:           [1.0, -1.0, -1.0, 1.0]

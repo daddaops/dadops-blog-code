@@ -1,0 +1,6 @@
+Value(data=0.7064, grad=0.0000)
+x1.grad = -1.5029
+w1.grad = 1.0019
+x2.grad = 0.5010
+w2.grad = 0.0000
+b.grad  = 0.5010
