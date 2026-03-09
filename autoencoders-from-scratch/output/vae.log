@@ -1,0 +1,6 @@
+Epoch   0  Loss: 28.6  BCE: 27.6  KL: 1.0
+Epoch  50  Loss: 25.4  BCE: 23.1  KL: 2.2
+Epoch 100  Loss: 25.5  BCE: 23.1  KL: 2.4
+Epoch 150  Loss: 25.6  BCE: 23.3  KL: 2.3
+Epoch 200  Loss: 25.6  BCE: 23.3  KL: 2.3
+Epoch 250  Loss: 26.2  BCE: 23.9  KL: 2.3

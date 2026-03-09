@@ -20,7 +20,7 @@ def vae_loss_beta(x, x_hat, mu, log_var, beta=1.0):
     return bce + beta * kl, bce, kl
 
 
-def train_beta_vae(model, data, epochs=300, lr=0.003, beta=1.0):
+def train_beta_vae(model, data, epochs=300, lr=0.001, beta=1.0):
     """Train VAE with configurable β, using the same backprop as train_vae."""
     N = len(data)
     velocity = {}
@@ -83,7 +83,7 @@ def train_beta_vae(model, data, epochs=300, lr=0.003, beta=1.0):
                      'W_dec2': d_W_dec2, 'b_dec2': d_b_dec2}
 
             for name, grad in grads.items():
-                grad_clipped = np.clip(grad, -1.0, 1.0)
+                grad_clipped = np.clip(grad, -5.0, 5.0)
                 velocity[name] = 0.9 * velocity[name] - lr * grad_clipped
                 setattr(model, name, getattr(model, name) + velocity[name])
 

@@ -1,0 +1,30 @@
+
+==================================================
+Training β-VAE with β = 0.5
+==================================================
+  Epoch   0  Loss: 27.7  BCE: 27.0  KL: 1.3
+  Epoch  50  Loss: 26.6  BCE: 25.9  KL: 1.4
+  Epoch 100  Loss: 26.7  BCE: 26.0  KL: 1.5
+  Epoch 150  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 200  Loss: 27.1  BCE: 27.1  KL: 0.0
+  Epoch 250  Loss: 27.2  BCE: 27.2  KL: 0.0
+
+==================================================
+Training β-VAE with β = 1.0
+==================================================
+  Epoch   0  Loss: 28.2  BCE: 27.8  KL: 0.4
+  Epoch  50  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 100  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 150  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 200  Loss: 27.1  BCE: 27.1  KL: 0.0
+  Epoch 250  Loss: 27.2  BCE: 27.2  KL: 0.0
+
+==================================================
+Training β-VAE with β = 4.0
+==================================================
+  Epoch   0  Loss: 28.3  BCE: 28.2  KL: 0.0
+  Epoch  50  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 100  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 150  Loss: 27.2  BCE: 27.2  KL: 0.0
+  Epoch 200  Loss: 27.1  BCE: 27.1  KL: 0.0
+  Epoch 250  Loss: 27.2  BCE: 27.2  KL: 0.0

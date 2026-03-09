@@ -31,7 +31,7 @@ class VAE:
         """x → hidden → (μ, log_var)."""
         h = np.maximum(0, x @ self.W_enc1 + self.b_enc1)
         mu = h @ self.W_mu + self.b_mu
-        log_var = h @ self.W_logvar + self.b_logvar
+        log_var = np.clip(h @ self.W_logvar + self.b_logvar, -10, 10)
         return mu, log_var, h
 
     def reparameterize(self, mu, log_var):
@@ -44,7 +44,9 @@ class VAE:
     def decode(self, z):
         """z → hidden → reconstruction."""
         h = np.maximum(0, z @ self.W_dec1 + self.b_dec1)
-        x_hat = 1.0 / (1.0 + np.exp(-(h @ self.W_dec2 + self.b_dec2)))  # sigmoid
+        logits = h @ self.W_dec2 + self.b_dec2
+        logits = np.clip(logits, -20, 20)  # prevent overflow
+        x_hat = 1.0 / (1.0 + np.exp(-logits))  # sigmoid
         return x_hat, h
 
     def forward(self, x):
@@ -67,7 +69,7 @@ def vae_loss(x, x_hat, mu, log_var):
     return bce + kl, bce, kl
 
 
-def train_vae(model, data, epochs=300, lr=0.003):
+def train_vae(model, data, epochs=300, lr=0.001):
     """Train VAE with BCE + KL loss."""
     N = len(data)
     velocity = {}
@@ -138,7 +140,7 @@ def train_vae(model, data, epochs=300, lr=0.003):
                      'W_dec2': d_W_dec2, 'b_dec2': d_b_dec2}
 
             for name, grad in grads.items():
-                grad_clipped = np.clip(grad, -1.0, 1.0)  # gradient clipping
+                grad_clipped = np.clip(grad, -5.0, 5.0)  # gradient clipping
                 velocity[name] = 0.9 * velocity[name] - lr * grad_clipped
                 setattr(model, name, getattr(model, name) + velocity[name])
 
