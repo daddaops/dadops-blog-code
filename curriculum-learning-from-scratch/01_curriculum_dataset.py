@@ -3,10 +3,10 @@ import numpy as np
 def make_curriculum_dataset(n=200, seed=42):
     rng = np.random.RandomState(seed)
 
-    # Class 0: cluster centered at (-2, 0)
-    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-2, 0])
-    # Class 1: cluster centered at (+2, 0)
-    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([2, 0])
+    # Class 0: cluster centered at (-1, 0)
+    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-1, 0])
+    # Class 1: cluster centered at (+1, 0)
+    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([1, 0])
 
     X = np.vstack([x0, x1])
     y = np.array([0] * (n // 2) + [1] * (n // 2))
@@ -24,4 +24,4 @@ easy_mask = difficulty < 0.3   # 70% of examples are "easy"
 hard_mask = difficulty >= 0.3  # 30% are near the boundary
 
 print(f"Easy examples: {easy_mask.sum()}, Hard examples: {hard_mask.sum()}")
-# Easy examples: 155, Hard examples: 45
+# Easy examples: 185, Hard examples: 15

@@ -3,8 +3,8 @@ import numpy as np
 # --- Reuse dataset from block 1 ---
 def make_curriculum_dataset(n=200, seed=42):
     rng = np.random.RandomState(seed)
-    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-2, 0])
-    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([2, 0])
+    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-1, 0])
+    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([1, 0])
     X = np.vstack([x0, x1])
     y = np.array([0] * (n // 2) + [1] * (n // 2))
     difficulty = 1.0 / (np.abs(X[:, 0]) + 0.1)
@@ -20,7 +20,7 @@ def sigmoid(z):
 def self_paced_learning(X, y, n_epochs=30, lambda_init=0.5, mu=1.3, lr=0.1, seed=42):
     rng = np.random.RandomState(seed)
     n, d = X.shape
-    w = rng.randn(d) * 0.01
+    w = rng.randn(d) * 0.5
     b = 0.0
     lam = lambda_init
 
@@ -54,7 +54,7 @@ w, b, history = self_paced_learning(X, y)
 for h in history[::5]:
     print(f"Epoch {h['epoch']:2d}: lambda={h['lambda']:.2f}, "
           f"selected={h['n_selected']:3d}/{len(X)}, acc={h['accuracy']:.3f}")
-# Epoch  0: lambda=0.50, selected= 82/200, acc=0.510
-# Epoch  5: lambda=1.86, selected=173/200, acc=0.855
-# Epoch 10: lambda=6.88, selected=200/200, acc=0.960
+# Epoch  0: lambda=0.50, selected= 37/200, acc=0.925
+# Epoch  5: lambda=1.86, selected=194/200, acc=0.930
+# Epoch 10: lambda=6.89, selected=200/200, acc=0.930
 # ...the model grows its own curriculum from easy to hard

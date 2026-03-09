@@ -1,0 +1,6 @@
+Epoch  0: lambda=0.50, selected= 37/200, acc=0.925
+Epoch  5: lambda=1.86, selected=194/200, acc=0.930
+Epoch 10: lambda=6.89, selected=200/200, acc=0.930
+Epoch 15: lambda=25.59, selected=200/200, acc=0.935
+Epoch 20: lambda=95.02, selected=200/200, acc=0.935
+Epoch 25: lambda=352.82, selected=200/200, acc=0.935

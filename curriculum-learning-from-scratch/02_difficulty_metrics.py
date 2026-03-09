@@ -3,8 +3,8 @@ import numpy as np
 # --- Reuse dataset from block 1 ---
 def make_curriculum_dataset(n=200, seed=42):
     rng = np.random.RandomState(seed)
-    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-2, 0])
-    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([2, 0])
+    x0 = rng.randn(n // 2, 2) * 0.8 + np.array([-1, 0])
+    x1 = rng.randn(n // 2, 2) * 0.8 + np.array([1, 0])
     X = np.vstack([x0, x1])
     y = np.array([0] * (n // 2) + [1] * (n // 2))
     difficulty = 1.0 / (np.abs(X[:, 0]) + 0.1)
