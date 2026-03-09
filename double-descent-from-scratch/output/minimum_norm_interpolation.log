@@ -1,0 +1,3 @@
+Minimum-norm:  test_MSE=1.8912  ||w||=0.616
+Ridge (lam=5.0): test_MSE=1.8890  ||w||=0.588
+Train error:   min-norm=0.000000  ridge=0.002667

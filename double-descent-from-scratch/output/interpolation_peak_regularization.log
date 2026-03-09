@@ -1,0 +1,35 @@
+Interpolation Peak and Regularization (n=80, averaged over 10 trials)
+========================================================================
+lambda=0.00  peak=93.8014 at p/n=1.00  best_under=0.0102  best_over=0.0499  final=0.0520
+lambda=0.01  peak=0.4605 at p/n=1.07  best_under=0.0099  best_over=0.0496  final=0.0518
+lambda=0.10  peak=0.1214 at p/n=1.14  best_under=0.0082  best_over=0.0473  final=0.0497
+
+Detailed near p/n=1 (lambda=0):
+  p/n=0.850  test_MSE=0.5322
+  p/n=0.900  test_MSE=0.9503
+  p/n=0.910  test_MSE=1.2679
+  p/n=0.920  test_MSE=1.5321
+  p/n=0.930  test_MSE=1.3185
+  p/n=0.940  test_MSE=1.8383
+  p/n=0.950  test_MSE=2.5322
+  p/n=0.960  test_MSE=2.0348
+  p/n=0.970  test_MSE=2.6055
+  p/n=0.980  test_MSE=12.2380
+  p/n=0.990  test_MSE=9.2597
+  p/n=1.000  test_MSE=93.8014
+  p/n=1.010  test_MSE=36.6230
+  p/n=1.020  test_MSE=13.2155
+  p/n=1.030  test_MSE=11.5508
+  p/n=1.040  test_MSE=2.2363
+  p/n=1.050  test_MSE=2.2363
+  p/n=1.060  test_MSE=1.8386
+  p/n=1.070  test_MSE=1.8111
+  p/n=1.080  test_MSE=0.9958
+  p/n=1.090  test_MSE=1.1409
+  p/n=1.100  test_MSE=1.2552
+  p/n=1.110  test_MSE=1.3479
+  p/n=1.120  test_MSE=1.0385
+  p/n=1.130  test_MSE=0.7376
+  p/n=1.140  test_MSE=0.8487
+  p/n=1.150  test_MSE=0.6482
+  p/n=1.200  test_MSE=0.4868

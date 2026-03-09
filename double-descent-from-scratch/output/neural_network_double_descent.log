@@ -1,0 +1,11 @@
+Model-Wise Double Descent — 2-Layer ReLU MLP (n=40, d=5)
+=================================================================
+width=  3 params=  22 (p/n=0.6)  train=0.1362  test=0.3969
+width=  5 params=  36 (p/n=0.9)  train=0.0617  test=0.6785
+width= 10 params=  71 (p/n=1.8)  train=0.0144  test=0.8126
+width= 20 params= 141 (p/n=3.5)  train=0.0244  test=0.6199
+width= 40 params= 281 (p/n=7.0)  train=0.0109  test=0.5417
+width= 60 params= 421 (p/n=10.5)  train=0.0133  test=0.5626
+width=100 params= 701 (p/n=17.5)  train=0.0135  test=0.5487
+width=200 params=1401 (p/n=35.0)  train=0.0121  test=0.6110
+width=500 params=3501 (p/n=87.5)  train=0.0088  test=0.5962

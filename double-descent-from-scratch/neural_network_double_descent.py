@@ -3,6 +3,7 @@ Model-Wise Double Descent with Neural Networks
 
 Trains 2-layer ReLU MLPs of increasing width on a small noisy dataset,
 demonstrating the double descent pattern in neural networks.
+Uses a nonlinear target and trains to convergence with width-scaled learning rate.
 """
 import numpy as np
 
@@ -11,13 +12,13 @@ def relu(x):
     return np.maximum(0, x)
 
 
-def train_mlp(X, y, hidden, lr=0.01, epochs=2000):
+def train_mlp(X, y, hidden, lr, epochs=4000):
     """Train a 2-layer ReLU MLP: input -> hidden -> 1 output."""
-    np.random.seed(7)
+    rng = np.random.RandomState(7)
     d = X.shape[1]
-    W1 = np.random.randn(d, hidden) * np.sqrt(2.0 / d)
+    W1 = rng.randn(d, hidden) * np.sqrt(2.0 / d)
     b1 = np.zeros(hidden)
-    W2 = np.random.randn(hidden, 1) * np.sqrt(2.0 / hidden)
+    W2 = rng.randn(hidden, 1) * np.sqrt(2.0 / hidden)
     b2 = np.zeros(1)
 
     for _ in range(epochs):
@@ -42,18 +43,28 @@ def train_mlp(X, y, hidden, lr=0.01, epochs=2000):
     return W1, b1, W2, b2
 
 
-# Generate a small noisy dataset
+# Generate a small nonlinear noisy dataset
 np.random.seed(42)
 n = 40
 X_train = np.random.randn(n, 5)
+# Nonlinear target: quadratic + interaction terms + noise
 true_w = np.array([1, -0.5, 0.3, 0, 0.8])
-y_train = X_train @ true_w + np.random.randn(n) * 0.5
+y_train = (X_train @ true_w
+           + 0.3 * X_train[:, 0] * X_train[:, 1]
+           + 0.2 * X_train[:, 2]**2
+           + np.random.randn(n) * 0.5)
 X_test = np.random.randn(200, 5)
-y_test = X_test @ true_w
+y_test = (X_test @ true_w
+          + 0.3 * X_test[:, 0] * X_test[:, 1]
+          + 0.2 * X_test[:, 2]**2)
 
 widths = [3, 5, 10, 20, 40, 60, 100, 200, 500]
+print("Model-Wise Double Descent — 2-Layer ReLU MLP (n=40, d=5)")
+print("=" * 65)
 for h in widths:
-    W1, b1, W2, b2 = train_mlp(X_train, y_train, h)
+    # Scale learning rate with width (per MEMORY.md guideline)
+    lr = min(0.1 / np.sqrt(h), 0.05)
+    W1, b1, W2, b2 = train_mlp(X_train, y_train, h, lr=lr)
     pred_tr = relu(X_train @ W1 + b1) @ W2 + b2
     pred_te = relu(X_test @ W1 + b1) @ W2 + b2
     tr_err = np.mean((pred_tr.flatten() - y_train) ** 2)

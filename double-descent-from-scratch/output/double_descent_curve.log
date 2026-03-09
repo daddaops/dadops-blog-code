@@ -1,0 +1,14 @@
+Double Descent Curve — Random Fourier Features (n=30)
+=================================================================
+p=  3  train=0.0579  test=0.0159  [UNDER]
+p= 10  train=0.0446  test=0.0294  [UNDER]
+p= 20  train=0.0282  test=0.1401  [OVER]
+p= 28  train=0.0211  test=0.2079  [CRITICAL]
+p= 34  train=0.0415  test=0.0326  [CRITICAL]
+p= 76  train=0.0407  test=0.0344  [OVER]
+p=100  train=0.0402  test=0.0348  [OVER]
+
+Best classical (p<n): test=0.0254 at p=5
+Interpolation peak:   test=0.2127 at p=22
+Best overparameterized: test=0.0330 at p=43
+Final test error:     test=0.0357 at p=118

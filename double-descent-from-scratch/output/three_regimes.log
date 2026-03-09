@@ -1,0 +1,3 @@
+           UNDERFIT (p=5)  train=0.192657  test=0.1072  ||w||=14.818
+           CRITICAL (p=n)  train=0.007723  test=0.9508  ||w||=1543923138410436.500
+      OVERFIT-FREE (p=5n)  train=0.017282  test=0.0845  ||w||=55304.799
