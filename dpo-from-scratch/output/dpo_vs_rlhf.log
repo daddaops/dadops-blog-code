@@ -1,0 +1,15 @@
+DPO vs RLHF Comparison
+=======================================================
+DPO  accuracy: 95.0%  | Final loss: 0.243
+RLHF accuracy: 84.5%  | Final loss: -0.019
+
+Loss trajectory (every 10 epochs):
+ Epoch       DPO      RLHF
+     0     0.693     0.224
+    10     0.683     0.206
+    20     0.658     0.186
+    30     0.592     0.163
+    40     0.489     0.136
+    50     0.396     0.104
+    60     0.327     0.066
+    70     0.277     0.023

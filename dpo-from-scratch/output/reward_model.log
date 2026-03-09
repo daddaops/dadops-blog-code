@@ -1,0 +1,7 @@
+Reward Model Training
+==================================================
+Initial loss: 0.6836
+Final loss:   0.1125
+Loss at step 50:  0.2703
+Loss at step 100: 0.1797
+Preference accuracy: 100.0%

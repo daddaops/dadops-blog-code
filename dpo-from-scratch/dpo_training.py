@@ -130,7 +130,7 @@ if __name__ == "__main__":
     pairs, true_q = make_preference_data(n_prompts=10, n_responses=5, n_pairs=200)
     model = ToyLM(10, 5)
     ref_model = model.copy()
-    losses = train_dpo(model, ref_model, pairs, beta=0.1, lr=0.005, epochs=80)
+    losses = train_dpo(model, ref_model, pairs, beta=0.1, lr=0.05, epochs=80)
 
     print("DPO Training Results")
     print("=" * 50)

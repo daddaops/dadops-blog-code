@@ -1,0 +1,9 @@
+DPO Training Results
+==================================================
+Loss: 0.693 -> 0.243
+Preference accuracy: 95.0%
+
+DPO Loss Function Test
+--------------------------------------------------
+Random (equal) log-probs -> loss: 0.693 (expected ~0.693)
+Preferred wins clearly  -> loss: 0.598 (expected < 0.693)
