@@ -1,0 +1,3 @@
+Filterbank shape: (40, 257)
+Mel energies shape: (40,)
+Log mel range: [5.11, 9.21]

@@ -1,0 +1,6 @@
+Generated 800 samples at 16kHz (49.9 ms)
+Sine range: [-1.000, 1.000]
+Chord range: [-0.983, 0.948]
+Chirp range: [-1.000, 1.000]
+
+Aliasing demo: max diff between 7kHz@10kHz and 3kHz: 1.902113
