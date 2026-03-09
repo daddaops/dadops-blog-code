@@ -1,0 +1,9 @@
+
+--- Gaussian+Global ---
+{'method': 'Z-score', 'P': 1.0, 'R': 1.0, 'F1': 1.0}
+
+--- Multi-Density ---
+{'method': 'Z-score', 'P': 0.0, 'R': 0.0, 'F1': 0}
+
+--- High-Dim Subtle ---
+{'method': 'Z-score', 'P': 0.8333333333333334, 'R': 0.8333333333333334, 'F1': 0.8333333333333334}

@@ -1,0 +1,3 @@
+Z-score flags: [30, 70, 94]
+MAD flags:     [30, 70, 89, 90, 91, 92, 93, 94]
+Grubbs flag:   [70]
