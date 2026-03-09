@@ -18,8 +18,8 @@ def sample_architecture(rng):
         num_inputs = node_idx + 2  # node 0 can pick from 2, node 1 from 3, etc.
         input_1 = rng.integers(0, num_inputs)
         input_2 = rng.integers(0, num_inputs)
-        op_1 = rng.choice(OPERATIONS)
-        op_2 = rng.choice(OPERATIONS)
+        op_1 = str(rng.choice(OPERATIONS))
+        op_2 = str(rng.choice(OPERATIONS))
         cell.append(((input_1, op_1), (input_2, op_2)))
     return cell
 

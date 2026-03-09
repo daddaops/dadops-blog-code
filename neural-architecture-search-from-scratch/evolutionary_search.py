@@ -13,10 +13,10 @@ def mutate(arch, rng):
     child = deepcopy(arch)
     node_idx = rng.integers(0, len(child))
     branch = rng.integers(0, 2)  # mutate first or second input
-    mutation_type = rng.choice(['op', 'input'])
+    mutation_type = str(rng.choice(['op', 'input']))
 
     if mutation_type == 'op':
-        new_op = rng.choice(OPERATIONS)
+        new_op = str(rng.choice(OPERATIONS))
         inp, _ = child[node_idx][branch]
         child[node_idx] = list(child[node_idx])
         child[node_idx][branch] = (inp, new_op)
