@@ -1,0 +1,9 @@
+Point 0: responsibilities = [0.000, 0.998, 0.002]
+Point 100: responsibilities = [0.000, 1.000, 0.000]
+Point 300: responsibilities = [0.002, 0.130, 0.868]
+
+Updated mixing weights: ['0.284', '0.400', '0.316']
+Updated means:
+  Component 0: [-0.28, -0.13]
+  Component 1: [4.66, 0.08]
+  Component 2: [1.69, 3.52]

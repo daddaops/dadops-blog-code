@@ -1,0 +1,2 @@
+K-means accuracy: 96.2%
+EM/GMM  accuracy: 98.4%

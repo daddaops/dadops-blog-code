@@ -1,0 +1,2 @@
+Generated 500 points from 3-component GMM
+Component sizes: [np.int64(178), np.int64(189), np.int64(133)]

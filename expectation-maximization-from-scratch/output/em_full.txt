@@ -1,0 +1,7 @@
+Converged in 21 iterations
+Log-likelihood: -2298.0 -> -1735.9 (monotonic increase)
+Recovered weights: ['0.386', '0.350', '0.264']
+Component 0: mean=[4.72, 0.01]
+Component 1: mean=[-0.10, 0.10]
+Component 2: mean=[2.02, 4.04]
+All LL increases non-negative: True
