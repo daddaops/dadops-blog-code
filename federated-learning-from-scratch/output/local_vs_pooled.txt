@@ -1,0 +1,6 @@
+Pooled (200 patients): 83%
+Hospital 0 (40 patients): 82%
+Hospital 1 (40 patients): 82%
+Hospital 2 (40 patients): 83%
+Hospital 3 (40 patients): 84%
+Hospital 4 (40 patients): 84%

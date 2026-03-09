@@ -1,0 +1,3 @@
+FedAvg  (E=5, 30 rounds): 83%
+FedSGD  (E=1, 30 rounds): 83%
+Centralized (pooled):     83%

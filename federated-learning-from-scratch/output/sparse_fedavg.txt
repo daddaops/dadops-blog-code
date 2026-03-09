@@ -1,0 +1,2 @@
+Full updates:  83% accuracy, 2,400 bytes
+50% sparse:    83% accuracy, 1,200 bytes

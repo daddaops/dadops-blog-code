@@ -1,0 +1,2 @@
+Non-IID FedAvg:  final acc = 84%
+Non-IID FedProx: final acc = 84%
