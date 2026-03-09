@@ -1,0 +1,4 @@
+True beta:      [0.50, -0.80]
+Estimated beta: [0.49, -0.74]
+Hazard ratios:  age_10yr=1.64, treatment=0.48
+Baseline survival: S0(5)=0.590, S0(10)=0.432
