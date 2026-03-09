@@ -1,0 +1,4 @@
+Sequential: [-0.0728 -0.505  -0.2797 -0.2251 -0.1395 -0.5839]
+Parallel:   [-0.0728 -0.505  -0.2797 -0.2251 -0.1395 -0.5839]
+Max error:  1.11e-16
+Depth: O(log 16) = 4 steps vs 16 sequential

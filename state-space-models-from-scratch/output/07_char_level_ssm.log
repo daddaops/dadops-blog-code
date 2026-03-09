@@ -1,0 +1,4 @@
+Initial loss: 2.565  (random baseline: 2.565)
+Vocab: 13 chars | Embedding: 16d | State: 16x8 = 128
+The hidden state h is FIXED SIZE — no KV cache, no growing memory.
+Generate a million tokens? Still just 128 state values.

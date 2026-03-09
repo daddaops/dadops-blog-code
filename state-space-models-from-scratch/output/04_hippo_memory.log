@@ -1,0 +1,5 @@
+Signal energy concentrated at steps 20-40
+At step 100 (60 steps AFTER signal ended):
+  HiPPO output: 0.002364
+  Random output: 0.000008
+HiPPO remembers — random forgets.

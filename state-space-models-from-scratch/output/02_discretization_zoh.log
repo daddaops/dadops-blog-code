@@ -1,0 +1,3 @@
+Max error vs continuous: 0.150000
+Discrete state shape:   (100, 4) — just an RNN!
+Each step: multiply 4x4 matrix + add input. That's it.
