@@ -1,0 +1,8 @@
+=== Task Arithmetic: Addition ===
+Task 0: specialist=99.0%, merged(0+1)=79.7%
+Task 1: specialist=87.0%, merged(0+1)=68.3%
+Task 2: specialist=95.7%, merged(0+1)=71.7%
+
+=== Task Arithmetic: Negation ===
+Task 0: before negation=79.7%, after=94.3%
+Task 1: before negation=68.3%, after=58.0%

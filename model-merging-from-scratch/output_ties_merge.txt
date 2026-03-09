@@ -1,0 +1,4 @@
+Parameters with sign conflicts: 158/200 (79%)
+Simple average sign agreement: 85.5%
+TIES merge sign agreement:     61.5%
+TIES sparsity:                 57% of params zeroed

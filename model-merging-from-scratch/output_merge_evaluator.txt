@@ -1,0 +1,10 @@
+Parameters with sign conflicts: 158/200 (79%)
+Simple average sign agreement: 85.5%
+TIES merge sign agreement:     61.5%
+TIES sparsity:                 57% of params zeroed
+Method           Task0   Task1   Task2   Combined
+--------------------------------------------------
+lerp            80.5%  70.0%  78.5%     76.3%
+task_arith      78.0%  71.0%  76.5%     75.2%
+ties            68.5%  74.5%  62.5%     68.5%
+dare_ties       61.5%  44.0%  69.5%     58.3%
