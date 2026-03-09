@@ -1,0 +1,3 @@
+True P(X > 4):       3.17e-05
+Naive MC (N=100K):    1.00e-05 +/- 1.00e-05
+Importance Sampling (N=1K): 3.09e-05 +/- 2.14e-06

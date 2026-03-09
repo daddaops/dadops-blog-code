@@ -1,0 +1,3 @@
+Envelope constant M: 2.30
+Proposed: 100,000  Accepted: 43,097
+Acceptance rate: 43.1%

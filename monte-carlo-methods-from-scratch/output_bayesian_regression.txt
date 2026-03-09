@@ -1,0 +1,5 @@
+Acceptance rate: 56.9%
+Slope a:     2.459 +/- 0.098  (true: 2.500)
+Intercept b: -1.011 +/- 0.115  (true: -1.000)
+95% CI for a: [2.265, 2.654]
+95% CI for b: [-1.234, -0.787]

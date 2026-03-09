@@ -1,0 +1,3 @@
+1D integral: 0.7472 (true: 0.7468)
+2D integral: -0.0046 (true: 0.0000)
+10D integral: 1025.5 (true: 1024)
