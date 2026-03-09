@@ -1,0 +1,2 @@
+Full tree:  11 leaves, train acc = 100.0%
+Pruned:     5 leaves, train acc = 95.0%

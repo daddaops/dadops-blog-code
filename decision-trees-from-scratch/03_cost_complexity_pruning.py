@@ -112,6 +112,6 @@ print(f"Full tree:  {count_leaves(full.tree_)} leaves, "
       f"train acc = {(full.predict(X) == y).mean():.1%}")
 
 pruned = copy.deepcopy(full)
-pruned.tree_ = cost_complexity_prune(pruned.tree_, X, y, alpha=0.02)
+pruned.tree_ = cost_complexity_prune(pruned.tree_, X, y, alpha=2.0)
 print(f"Pruned:     {count_leaves(pruned.tree_)} leaves, "
       f"train acc = {(pruned.predict(X) == y).mean():.1%}")

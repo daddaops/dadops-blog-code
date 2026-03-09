@@ -1,0 +1,4 @@
+Gini:    0.3750
+Entropy: 0.8113
+IG (Gini):    0.2017
+IG (Entropy): 0.3658
