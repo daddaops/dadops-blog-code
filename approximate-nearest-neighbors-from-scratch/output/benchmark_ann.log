@@ -1,0 +1,8 @@
+Building NSW graph...
+
+Benchmark: NSW with varying ef_search
+  param=   5 | recall@10: 0.302 | QPS: 333
+  param=  10 | recall@10: 0.486 | QPS: 207
+  param=  20 | recall@10: 0.653 | QPS: 133
+  param=  50 | recall@10: 0.850 | QPS: 85
+  param= 100 | recall@10: 0.939 | QPS: 59

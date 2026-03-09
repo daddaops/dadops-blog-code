@@ -1,0 +1,4 @@
+L= 1 | candidates:    55 | recall@10: 0.1
+L= 5 | candidates:   224 | recall@10: 0.2
+L=10 | candidates:   502 | recall@10: 0.3
+L=20 | candidates:   901 | recall@10: 0.6
