@@ -1,0 +1,6 @@
+Variant          KV cache  Reduction
+------------------------------------
+MHA  (g=8)           2048         1x
+GQA  (g=4)           1024         2x
+GQA  (g=2)            512         4x
+MQA  (g=1)            256         8x
