@@ -38,7 +38,7 @@ for k, weighted in [(1, False), (5, False), (5, True), (20, False)]:
     mse = np.mean((preds - np.sin(X_test.ravel())) ** 2)
     label = f"k={k}, {'weighted' if weighted else 'uniform':<8}"
     print(f"{label}  MSE={mse:.4f}")
-# k=1, uniform   MSE=0.0712  (interpolates every point)
-# k=5, uniform   MSE=0.0298  (smooth, good approximation)
-# k=5, weighted   MSE=0.0185  (smoother, closer neighbors dominate)
-# k=20, uniform  MSE=0.0903  (over-smoothed, loses the wave)
+# k=1, uniform   MSE=0.0298  (interpolates every point)
+# k=5, uniform   MSE=0.0139  (smooth, good approximation)
+# k=5, weighted   MSE=0.0118  (smoother, closer neighbors dominate)
+# k=20, uniform  MSE=0.0933  (over-smoothed, loses the wave)

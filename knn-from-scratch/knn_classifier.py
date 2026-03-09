@@ -36,7 +36,7 @@ for k in [1, 5, 15, 50]:
     train_acc = np.mean(model.predict(X_train) == y_train)
     test_acc = np.mean(model.predict(X_test) == y_test)
     print(f"k={k:<3}  train={train_acc:.3f}  test={test_acc:.3f}")
-# k=1   train=1.000  test=0.883
-# k=5   train=0.950  test=0.917
-# k=15  train=0.921  test=0.900
-# k=50  train=0.871  test=0.833
+# k=1   train=1.000  test=0.900
+# k=5   train=0.914  test=0.750
+# k=15  train=0.657  test=0.517
+# k=50  train=0.450  test=0.400

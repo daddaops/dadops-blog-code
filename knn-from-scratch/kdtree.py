@@ -64,6 +64,6 @@ for n in [1000, 10000, 50000]:
 
     print(f"n={n:<6}  KD-tree={kd_time:.3f}s  Brute={brute_time:.3f}s  "
           f"Speedup={brute_time/kd_time:.1f}x")
-# n=1000    KD-tree=0.003s  Brute=0.142s  Speedup=47.3x
-# n=10000   KD-tree=0.004s  Brute=1.398s  Speedup=349.5x
-# n=50000   KD-tree=0.005s  Brute=7.021s  Speedup=1404.2x
+# n=1000    KD-tree=0.016s  Brute=0.810s  Speedup=52.1x
+# n=10000   KD-tree=0.014s  Brute=8.651s  Speedup=604.8x
+# n=50000   KD-tree=0.028s  Brute=44.155s  Speedup=1555.2x
