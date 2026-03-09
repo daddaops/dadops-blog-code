@@ -37,8 +37,8 @@ if __name__ == "__main__":
     print("Distance | RBF    | Mat3/2 | Mat5/2 | Periodic(p=2)")
     for x in X_test:
         d = float(x[0])
-        r = float(rbf_kernel(x.reshape(1,-1), X_origin))
-        m3 = float(matern32_kernel(x.reshape(1,-1), X_origin))
-        m5 = float(matern52_kernel(x.reshape(1,-1), X_origin))
-        p = float(periodic_kernel(x.reshape(1,-1), X_origin, period=2.0))
+        r = rbf_kernel(x.reshape(1,-1), X_origin).item()
+        m3 = matern32_kernel(x.reshape(1,-1), X_origin).item()
+        m5 = matern52_kernel(x.reshape(1,-1), X_origin).item()
+        p = periodic_kernel(x.reshape(1,-1), X_origin, period=2.0).item()
         print(f"  {d:<6.1f} | {r:.4f} | {m3:.4f} | {m5:.4f} | {p:.4f}")
