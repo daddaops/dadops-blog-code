@@ -1,0 +1,9 @@
+Transformer Encoder-Decoder
+=======================================================
+Encoder output: (4, 32)
+Decoder output: (4, 32)
+Cross-attention weights shape: (4, 4)
+
+Key difference from decoder-only:
+  Encoder sees ALL positions (bidirectional)
+  Decoder sees past positions (causal) + ALL encoder positions (cross-attn)

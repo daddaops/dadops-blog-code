@@ -1,0 +1,6 @@
+LSTM Seq2Seq (Bottleneck Model)
+==================================================
+Context vector shape: (32,)
+Input:  [1, 2, 3, 4]
+Output: [np.int64(2), np.int64(3), np.int64(5), np.int64(0)]
+(Random before training — architecture is correct)

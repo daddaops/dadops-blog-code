@@ -1,0 +1,5 @@
+Attention-Augmented Seq2Seq
+==================================================
+Encoder outputs shape: (4, 32)
+Bottleneck model: 1 vector of dim 32
+Attention model:  4 vectors of dim 32 — no information lost
