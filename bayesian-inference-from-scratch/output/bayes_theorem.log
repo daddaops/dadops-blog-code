@@ -1,0 +1,3 @@
+P(disease | positive test) = 0.088
+MAP estimate: 0.600
+Mean estimate: 0.571

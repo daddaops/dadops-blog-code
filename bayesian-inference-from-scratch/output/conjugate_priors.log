@@ -1,0 +1,5 @@
+n=  10: posterior Beta(7, 5), mean=0.583 +/- 0.137
+n= 100: posterior Beta(73, 29), mean=0.716 +/- 0.044
+n=1000: posterior Beta(704, 298), mean=0.703 +/- 0.014
+
+Normal-Normal: posterior mean=5.71, std=0.28

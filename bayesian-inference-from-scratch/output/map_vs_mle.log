@@ -1,0 +1,5 @@
+MLE test MSE: 0.0173
+MAP test MSE: 0.0085
+
+MLE max |weight|: 19.7
+MAP max |weight|: 0.3
