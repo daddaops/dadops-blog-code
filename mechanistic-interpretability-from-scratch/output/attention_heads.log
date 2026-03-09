@@ -1,0 +1,6 @@
+Tokens: ['The', 'cat', 'sat', 'on', 'the', 'cat', 'saw', 'the']
+
+Previous-token       prev=1.00  entropy=0.00  dup=0.00
+Induction            prev=0.20  entropy=0.84  dup=0.00
+Duplicate-token      prev=0.20  entropy=0.84  dup=1.00
+Positional (BOS)     prev=0.14  entropy=0.00  dup=0.00

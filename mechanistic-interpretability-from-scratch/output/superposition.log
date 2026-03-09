@@ -1,0 +1,11 @@
+=== Dense features (sparsity=0.9) ===
+Features: 8, Bottleneck: 2, Sparsity: 0.9
+Final loss: 0.0427
+Mean interference between features: 0.668
+Max interference: 1.000
+
+=== Sparse features (sparsity=0.05) ===
+Features: 8, Bottleneck: 2, Sparsity: 0.05
+Final loss: 0.0011
+Mean interference between features: 0.631
+Max interference: 0.999

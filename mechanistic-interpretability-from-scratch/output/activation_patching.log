@@ -1,0 +1,9 @@
+Target class: 6
+Clean P(correct):   0.279
+Corrupt P(correct): 0.143
+
+Recovery after patching (layer x position):
+          Pos 0     Pos 1     Pos 2     Pos 3     
+Layer 0:  -0.15  0.57   0.11   0.40   
+Layer 1:  0.48   -0.02  0.04   0.35   
+Layer 2:  0.00   0.00   0.00   1.00   

@@ -1,0 +1,11 @@
+SAE Feature Analysis:
+Feature    Best concept Correlation    Avg L0
+--------------------------------------------------
+f0        code         0.592          2.4
+f1        math         0.774          2.4
+f2        music        0.701          2.4
+f4        sports       0.719          2.4
+f5        cooking      0.826          2.4
+f7        sports       0.671          2.4
+f8        music        0.600          2.4
+f9        sports       0.668          2.4

@@ -56,6 +56,7 @@ def train_superposition_model(n_features=8, bottleneck=2, sparsity=0.05,
 
 
 if __name__ == "__main__":
+    np.random.seed(42)
     # Dense features: only top-2 features survive (PCA-like)
     print("=== Dense features (sparsity=0.9) ===")
     _, sim_dense = train_superposition_model(sparsity=0.9)

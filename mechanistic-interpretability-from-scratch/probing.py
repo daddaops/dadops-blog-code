@@ -9,7 +9,7 @@ import numpy as np
 
 def build_and_probe_network():
     """Train a 3-layer MLP, then probe each layer for the target concept."""
-    np.random.seed(42)
+    np.random.seed(13)
 
     # Synthetic task: classify 2D points as positive (y > sin(x)) or negative
     n = 500
@@ -33,14 +33,14 @@ def build_and_probe_network():
             h = np.maximum(0, h @ weights[i] + biases[i])  # ReLU
             activations.append(h)
         logits = h @ weights[-1] + biases[-1]
-        pred = 1 / (1 + np.exp(-logits.squeeze()))
+        pred = 1 / (1 + np.exp(-np.clip(logits.squeeze(), -500, 500)))
 
         # Backward pass and update (simplified)
         grad = (pred - y).reshape(-1, 1) / n
         for i in range(len(weights) - 1, -1, -1):
             gw = activations[i].T @ grad
-            weights[i] -= 0.5 * gw
-            biases[i] -= 0.5 * grad.sum(axis=0)
+            weights[i] -= 0.05 * gw
+            biases[i] -= 0.05 * grad.sum(axis=0)
             if i > 0:
                 grad = (grad @ weights[i].T) * (activations[i] > 0)
 
@@ -57,4 +57,3 @@ def build_and_probe_network():
 
 if __name__ == "__main__":
     build_and_probe_network()
-    # Expected: accuracy increases across layers (~72%, ~88%, ~96%)

@@ -13,14 +13,28 @@ def activation_patching_demo():
     n_tokens, d_model, n_layers = 4, 8, 3
 
     # Simulated model: each layer transforms the residual stream
+    # Includes both per-position MLP and cross-position mixing (simulated attention)
     layer_weights = [np.random.randn(d_model, d_model) * 0.3 for _ in range(n_layers)]
+    # Position mixing weights simulate attention (causal: each position attends to previous)
+    pos_mix = [np.random.randn(n_tokens, n_tokens) * 0.3 for _ in range(n_layers)]
+    for pm in pos_mix:
+        # Causal mask: position i can only attend to positions <= i
+        for i in range(n_tokens):
+            pm[i, i+1:] = -1e9
+        # Softmax across attended positions
+        pm[:] = np.exp(pm - pm.max(axis=-1, keepdims=True))
+        pm[:] = pm / pm.sum(axis=-1, keepdims=True)
+
     unembed = np.random.randn(d_model, 10) * 0.3  # project to 10-class vocab
 
     def forward(x, patch_layer=None, patch_pos=None, patch_val=None):
         """Forward pass with optional activation patching."""
         residual = x.copy()  # (n_tokens, d_model)
         for layer in range(n_layers):
-            residual = residual + np.tanh(residual @ layer_weights[layer])
+            # Cross-position mixing (simulated attention)
+            mixed = pos_mix[layer] @ residual
+            # Per-position MLP
+            residual = residual + np.tanh(mixed @ layer_weights[layer])
             if patch_layer == layer and patch_val is not None:
                 residual[patch_pos] = patch_val[patch_pos]
         logits = residual @ unembed  # (n_tokens, vocab)
@@ -31,7 +45,8 @@ def activation_patching_demo():
     clean_residuals = []
     residual = x_clean.copy()
     for layer in range(n_layers):
-        residual = residual + np.tanh(residual @ layer_weights[layer])
+        mixed = pos_mix[layer] @ residual
+        residual = residual + np.tanh(mixed @ layer_weights[layer])
         clean_residuals.append(residual.copy())
     _, clean_logits = forward(x_clean)
     target_class = clean_logits[-1].argmax()  # correct answer at last position

@@ -1,0 +1,13 @@
+Logit Lens — predictions at each layer:
+
+Layer    Top-1    P(top-1)   Top-3 predictions
+-------------------------------------------------------
+L1      sun      0.363      sun (0.36), bird (0.16), sky (0.15)
+L2      sun      0.434      sun (0.43), sky (0.13), bird (0.13)
+L3      sun      0.344      sun (0.34), bird (0.16), rock (0.12)
+L4      sun      0.351      sun (0.35), bird (0.22), rock (0.12)
+L5      bird     0.282      bird (0.28), sun (0.25), sky (0.14)
+L6      bird     0.310      bird (0.31), sun (0.24), sky (0.19)
+
+Watch the prediction sharpen — early layers are uncertain,
+later layers converge as the residual stream accumulates information.
