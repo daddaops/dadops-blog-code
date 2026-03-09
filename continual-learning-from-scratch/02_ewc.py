@@ -27,7 +27,7 @@ def compute_fisher(X, y, W1, b1, W2, b2, n_samples=200):
     return fisher_W1/n, fisher_b1/n, fisher_W2/n, fisher_b2/n
 
 def train_ewc(X, y, W1, b1, W2, b2, old_params, fishers, lam=1000,
-              epochs=200, lr=0.05):
+              epochs=500, lr=0.05):
     oW1, ob1, oW2, ob2 = old_params
     fW1, fb1, fW2, fb2 = fishers
     for _ in range(epochs):
@@ -39,12 +39,14 @@ def train_ewc(X, y, W1, b1, W2, b2, old_params, fishers, lam=1000,
         dh = err.reshape(-1,1) * W2.T * (h > 0)
         dW1 = X.T @ dh/len(y) + lam * fW1 * (W1 - oW1)
         db1 = dh.mean(axis=0) + lam * fb1 * (b1 - ob1)
+        for g in [dW1, db1, dW2, db2]:   # clip EWC gradients
+            np.clip(g, -5, 5, out=g)
         W1 -= lr*dW1; b1 -= lr*db1; W2 -= lr*dW2; b2 -= lr*db2
     return W1, b1, W2, b2
 
 if __name__ == "__main__":
-    X1, y1 = make_task([-2, -2], [2, 2], seed=42)
-    X2, y2 = make_task([-2, 2], [2, -2], seed=99)
+    X1, y1 = make_task([-1, 0], [1, 0], seed=42)
+    X2, y2 = make_task([0, -1], [0, 1], seed=99)
 
     # Train task 1, compute Fisher, then train task 2 with EWC
     rng = np.random.RandomState(0)
@@ -58,4 +60,4 @@ if __name__ == "__main__":
                                 old_params, fishers, lam=1500)
     print(f"EWC: acc_task1={accuracy(X1,y1,W1,b1,W2,b2):.0%}, "
           f"acc_task2={accuracy(X2,y2,W1,b1,W2,b2):.0%}")
-    # Expected: EWC: acc_task1=88%, acc_task2=91%
+    # Expected: EWC: acc_task1=96%, acc_task2=77%

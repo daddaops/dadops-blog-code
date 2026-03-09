@@ -1,1 +1,1 @@
-LwF: acc_task1=100%, acc_task2=98%
+LwF: acc_task1=99%, acc_task2=71%

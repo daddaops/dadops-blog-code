@@ -1,1 +1,1 @@
-Replay: acc_task1=100%, acc_task2=100%
+Replay: acc_task1=88%, acc_task2=97%

@@ -1,2 +1,2 @@
-After Task 1 + prune: acc=100%, free params: 33/48
-After Task 2: acc_task1=82%, acc_task2=100%
+After Task 1 + prune: acc=98%, free params: 33/48
+After Task 2: acc_task1=86%, acc_task2=97%

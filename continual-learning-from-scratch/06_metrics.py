@@ -29,7 +29,7 @@ def compute_fisher(X, y, W1, b1, W2, b2, n_samples=200):
 
 
 def train_ewc(X, y, W1, b1, W2, b2, old_params, fishers, lam=1000,
-              epochs=200, lr=0.05):
+              epochs=500, lr=0.05):
     oW1, ob1, oW2, ob2 = old_params
     fW1, fb1, fW2, fb2 = fishers
     for _ in range(epochs):
@@ -41,14 +41,13 @@ def train_ewc(X, y, W1, b1, W2, b2, old_params, fishers, lam=1000,
         dh = err.reshape(-1,1) * W2.T * (h > 0)
         dW1 = X.T @ dh/len(y) + lam * fW1 * (W1 - oW1)
         db1 = dh.mean(axis=0) + lam * fb1 * (b1 - ob1)
-        # Clip gradients to prevent overflow with accumulated EWC penalties
-        dW1 = np.clip(dW1, -5, 5); db1 = np.clip(db1, -5, 5)
-        dW2 = np.clip(dW2, -5, 5); db2 = np.clip(db2, -5, 5)
+        for g in [dW1, db1, dW2, db2]:   # clip EWC gradients
+            np.clip(g, -5, 5, out=g)
         W1 -= lr*dW1; b1 -= lr*db1; W2 -= lr*dW2; b2 -= lr*db2
     return W1, b1, W2, b2
 
 
-def evaluate_continual(tasks, method="naive", lam=1500):
+def evaluate_continual(tasks, method="naive", lam=400):
     """Train on sequential tasks, return TxT accuracy matrix."""
     T = len(tasks)
     acc_matrix = np.zeros((T, T))
@@ -88,15 +87,15 @@ def compute_metrics(acc_matrix):
 
 
 if __name__ == "__main__":
-    # 5 sequential tasks
-    tasks = [make_task([-2,-2],[2,2], seed=10), make_task([-2,2],[2,-2], seed=20),
-             make_task([0,-3],[0,3], seed=30), make_task([-3,0],[3,0], seed=40),
-             make_task([-1,-1],[1,1], seed=50)]
+    # 5 sequential tasks with various decision boundaries
+    tasks = [make_task([-1, 0],[1, 0], seed=10), make_task([0,-1],[0, 1], seed=20),
+             make_task([-1,-1],[1, 1], seed=30), make_task([-1, 1],[1,-1], seed=40),
+             make_task([0.5,-1],[-0.5, 1], seed=50)]
 
     for method in ["naive", "ewc"]:
         M = evaluate_continual(tasks, method=method)
         avg, fgt = compute_metrics(M)
         print(f"{method:6s}: avg_acc={avg:.0%}, forgetting={fgt:.0%}")
     # Expected:
-    # naive : avg_acc=52%, forgetting=47%
-    # ewc   : avg_acc=76%, forgetting=18%
+    # naive : avg_acc=65%, forgetting=43%
+    # ewc   : avg_acc=73%, forgetting=9%

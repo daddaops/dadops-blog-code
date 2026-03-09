@@ -17,10 +17,9 @@ def reservoir_update(buffer_X, buffer_y, new_X, new_y, buf_size, count):
     return buffer_X, buffer_y, count
 
 def train_with_replay(X_new, y_new, W1, b1, W2, b2, buffer_X, buffer_y,
-                      replay_ratio=0.5, epochs=200, lr=0.05):
+                      replay_ratio=0.5, epochs=500, lr=0.05):
     """Train mixing new data with replayed buffer examples."""
     for _ in range(epochs):
-        # Mix new data with replay buffer
         if len(buffer_X) > 0:
             n_replay = max(1, int(len(X_new) * replay_ratio))
             idx = np.random.choice(len(buffer_X), min(n_replay, len(buffer_X)))
@@ -30,7 +29,6 @@ def train_with_replay(X_new, y_new, W1, b1, W2, b2, buffer_X, buffer_y,
             y_mix = np.concatenate([y_new, buf_y])
         else:
             X_mix, y_mix = X_new, y_new
-        # Standard forward/backward pass on mixed batch
         h = np.maximum(0, X_mix @ W1 + b1)
         out = sigmoid(h @ W2 + b2)
         err = out.ravel() - y_mix
@@ -43,10 +41,9 @@ def train_with_replay(X_new, y_new, W1, b1, W2, b2, buffer_X, buffer_y,
     return W1, b1, W2, b2
 
 if __name__ == "__main__":
-    X1, y1 = make_task([-2, -2], [2, 2], seed=42)
-    X2, y2 = make_task([-2, 2], [2, -2], seed=99)
+    X1, y1 = make_task([-1, 0], [1, 0], seed=42)
+    X2, y2 = make_task([0, -1], [0, 1], seed=99)
 
-    # Train with replay buffer
     rng = np.random.RandomState(0)
     W1 = rng.randn(2,8)*0.3; b1 = np.zeros(8)
     W2 = rng.randn(8,1)*0.3; b2 = np.zeros(1)
@@ -60,4 +57,4 @@ if __name__ == "__main__":
                                          buffer_X, buffer_y, replay_ratio=0.5)
     print(f"Replay: acc_task1={accuracy(X1,y1,W1,b1,W2,b2):.0%}, "
           f"acc_task2={accuracy(X2,y2,W1,b1,W2,b2):.0%}")
-    # Expected: Replay: acc_task1=92%, acc_task2=95%
+    # Expected: Replay: acc_task1=88%, acc_task2=97%

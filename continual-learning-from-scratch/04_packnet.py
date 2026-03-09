@@ -32,8 +32,8 @@ def prune_and_freeze(W, keep_ratio=0.30):
     return frozen, free
 
 if __name__ == "__main__":
-    X1, y1 = make_task([-2, -2], [2, 2], seed=42)
-    X2, y2 = make_task([-2, 2], [2, -2], seed=99)
+    X1, y1 = make_task([-1, 0], [1, 0], seed=42)
+    X2, y2 = make_task([0, -1], [0, 1], seed=99)
 
     # Task 1: train full network, then prune to 30%
     rng = np.random.RandomState(0)
@@ -57,5 +57,5 @@ if __name__ == "__main__":
     print(f"After Task 2: acc_task1={accuracy(X1,y1,W1,b1,W2,b2):.0%}, "
           f"acc_task2={accuracy(X2,y2,W1,b1,W2,b2):.0%}")
     # Expected:
-    # After Task 1 + prune: acc=97%, free params: 37/48
-    # After Task 2: acc_task1=97%, acc_task2=90%
+    # After Task 1 + prune: acc=98%, free params: 33/48
+    # After Task 2: acc_task1=86%, acc_task2=97%

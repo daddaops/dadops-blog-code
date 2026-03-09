@@ -14,7 +14,7 @@ def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-np.clip(z, -500, 500)))
 
 
-def train_mlp(X, y, W1, b1, W2, b2, epochs=200, lr=0.05):
+def train_mlp(X, y, W1, b1, W2, b2, epochs=500, lr=0.05):
     for _ in range(epochs):
         h = np.maximum(0, X @ W1 + b1)          # ReLU hidden
         out = sigmoid(h @ W2 + b2)               # sigmoid output

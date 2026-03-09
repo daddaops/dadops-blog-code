@@ -3,7 +3,7 @@ import numpy as np
 from shared import make_task, sigmoid, train_mlp, accuracy
 
 def train_lwf(X_new, y_new, W1, b1, W2, b2, snap_W1, snap_b1,
-              snap_W2, snap_b2, alpha=1.0, epochs=200, lr=0.05):
+              snap_W2, snap_b2, alpha=1.0, epochs=500, lr=0.05):
     """Learning without Forgetting: distill from past-self snapshot."""
     for _ in range(epochs):
         # Current model forward pass
@@ -27,8 +27,8 @@ def train_lwf(X_new, y_new, W1, b1, W2, b2, snap_W1, snap_b1,
     return W1, b1, W2, b2
 
 if __name__ == "__main__":
-    X1, y1 = make_task([-2, -2], [2, 2], seed=42)
-    X2, y2 = make_task([-2, 2], [2, -2], seed=99)
+    X1, y1 = make_task([-1, 0], [1, 0], seed=42)
+    X2, y2 = make_task([0, -1], [0, 1], seed=99)
 
     # Train with LwF
     rng = np.random.RandomState(0)
@@ -40,4 +40,4 @@ if __name__ == "__main__":
     W1, b1, W2, b2 = train_lwf(X2, y2, W1, b1, W2, b2, *snap, alpha=2.0)
     print(f"LwF: acc_task1={accuracy(X1,y1,W1,b1,W2,b2):.0%}, "
           f"acc_task2={accuracy(X2,y2,W1,b1,W2,b2):.0%}")
-    # Expected: LwF: acc_task1=82%, acc_task2=88%
+    # Expected: LwF: acc_task1=99%, acc_task2=71%
