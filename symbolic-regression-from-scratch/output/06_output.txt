@@ -1,0 +1,13 @@
+Symbolic Regression: discovering f(x) = x^2 + sin(x)
+============================================================
+Gen 0: best fitness = 0.104396, expr = (sin(((-0.36 + x) + (2.05 - x))) * (sin((x / -1.50)) - ((x * x) / sin(2.29)))), size = 20
+Gen 10: best fitness = 0.083944, expr = (sin(1.00) * (sin((sin((x / -1.50)) / sin(2.29))) - ((x * x) / sin(2.29)))), size = 18
+Gen 20: best fitness = 0.010000, expr = (sin((x - (x + x))) - (x * x)), size = 10
+Gen 30: best fitness = 0.008101, expr = (sin((0.04 - x)) - (x * x)), size = 8
+Gen 40: best fitness = 0.008101, expr = (sin((0.04 - x)) - (x * x)), size = 8
+============================================================
+
+Best expression: (sin((0.04 - x)) - (x * x))
+Best fitness: 0.008101
+Tree size: 8
+Tree depth: 3

@@ -1,0 +1,11 @@
+Parent 1: (sin(x) / sin(-0.33))
+Parent 2: ((sin(1.25) * sin(1.99)) * ((x / x) - sin(x)))
+Crossover child: 1.25
+
+Original: (sin(x) / sin(-0.33))
+Point mutation: (sin(x) - sin(-0.33))
+
+Original: (sin(1.65) - (2.53 / x))
+Hoist mutation: (2.53 / x)
+
+Tournament winner: sin((((x / 0.24) / (x - x)) / ((x + x) + (x / x))))
