@@ -1,0 +1,4 @@
+Supervised (10 labels):  84.4%
++ Entropy min:           84.2%
+Mean entropy (sup only): 0.262
+Mean entropy (+ ent min):0.173

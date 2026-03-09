@@ -3,6 +3,7 @@ import numpy as np
 
 
 def make_moons(n, noise=0.1, seed=42):
+    """Generate two interleaving half-moons."""
     rng = np.random.RandomState(seed)
     t = np.linspace(0, np.pi, n)
     x1 = np.c_[np.cos(t), np.sin(t)] + rng.randn(n, 2) * noise
@@ -62,12 +63,3 @@ if __name__ == "__main__":
     for s in [0.05, 0.1, 0.3, 0.5, 1.0, 3.0]:
         p, _ = label_propagation(X, y_known, labeled_mask, sigma=s)
         print(f"  sigma={s:.2f}: {np.mean(p == y_true):.1%}")
-
-# Expected output:
-# Label propagation accuracy: 99.4%
-#   sigma=0.05: 51.2%
-#   sigma=0.10: 93.1%
-#   sigma=0.30: 99.4%
-#   sigma=0.50: 98.3%
-#   sigma=1.00: 90.6%
-#   sigma=3.00: 62.1%

@@ -3,6 +3,7 @@ import numpy as np
 
 
 def make_moons(n, noise=0.1, seed=42):
+    """Generate two interleaving half-moons."""
     rng = np.random.RandomState(seed)
     t = np.linspace(0, np.pi, n)
     x1 = np.c_[np.cos(t), np.sin(t)] + rng.randn(n, 2) * noise
@@ -74,7 +75,11 @@ def pi_model_train(X_lab, y_lab, X_unlab, hidden=32, lr=0.01,
 if __name__ == "__main__":
     # Compare: supervised only vs Pi-Model
     X, y = make_moons(260, noise=0.15, seed=99)
-    idx_lab = np.concatenate([np.arange(0, 10), np.arange(260, 270)])
+    rng = np.random.RandomState(99)
+    idx_lab = np.concatenate([
+        rng.choice(np.where(y == 0)[0], 10, replace=False),
+        rng.choice(np.where(y == 1)[0], 10, replace=False)
+    ])
     X_lab, y_lab = X[idx_lab], y[idx_lab]
     X_unlab = np.delete(X, idx_lab, axis=0)
 
@@ -87,7 +92,3 @@ if __name__ == "__main__":
     W1, b1, W2, b2 = pi_model_train(X_lab, y_lab, X_unlab, w_max=1.0)
     p_ssl = sigmoid(np.maximum(0, X @ W1 + b1) @ W2 + b2).ravel()
     print(f"Pi-Model (SSL):   {np.mean((p_ssl > 0.5) == y):.1%}")
-
-# Expected output:
-# Supervised only:  78.3%
-# Pi-Model (SSL):   94.6%

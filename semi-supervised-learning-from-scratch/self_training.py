@@ -3,6 +3,7 @@ import numpy as np
 
 
 def make_moons(n, noise=0.1, seed=42):
+    """Generate two interleaving half-moons."""
     rng = np.random.RandomState(seed)
     t = np.linspace(0, np.pi, n)
     x1 = np.c_[np.cos(t), np.sin(t)] + rng.randn(n, 2) * noise
@@ -31,7 +32,13 @@ def logistic_train(X, y, lr=0.5, steps=200):
 if __name__ == "__main__":
     # Generate data: 20 labeled, 500 unlabeled
     X_all, y_all = make_moons(260, noise=0.15)
-    labeled_idx = np.concatenate([np.arange(0, 10), np.arange(260, 270)])
+
+    # Randomly select 10 labeled points per class
+    rng = np.random.RandomState(42)
+    labeled_idx = np.concatenate([
+        rng.choice(np.where(y_all == 0)[0], 10, replace=False),
+        rng.choice(np.where(y_all == 1)[0], 10, replace=False)
+    ])
     X_lab, y_lab = X_all[labeled_idx], y_all[labeled_idx]
     unlabeled_idx = np.setdiff1d(np.arange(520), labeled_idx)
     X_unlab = X_all[unlabeled_idx]
@@ -57,9 +64,3 @@ if __name__ == "__main__":
         preds = (sigmoid(X_all @ w + b) > 0.5).astype(int)
         print(f"Round {round_i+1}: added {mask.sum()} pseudo-labels, "
               f"accuracy {np.mean(preds == y_all):.1%}")
-
-# Expected output:
-# Supervised only: 72.3% accuracy
-# Round 1: added 312 pseudo-labels, accuracy 85.8%
-# Round 2: added 134 pseudo-labels, accuracy 96.3%
-# Round 3: added 52 pseudo-labels, accuracy 98.5%

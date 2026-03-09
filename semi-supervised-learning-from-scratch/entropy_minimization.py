@@ -3,6 +3,7 @@ import numpy as np
 
 
 def make_moons(n, noise=0.1, seed=42):
+    """Generate two interleaving half-moons."""
     rng = np.random.RandomState(seed)
     t = np.linspace(0, np.pi, n)
     x1 = np.c_[np.cos(t), np.sin(t)] + rng.randn(n, 2) * noise
@@ -51,9 +52,11 @@ def train_with_entropy_min(X_lab, y_lab, X_unlab, lam=1.0,
         grad_sup_w = X_lab.T @ (p_lab - y_lab) / n_lab
         grad_sup_b = np.mean(p_lab - y_lab)
 
-        # Entropy gradient: d/dp of -p*log(p)-(1-p)*log(1-p)
-        # = -log(p) + log(1-p) = log((1-p)/p), then chain rule * p*(1-p)
-        ent_grad = (2 * p_unlab - 1)  # simplified: pushes toward 0 or 1
+        # Entropy gradient: d/dz of H(sigma(z))
+        # = (log(1-p) - log(p)) * p * (1-p)
+        # Pushes predictions away from 0.5 (toward confident 0 or 1)
+        p_clip = np.clip(p_unlab, 1e-7, 1 - 1e-7)
+        ent_grad = (np.log(1 - p_clip) - np.log(p_clip)) * p_clip * (1 - p_clip)
         grad_ent_w = lam * X_unlab.T @ ent_grad / len(p_unlab)
         grad_ent_b = lam * np.mean(ent_grad)
 
@@ -66,7 +69,11 @@ def train_with_entropy_min(X_lab, y_lab, X_unlab, lam=1.0,
 if __name__ == "__main__":
     # Compare with and without entropy minimization
     X, y = make_moons(260, noise=0.15, seed=7)
-    idx_l = np.concatenate([np.arange(5), np.arange(260, 265)])
+    rng = np.random.RandomState(7)
+    idx_l = np.concatenate([
+        rng.choice(np.where(y == 0)[0], 5, replace=False),
+        rng.choice(np.where(y == 1)[0], 5, replace=False)
+    ])
     X_l, y_l = X[idx_l], y[idx_l]
     X_u = np.delete(X, idx_l, axis=0)
 
@@ -80,9 +87,3 @@ if __name__ == "__main__":
     print(f"+ Entropy min:           {acc1:.1%}")
     print(f"Mean entropy (sup only): {entropy_loss(sigmoid(X @ w0 + b0)).mean():.3f}")
     print(f"Mean entropy (+ ent min):{entropy_loss(sigmoid(X @ w1 + b1)).mean():.3f}")
-
-# Expected output:
-# Supervised (10 labels):  66.5%
-# + Entropy min:           89.6%
-# Mean entropy (sup only): 0.597
-# Mean entropy (+ ent min): 0.281

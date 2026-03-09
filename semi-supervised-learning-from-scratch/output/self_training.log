@@ -1,0 +1,5 @@
+Supervised only: 86.7% accuracy
+Round 1: added 334 pseudo-labels, accuracy 86.7%
+Round 2: added 46 pseudo-labels, accuracy 83.1%
+Round 3: added 5 pseudo-labels, accuracy 82.1%
+Round 4: added 1 pseudo-labels, accuracy 82.1%

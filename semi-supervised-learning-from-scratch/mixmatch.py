@@ -3,6 +3,7 @@ import numpy as np
 
 
 def make_moons(n, noise=0.1, seed=42):
+    """Generate two interleaving half-moons."""
     rng = np.random.RandomState(seed)
     t = np.linspace(0, np.pi, n)
     x1 = np.c_[np.cos(t), np.sin(t)] + rng.randn(n, 2) * noise
@@ -82,7 +83,11 @@ def mixmatch_train(X_lab, y_lab, X_unlab, K=2, T=0.5,
 if __name__ == "__main__":
     # Full comparison on two-moons
     X, y = make_moons(260, noise=0.15, seed=42)
-    idx = np.concatenate([np.arange(0, 10), np.arange(260, 270)])
+    rng = np.random.RandomState(42)
+    idx = np.concatenate([
+        rng.choice(np.where(y == 0)[0], 10, replace=False),
+        rng.choice(np.where(y == 1)[0], 10, replace=False)
+    ])
     X_l, y_l = X[idx], y[idx]
     X_u = np.delete(X, idx, axis=0)
 
@@ -93,7 +98,3 @@ if __name__ == "__main__":
     acc_mm = np.mean((sigmoid(X @ w_mm + b_mm) > 0.5) == y)
     print(f"Supervised (20 labels):  {acc_sup:.1%}")
     print(f"MixMatch   (20 labels):  {acc_mm:.1%}")
-
-# Expected output:
-# Supervised (20 labels):  72.3%
-# MixMatch   (20 labels):  97.7%
