@@ -2,5 +2,5 @@
 
 - [x] Phase 1 EXTRACT — 6 scripts created
 - [x] Phase 2 RUN — all 6 scripts pass
-- [ ] Phase 3 UPDATE — fix blog post numbers/code to match real output
-- [ ] Phase 4 VERIFY — confirm consistency, add Verified Code badge
+- [x] Phase 3 UPDATE — knn_classifier, curse_of_dimensionality, knn_regression, kdtree values updated (RNG), prose fixed
+- [x] Phase 4 VERIFY — all 6 scripts confirmed, Verified Code badge added
