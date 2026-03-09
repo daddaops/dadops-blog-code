@@ -1,0 +1,3 @@
+linear kernel: accuracy=50%, support vectors=120
+  poly kernel: accuracy=100%, support vectors=7
+   rbf kernel: accuracy=100%, support vectors=34
