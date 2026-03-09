@@ -1,0 +1,6 @@
+Input shape:  (10, 16)
+Hidden shape: (10, 64)
+Output shape: (10, 16)
+Expansion ratio: 4x
+Avg nonzero features per input: 32.2
+Decoder column norms (should be ~1.0): [1. 1. 1. 1. 1.]

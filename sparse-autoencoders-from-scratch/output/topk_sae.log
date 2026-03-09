@@ -1,0 +1,13 @@
+TopK (k=5):
+  Avg nonzero features per input: 5.0
+  Max nonzero features per input: 5
+  Mean activation (nonzero only): 2.4888
+
+Standard ReLU (no sparsity):
+  Avg nonzero features per input: 32.0
+  Max nonzero features per input: 40
+  Mean activation (nonzero only): 1.0875
+
+Reconstruction MSE (untrained, for comparison):
+  TopK: 2.0396
+  ReLU: 2.7470

@@ -1,0 +1,14 @@
+=== Original Hidden Neurons (Polysemantic) ===
+  Neuron 0 responds to classes: [2, 4, 5, 6]
+  Neuron 3 responds to classes: [0, 1, 4, 7]
+  Neuron 7 responds to classes: [1, 3, 7]
+
+=== SAE Features (Monosemantic) ===
+  Feature  0: dominant class = 7, purity = 47.6%
+  Feature  1: dominant class = 6, purity = 58.1%
+  Feature  2: dominant class = 6, purity = 50.9%
+  Feature  3: dominant class = 1, purity = 37.3%
+  Feature  4: dominant class = 2, purity = 57.2%
+  Feature  5: dominant class = 0, purity = 26.2%
+  Feature  6: dominant class = 5, purity = 88.0%
+  Feature  7: dominant class = 5, purity = 25.7%

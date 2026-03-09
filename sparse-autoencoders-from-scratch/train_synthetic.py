@@ -72,7 +72,7 @@ def train_sae_synthetic():
 
     # Initialize SAE
     sae = SparseAutoencoder(d_model, d_sae)
-    lambda_l1 = 0.04
+    lambda_l1 = 1.0
     lr = 0.003
 
     # Adam optimizer state
@@ -83,7 +83,7 @@ def train_sae_synthetic():
          [('W_enc', sae.W_enc), ('b_enc', sae.b_enc),
           ('W_dec', sae.W_dec), ('b_dec', sae.b_dec)]}
 
-    for epoch in range(200):
+    for epoch in range(300):
         # Forward pass
         x_hat, z, z_pre = sae.forward(X)
         total, recon, l1, l0 = sae_loss(X, x_hat, z, lambda_l1)

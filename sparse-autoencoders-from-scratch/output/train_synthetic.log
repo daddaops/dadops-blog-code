@@ -1,0 +1,16 @@
+Epoch   0 | Recon: 12.7225 | L0: 17.4 | Dead: 0%
+Epoch  50 | Recon: 1.7161 | L0: 16.7 | Dead: 0%
+Epoch 100 | Recon: 0.6135 | L0: 14.8 | Dead: 0%
+Epoch 150 | Recon: 0.3653 | L0: 12.6 | Dead: 0%
+Epoch 200 | Recon: 0.2590 | L0: 10.8 | Dead: 0%
+Epoch 250 | Recon: 0.2065 | L0: 9.1 | Dead: 0%
+
+Feature recovery (cosine similarity to ground truth):
+  True feature 0: best match = 0.883
+  True feature 1: best match = 0.899
+  True feature 2: best match = 0.924
+  True feature 3: best match = 0.832
+  True feature 4: best match = 0.953
+  True feature 5: best match = 0.916
+  True feature 6: best match = 0.963
+  True feature 7: best match = 0.877
