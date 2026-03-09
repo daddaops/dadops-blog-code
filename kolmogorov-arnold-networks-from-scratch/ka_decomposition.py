@@ -20,7 +20,7 @@ outer = np.exp(inner_1 + inner_2)  # univariate outer function
 
 max_error = np.max(np.abs(f_direct - outer))
 print(f"Max error between direct and KA decomposition: {max_error:.2e}")
-# Output: Max error between direct and KA decomposition: 2.22e-16
+# Output: Max error between direct and KA decomposition: 4.44e-16
 
 # MLP approach: approximate with matrix multiply + ReLU
 # Would need hundreds of parameters to reach this precision

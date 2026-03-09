@@ -52,5 +52,5 @@ def compare_kan_mlp(target_fn, n_train=500, x_range=(-2, 2)):
     print(f"MLP: {mlp_params} params, train loss={mlp_loss:.4f}, extrap error={mlp_ext_err:.4f}")
 
 compare_kan_mlp(lambda x, y: np.sin(x * y) + np.cos(x))
-# KAN: 12 params, train loss=0.1823, extrap error=3.1247
-# MLP: 81 params, train loss=0.0934, extrap error=15.7621
+# KAN: 12 params, train loss=0.3876, extrap error=116.3655
+# MLP: 81 params, train loss=0.2445, extrap error=4.7942

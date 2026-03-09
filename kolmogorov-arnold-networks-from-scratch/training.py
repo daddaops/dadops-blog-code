@@ -43,5 +43,5 @@ def train_kan_simple(target_fn, steps=500, G_schedule=[3, 8]):
 
 # Target: f(x, y) = sin(pi*x) + y^2
 train_kan_simple(lambda x, y: np.sin(np.pi * x) + y**2)
-# Grid G=3: final loss = 0.042817
-# Grid G=8: final loss = 0.003291  (8x improvement from grid refinement)
+# Grid G=3: final loss = 0.394396
+# Grid G=8: final loss = 0.145259  (grid refinement reduces loss)

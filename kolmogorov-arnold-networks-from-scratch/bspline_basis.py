@@ -30,4 +30,4 @@ target = np.sin(2 * np.pi * x)
 coeffs = np.linalg.lstsq(basis_vals.T, target, rcond=None)[0]  # least-squares fit
 approx = coeffs @ basis_vals
 print(f"Max approximation error for sin(2*pi*x): {np.max(np.abs(target - approx)):.4f}")
-# Output: Max approximation error for sin(2*pi*x): 0.0186  (improves with larger G)
+# Output: Max approximation error for sin(2*pi*x): 0.0046  (improves with larger G)
