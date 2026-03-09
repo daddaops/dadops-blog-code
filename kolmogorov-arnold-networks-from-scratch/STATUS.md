@@ -1,6 +1,6 @@
 # kolmogorov-arnold-networks-from-scratch — Homework Status
 
 - [x] Phase 1 EXTRACT — 6 scripts created
-- [ ] Phase 2 RUN — run all scripts, capture output
-- [ ] Phase 3 UPDATE — fix blog post numbers/code to match real output
-- [ ] Phase 4 VERIFY — confirm consistency, add Verified Code badge
+- [x] Phase 2 RUN — all 6 scripts pass
+- [x] Phase 3 UPDATE — ka_decomposition, bspline_basis, training, comparison values updated
+- [x] Phase 4 VERIFY — all 6 scripts confirmed, Verified Code badge added
