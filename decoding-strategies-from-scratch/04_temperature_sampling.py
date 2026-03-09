@@ -55,8 +55,8 @@ print("T=0.3:", " ".join(temperature_sample("the", 15, 0.3)))
 
 # Medium temperature: balanced
 print("T=0.8:", " ".join(temperature_sample("the", 15, 0.8)))
-# T=0.8: the cat ran and a big dog sat on the dog was happy cat and
+# T=0.8: the mat and the park dog ran and the dog was big dog happy dog ran
 
 # High temperature: chaotic
 print("T=1.5:", " ".join(temperature_sample("the", 15, 1.5)))
-# T=1.5: the mat ran park and happy red small sat happy on the cat mat a
+# T=1.5: the cat ran on dog ran and a big on the dog ran mat happy dog

@@ -1,0 +1,3 @@
+T=0.3: the cat sat on the dog ran on the cat sat on the cat sat on
+T=0.8: the mat and the park dog ran and the dog was big dog happy dog ran
+T=1.5: the cat ran on dog ran and a big on the dog ran mat happy dog

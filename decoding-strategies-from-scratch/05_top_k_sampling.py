@@ -57,7 +57,7 @@ def top_k_sample(start_token, num_tokens=15, k=5, temperature=1.0):
 
 np.random.seed(7)
 print("k=3:", " ".join(top_k_sample("the", 15, k=3)))
-# k=3: the cat ran and the dog sat on a big cat sat on a big
+# k=3: the cat ran on a red dog ran on the cat ran and the cat sat
 
 print("k=8:", " ".join(top_k_sample("the", 15, k=8)))
-# k=8: the cat ran and a red dog was big mat and the big dog sat on
+# k=8: the park happy cat was on the red cat ran and the dog and a big

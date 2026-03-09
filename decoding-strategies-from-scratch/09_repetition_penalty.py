@@ -70,4 +70,4 @@ def sample_with_penalty(start_token, num_tokens=15, p=0.9,
 
 np.random.seed(7)
 print(" ".join(sample_with_penalty("the", 20)))
-# the cat sat on a big dog ran and was happy small mat park red the cat and a small dog
+# the cat ran on a red dog ran on the dog and a big cat sat happy cat sat and the

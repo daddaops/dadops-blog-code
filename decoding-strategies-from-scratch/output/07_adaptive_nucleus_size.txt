@@ -1,0 +1,2 @@
+Nucleus after 'sat': ~3 tokens (confident)
+Nucleus after 'a':   ~9 tokens (uncertain)

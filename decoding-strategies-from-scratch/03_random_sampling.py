@@ -50,4 +50,4 @@ def random_sample(start_token, num_tokens=15):
 
 np.random.seed(42)
 print(" ".join(random_sample("the")))
-# Example: the dog and a happy park on big mat was on a red cat ran
+# Example: the cat was happy dog sat on the mat and a cat was happy cat sat

@@ -1,0 +1,2 @@
+k=3: the cat ran on a red dog ran on the cat ran and the cat sat
+k=8: the park happy cat was on the red cat ran and the dog and a big

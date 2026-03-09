@@ -65,4 +65,4 @@ def nucleus_sample(start_token, num_tokens=15, p=0.9, temperature=1.0):
 
 np.random.seed(7)
 print("p=0.9:", " ".join(nucleus_sample("the", 15, p=0.9)))
-# p=0.9: the cat ran and the big dog was happy cat sat on a big cat ran
+# p=0.9: the cat ran a mat was happy dog sat on the dog and the cat sat
